@@ -10,6 +10,7 @@
 # Ignore sensitive information
 /html/sites/*/settings.php
 /html/sites/*/settings.local.php
+/html/sites/*/services.yml
 
 # Ignore Drupal's file directory
 /html/sites/*/files/
@@ -22,3 +23,8 @@
 
 # Ignore docker image build log.
 buildlog.txt
+
+# Ignore local dev directories.
+/shared/
+/database/
+/private/
