@@ -1,0 +1,21 @@
+uuid: 7eca6e71-e9a3-48d0-9622-99f17b626529
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_duty_station
+field_name: field_duty_station
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

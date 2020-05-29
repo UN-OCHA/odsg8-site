@@ -1,0 +1,14 @@
+uuid: 34284a92-4448-4564-9186-3df2c7e2c9f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.odsg_donor_un_employee
+  module:
+    - user
+id: user_add_role_action.odsg_donor_un_employee
+label: 'Add the ODSG Donor / UN Employee role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: odsg_donor_un_employee

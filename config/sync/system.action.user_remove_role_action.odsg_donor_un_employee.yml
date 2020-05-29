@@ -1,0 +1,14 @@
+uuid: 633dc23f-0509-4377-aee0-2f010696f0c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.odsg_donor_un_employee
+  module:
+    - user
+id: user_remove_role_action.odsg_donor_un_employee
+label: 'Remove the ODSG Donor / UN Employee role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: odsg_donor_un_employee

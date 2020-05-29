@@ -1,0 +1,20 @@
+uuid: aa41efb0-3ad7-489a-9768-f13901cb8c76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_duty_station
+  module:
+    - user
+id: user.user.field_duty_station
+field_name: field_duty_station
+entity_type: user
+bundle: user
+label: 'Current Duty Station'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

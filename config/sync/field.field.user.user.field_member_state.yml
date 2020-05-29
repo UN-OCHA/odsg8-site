@@ -1,0 +1,20 @@
+uuid: 81d717cd-7713-4287-9c27-d127fec22ecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_member_state
+  module:
+    - user
+id: user.user.field_member_state
+field_name: field_member_state
+entity_type: user
+bundle: user
+label: 'ODSG Member State you represent'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
