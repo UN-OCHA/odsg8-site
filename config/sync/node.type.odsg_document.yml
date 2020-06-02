@@ -1,0 +1,11 @@
+uuid: 96753c81-8f53-488c-a1d2-ed9eda05cc13
+langcode: en
+status: true
+dependencies: {  }
+name: 'ODSG document'
+type: odsg_document
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

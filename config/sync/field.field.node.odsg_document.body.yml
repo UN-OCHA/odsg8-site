@@ -1,0 +1,23 @@
+uuid: c9c0deb3-282f-43ee-91bc-fb2f5741b08e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.odsg_document
+  module:
+    - text
+id: node.odsg_document.body
+field_name: body
+entity_type: node
+bundle: odsg_document
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

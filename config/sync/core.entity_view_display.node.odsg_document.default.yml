@@ -1,0 +1,28 @@
+uuid: 6577b60a-15ae-4121-996a-797b00311240
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.odsg_document.body
+    - node.type.odsg_document
+  module:
+    - text
+    - user
+id: node.odsg_document.default
+targetEntityType: node
+bundle: odsg_document
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

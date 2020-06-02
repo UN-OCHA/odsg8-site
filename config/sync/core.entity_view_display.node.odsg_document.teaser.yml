@@ -1,0 +1,30 @@
+uuid: 89727b96-6cb4-4eb7-95a8-5e81821c4fd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.odsg_document.body
+    - node.type.odsg_document
+  module:
+    - text
+    - user
+id: node.odsg_document.teaser
+targetEntityType: node
+bundle: odsg_document
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

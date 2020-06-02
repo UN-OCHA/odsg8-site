@@ -1,0 +1,27 @@
+uuid: f3e17c87-8397-4d1e-bacf-6a278987e6af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_file
+    - media.type.document
+  module:
+    - file
+id: media.document.field_media_file
+field_name: field_media_file
+entity_type: media
+bundle: document
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: documents
+  file_extensions: 'pdf txt doc docx ppt pptx xls xlsx zip'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
