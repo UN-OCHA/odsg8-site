@@ -1,0 +1,32 @@
+id: odsg_taxonomy_term
+label: Migrate ODSG taxonomy terms.
+migration_group: odsg
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+source:
+  plugin: odsg_taxonomy_term
+destination:
+  plugin: entity:taxonomy_term
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: odsg_taxonomy_vocabulary
+    source: vid
+  name: name
+  description: description
+  weight: weight
+  parent:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: odsg_taxonomy_term
+  changed: timestamp
+migration_dependencies:
+  required:
+    - odsg_taxonomy_vocabulary

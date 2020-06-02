@@ -1,0 +1,8 @@
+type: module
+name: ODSG Migration to Drupal 8
+description: 'Migrate ODSG content from Drupal 7 to Drupal 8.'
+package: odsg
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus

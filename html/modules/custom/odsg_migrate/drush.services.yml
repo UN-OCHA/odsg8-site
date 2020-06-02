@@ -1,0 +1,5 @@
+services:
+  odsg_migrate.commands:
+    class: \Drupal\odsg_migrate\Commands\OdsgMigrateCommands
+    tags:
+      - { name: drush.command }

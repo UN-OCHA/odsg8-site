@@ -1,0 +1,28 @@
+id: odsg_taxonomy_vocabulary
+label: Migrate ODSG taxonomy vocabularies.
+migration_group: odsg
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+source:
+  plugin: odsg_taxonomy_vocabulary
+destination:
+  plugin: entity:taxonomy_vocabulary
+process:
+  vid:
+    -
+      plugin: machine_name
+      source: machine_name
+    -
+      plugin: make_unique_entity_field
+      entity_type: taxonomy_vocabulary
+      field: vid
+      length: 32
+  label: name
+  name: name
+  description: description
+  hierarchy: hierarchy
+  module: module
+  weight: weight
+
