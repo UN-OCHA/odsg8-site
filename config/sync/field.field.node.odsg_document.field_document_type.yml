@@ -1,0 +1,29 @@
+uuid: a7732099-091c-445e-85b6-d37104d0b330
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document_type
+    - node.type.odsg_document
+    - taxonomy.vocabulary.document_type_project_report
+id: node.odsg_document.field_document_type
+field_name: field_document_type
+entity_type: node
+bundle: odsg_document
+label: 'Document Type / Project Report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      document_type_project_report: document_type_project_report
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

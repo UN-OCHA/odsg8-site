@@ -1,0 +1,29 @@
+uuid: 1eac89b2-f5d3-4a8e-a61f-a8b0f26dd1b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.odsg_document
+    - taxonomy.vocabulary.year
+id: node.odsg_document.field_year
+field_name: field_year
+entity_type: node
+bundle: odsg_document
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      year: year
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

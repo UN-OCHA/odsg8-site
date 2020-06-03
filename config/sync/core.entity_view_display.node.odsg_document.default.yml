@@ -4,8 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.odsg_document.body
+    - field.field.node.odsg_document.field_document
+    - field.field.node.odsg_document.field_document_subtype
+    - field.field.node.odsg_document.field_document_type
+    - field.field.node.odsg_document.field_meeting_title
+    - field.field.node.odsg_document.field_publication_date
+    - field.field.node.odsg_document.field_year
     - node.type.odsg_document
   module:
+    - datetime
     - text
     - user
 id: node.odsg_document.default
@@ -19,6 +26,56 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_document:
+    type: entity_reference_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_document_subtype:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_document_type:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_meeting_title:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_publication_date:
+    weight: 107
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_year:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 100

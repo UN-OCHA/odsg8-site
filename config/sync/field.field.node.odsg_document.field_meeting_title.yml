@@ -1,0 +1,29 @@
+uuid: 2f3ac557-85d2-480b-9446-dd63bad5f4d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meeting_title
+    - node.type.odsg_document
+    - taxonomy.vocabulary.meeting_title_country
+id: node.odsg_document.field_meeting_title
+field_name: field_meeting_title
+entity_type: node
+bundle: odsg_document
+label: 'Meeting Title / Country'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      meeting_title_country: meeting_title_country
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

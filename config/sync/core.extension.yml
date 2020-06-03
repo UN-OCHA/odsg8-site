@@ -3,6 +3,7 @@ module:
   block: 0
   breakpoint: 0
   config: 0
+  datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
@@ -12,7 +13,9 @@ module:
   image: 0
   inline_form_errors: 0
   media: 0
+  media_library: 0
   migrate: 0
+  migrate_drupal: 0
   migrate_plus: 0
   migrate_tools: 0
   node: 0
@@ -26,6 +29,8 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_ui: 0
+  views: 10
   minimal: 1000
 theme:
   stable: 0
