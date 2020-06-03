@@ -29,6 +29,8 @@
         "drupal/core": "^8.8.6",
         "drupal/migrate_plus": "^4.2",
         "drupal/migrate_tools": "^4.5",
+        "drupal/pathauto": "^1.8",
+        "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^2.2",
         "oomphinc/composer-installers-extender": "^1.1.2",
         "unocha/common_design": "^2.7.6",

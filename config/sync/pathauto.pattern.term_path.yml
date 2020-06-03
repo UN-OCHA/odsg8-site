@@ -1,0 +1,14 @@
+uuid: 6897579d-95bf-4075-bfea-a2afb6e4541f
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: term_path
+label: 'Term path'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

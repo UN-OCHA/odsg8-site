@@ -64,8 +64,8 @@ content:
     weight: 107
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
     region: content
@@ -79,7 +79,7 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }
