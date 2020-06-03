@@ -29,6 +29,3 @@ process:
   field_media_image/target_id: fid
   field_media_image/alt: field_file_image_alt_text/0/value
   field_media_image/title: field_file_image_title_text/0/value
-migration_dependencies:
-  required:
-    - odsg_user
