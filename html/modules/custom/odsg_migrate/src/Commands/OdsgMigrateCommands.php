@@ -24,8 +24,10 @@ class OdsgMigrateCommands extends DrushCommands implements SiteAliasManagerAware
    */
   public function migrateReload() {
     // Uninstall and reinstall all configuration.
+    // @codingStandardsIgnoreStart
     \Drupal::service('config.manager')->uninstall('module', 'odsg_migrate');
     \Drupal::service('config.installer')->installDefaultConfig('module', 'odsg_migrate');
+    // @codingStandardsIgnoreEnd
 
     // Rebuild cache.
     $process = $this->processManager()->drush($this->siteAliasManager()->getSelf(), 'cache-rebuild');
