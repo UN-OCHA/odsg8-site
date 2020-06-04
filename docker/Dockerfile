@@ -3,11 +3,9 @@ ARG  BRANCH_ENVIRONMENT
 ENV  NODE_ENV=$BRANCH_ENVIRONMENT
 COPY . /srv/www
 WORKDIR /srv/www
-# To remove when new unified-builder image is ready
-RUN apk -U add npm
-RUN composer install
-RUN composer gulp
-RUN cp -a docker/settings.php docker/services.yml html/sites/default
+RUN composer install && \
+    composer gulp && \
+    cp -a docker/settings.php docker/services.yml html/sites/default
 
 FROM unocha/php7-k8s:7.3.18-r0-202005-01-NR
 
