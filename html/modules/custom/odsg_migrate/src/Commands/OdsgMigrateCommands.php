@@ -5,6 +5,8 @@ namespace Drupal\odsg_migrate\Commands;
 use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
 use Drush\Commands\DrushCommands;
+use Drupal\Core\Config\ConfigInstallerInterface;
+use Drupal\Core\Config\ConfigManager;
 
 /**
  * ODSG Drush commandfile.
@@ -12,6 +14,28 @@ use Drush\Commands\DrushCommands;
 class OdsgMigrateCommands extends DrushCommands implements SiteAliasManagerAwareInterface {
 
   use SiteAliasManagerAwareTrait;
+
+  /**
+   * Config Installer.
+   *
+   * @var Drupal\Core\Config\ConfigInstallerInterface
+   */
+  protected $configInstaller;
+
+  /**
+   * Config Manager.
+   *
+   * @var Drupal\Core\Config\ConfigManager
+   */
+  protected $configManager;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(ConfigInstallerInterface $config_installer, ConfigManager $config_manager) {
+    $this->configInstaller = $config_installer;
+    $this->configManager = $config_manager;
+  }
 
   /**
    * Reload ODSG migration configurations.
@@ -24,10 +48,8 @@ class OdsgMigrateCommands extends DrushCommands implements SiteAliasManagerAware
    */
   public function migrateReload() {
     // Uninstall and reinstall all configuration.
-    // @codingStandardsIgnoreStart
-    \Drupal::service('config.manager')->uninstall('module', 'odsg_migrate');
-    \Drupal::service('config.installer')->installDefaultConfig('module', 'odsg_migrate');
-    // @codingStandardsIgnoreEnd
+    $this->configManager->uninstall('module', 'odsg_migrate');
+    $this->configInstaller->installDefaultConfig('module', 'odsg_migrate');
 
     // Rebuild cache.
     $process = $this->processManager()->drush($this->siteAliasManager()->getSelf(), 'cache-rebuild');
