@@ -23,15 +23,18 @@
         "php": ">=7.3",
         "composer/installers": "^1.9.0",
         "cweagans/composer-patches": "^1.6.7",
+        "drupal/allowed_formats": "^1.2",
         "drupal-composer/drupal-scaffold": "^2.6.1",
         "drupal-composer/preserve-paths": "^0.1.5",
         "drupal/admin_denied": "^1.0",
-        "drupal/core": "^8.8.6",
+        "drupal/editor_advanced_link": "^1.8",
+        "drupal/core": "^8.9",
         "drupal/migrate_plus": "^4.2",
         "drupal/migrate_tools": "^4.5",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^2.2",
+        "drush/drush": "^10.2.2",
         "oomphinc/composer-installers-extender": "^1.1.2",
         "unocha/common_design": "^2.7.6",
         "webflo/drupal-finder": "^1.0.0",
@@ -41,8 +44,8 @@
         "drupal/coder": "^8.3.9",
         "drupal/console": "^1.9.4",
         "drupal/devel": "^2.1",
-        "drush/drush": "^10.2.2",
-        "phpmd/phpmd": "^2.8.2"
+        "phpmd/phpmd": "^2.8.2",
+        "phpunit/phpunit": "^7.5.20"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -66,10 +69,14 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "./vendor/bin/phpcs --config-set installed_paths ./vendor/drupal/coder/coder_sniffer",
+            "git config core.hooksPath git-hooks"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "./vendor/bin/phpcs --config-set installed_paths ./vendor/drupal/coder/coder_sniffer",
+            "git config core.hooksPath git-hooks"
         ],
         "gulp-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
         "gulp-build": "cd html/themes/custom/common_design_subtheme && ./node_modules/.bin/gulp build",
@@ -79,7 +86,6 @@
             "@gulp-build",
             "@gulp-cleanup"
         ]
-
     },
     "extra": {
         "enable-patching": true,
