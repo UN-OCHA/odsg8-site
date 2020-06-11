@@ -32,6 +32,7 @@
         "drupal/migrate_plus": "^4.2",
         "drupal/migrate_tools": "^4.5",
         "drupal/pathauto": "^1.8",
+        "drupal/private_content": "2.x-dev",
         "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^2.2",
         "drush/drush": "^10.2.2",

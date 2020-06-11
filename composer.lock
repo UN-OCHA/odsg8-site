@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54a68a771493aa006b7597d84a12ed97",
+    "content-hash": "09728471e773765c62c0c11af20bca35",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2713,6 +2713,48 @@
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
             }
+        },
+        {
+            "name": "drupal/private_content",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/private_content.git",
+                "reference": "82e19951ead79c970a9c2b2faa5d6d2f9ae38987"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-rc2+4-dev",
+                    "datestamp": "1577108883",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "AdamPS",
+                    "homepage": "https://www.drupal.org/user/2650563"
+                }
+            ],
+            "description": "Allows users to mark content as private, and hide that content from visitors.",
+            "homepage": "https://www.drupal.org/project/private_content",
+            "support": {
+                "source": "https://git.drupalcode.org/project/private_content"
+            },
+            "time": "2019-12-23T13:44:08+00:00"
         },
         {
             "name": "drupal/redirect",
@@ -9531,7 +9573,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/private_content": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

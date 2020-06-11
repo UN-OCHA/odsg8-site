@@ -1,7 +1,12 @@
 uuid: 96753c81-8f53-488c-a1d2-ed9eda05cc13
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - private_content
+third_party_settings:
+  private_content:
+    private: 3
 name: 'ODSG document'
 type: odsg_document
 description: ''

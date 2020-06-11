@@ -1,7 +1,12 @@
 uuid: ac2c32c3-ac71-426e-9c97-e040b1f3dd2d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - private_content
+third_party_settings:
+  private_content:
+    private: 2
 name: Page
 type: page
 description: ''
