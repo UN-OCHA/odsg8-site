@@ -13,7 +13,7 @@ use Drupal\migrate_drupal\Plugin\migrate\source\d7\FieldableEntity;
  *   source_provide = "file"
  * )
  */
-class ODSGFile extends FieldableEntity {
+class OdsgFile extends FieldableEntity {
 
   /**
    * {@inheritdoc}

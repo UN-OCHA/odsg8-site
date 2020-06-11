@@ -15,7 +15,7 @@ use Drupal\migrate\Row;
  *   source_provider = "taxonomy"
  * )
  */
-class ODSGTaxonomyTerm extends SqlBase {
+class OdsgTaxonomyTerm extends SqlBase {
 
   /**
    * {@inheritdoc}

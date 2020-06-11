@@ -12,7 +12,7 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  *   source_provider = "taxonomy"
  * )
  */
-class ODSGTaxonomyVocabulary extends SqlBase {
+class OdsgTaxonomyVocabulary extends SqlBase {
 
   /**
    * {@inheritdoc}

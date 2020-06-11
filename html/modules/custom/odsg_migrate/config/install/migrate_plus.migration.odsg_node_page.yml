@@ -1,0 +1,57 @@
+id: odsg_node_page
+label: Migrate ODSG pages.
+migration_group: odsg
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+source:
+  plugin: odsg_node_page
+  bundle: page
+  constants:
+    format: 'filtered_html'
+destination:
+  plugin: entity:node
+  bundle: page
+process:
+  # Base properties.
+  nid: nid
+  vid: vid
+  uid: uid
+  type: type
+  # Default to undefined ("und") if no language is defined.
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'und'
+  # We skip the sticky and promote values as they are not used. They will be
+  # resetted to 0.
+  # sticky: sticky
+  # promote: promote
+  title: title
+  created: created
+  changed: changed
+  status: status
+  # Revision fields.
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  # Fields.
+  body/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: body
+    -
+      plugin: odsg_clean_html
+      source: body
+  body/format: constants/format
+  field_sidebar/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: sidebar
+    -
+      plugin: odsg_clean_html
+      source: sidebar
+  field_sidebar/format: constants/format

@@ -13,7 +13,7 @@ use Drupal\migrate\Row;
  *   source_provider = "node"
  * )
  */
-class ODSGNodeODSGDocument extends SqlBase {
+class OdsgNodeOdsgDocument extends SqlBase {
 
   /**
    * {@inheritdoc}
