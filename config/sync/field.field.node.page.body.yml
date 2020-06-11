@@ -1,23 +1,23 @@
-uuid: c9c0deb3-282f-43ee-91bc-fb2f5741b08e
+uuid: cb475332-2e34-4e02-84ce-b3c8eacca52b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.odsg_document
+    - node.type.page
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    plain_text: plain_text
+    filtered_html: filtered_html
+    plain_text: '0'
     full_html: '0'
-    filtered_html: '0'
-id: node.odsg_document.body
+id: node.page.body
 field_name: body
 entity_type: node
-bundle: odsg_document
-label: Description
+bundle: page
+label: Body
 description: ''
 required: false
 translatable: true

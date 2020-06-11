@@ -1,0 +1,37 @@
+uuid: bd7d9b39-bbb0-41d7-986d-e5449620018c
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+_core:
+  default_config_hash: Uw_HM5xQJUZhlsyRuze2yDxz2BA2s7iPdP0sRtRaXuE
+id: odsg_taxonomy_vocabulary
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: odsg
+label: 'Migrate ODSG taxonomy vocabularies.'
+source:
+  plugin: odsg_taxonomy_vocabulary
+process:
+  vid:
+    -
+      plugin: machine_name
+      source: machine_name
+    -
+      plugin: make_unique_entity_field
+      entity_type: taxonomy_vocabulary
+      field: vid
+      length: 32
+  label: name
+  name: name
+  description: description
+  hierarchy: hierarchy
+  module: module
+  weight: weight
+destination:
+  plugin: 'entity:taxonomy_vocabulary'
+migration_dependencies: null

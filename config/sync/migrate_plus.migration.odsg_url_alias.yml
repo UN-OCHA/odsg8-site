@@ -1,0 +1,39 @@
+uuid: 6cc6da16-6110-4a92-954c-71364e0dc425
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+_core:
+  default_config_hash: DSaj3K9GJCcy5W6LXCZqGnFe55btIOgb-rWQ8Hc8f8M
+id: odsg_url_alias
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: odsg
+label: 'Migrate ODSG URL aliases'
+source:
+  plugin: d7_url_alias
+  constants:
+    slash: /
+process:
+  id: pid
+  path:
+    plugin: concat
+    source:
+      - constants/slash
+      - source
+  alias:
+    plugin: concat
+    source:
+      - constants/slash
+      - alias
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+destination:
+  plugin: 'entity:path_alias'
+migration_dependencies: null

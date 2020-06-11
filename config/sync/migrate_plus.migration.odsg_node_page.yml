@@ -1,0 +1,59 @@
+uuid: 4347d35e-f602-49d6-8387-63b9d98e9bbd
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+_core:
+  default_config_hash: mOzKnRfbNKBS9mgTlrZTQm3Bt1Sa3ekzMdInGxGI91w
+id: odsg_node_page
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: odsg
+label: 'Migrate ODSG pages.'
+source:
+  plugin: odsg_node_page
+  bundle: page
+  constants:
+    format: filtered_html
+process:
+  nid: nid
+  vid: vid
+  uid: uid
+  type: type
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  created: created
+  changed: changed
+  status: status
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  body/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: body
+    -
+      plugin: odsg_clean_html
+      source: body
+  body/format: constants/format
+  field_sidebar/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: sidebar
+    -
+      plugin: odsg_clean_html
+      source: sidebar
+  field_sidebar/format: constants/format
+destination:
+  plugin: 'entity:node'
+  bundle: page
+migration_dependencies: null

@@ -1,0 +1,23 @@
+uuid: f54a76cd-3afe-4734-9e33-9fbb3c2a25c9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Full HTML'
+format: full_html
+weight: -9
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang target> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type=''1 A I''> <li> <dl> <dt> <dd> <h2 id=''jump-*''> <h3 id> <h4 id> <h5 id> <h6 id><td'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

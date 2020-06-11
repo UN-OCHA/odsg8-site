@@ -1,0 +1,35 @@
+uuid: 779b3428-e0d9-4bb2-9213-e2061f6c8263
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+_core:
+  default_config_hash: Z4RpClb0BNZTdBUq2HH0xoeaU1BiAFYnKf-WgmuaBQs
+id: odsg_file
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: odsg
+label: 'Migrate ODSG file entities.'
+source:
+  plugin: odsg_file
+process:
+  fid: fid
+  uid: uid
+  uri: uri
+  langcode:
+    plugin: default_value
+    default_value: und
+  filename: filename
+  filemime: filemime
+  status: status
+  created: timestamp
+  changed: timestamp
+destination:
+  plugin: 'entity:file'
+migration_dependencies:
+  required:
+    - odsg_user

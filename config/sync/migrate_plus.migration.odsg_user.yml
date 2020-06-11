@@ -1,0 +1,61 @@
+uuid: c60eed64-3fee-481a-b720-303199122466
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+_core:
+  default_config_hash: 6OuIuAMnOizw0PNcPc1kbM_1f10NjGQ9vJtkLWxaQhk
+id: odsg_user
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: odsg
+label: 'Migrate ODSG users.'
+source:
+  plugin: odsg_user
+process:
+  uid: uid
+  name: name
+  pass: pass
+  mail: mail
+  status: status
+  created: created
+  changed: changed
+  access: access
+  login: login
+  timezone: timezone
+  langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  preferred_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  preferred_admin_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  init: init
+  roles:
+    plugin: static_map
+    default_value: null
+    source: roles
+    map:
+      3: administrator
+      4: odsg_donor_un_employee
+      6: content_manager
+  field_first_name: first_name
+  field_last_name: last_name
+  field_title: title
+  field_member_state: member_state
+  field_duty_station: duty_station
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  optional:
+    - language
+    - default_language
