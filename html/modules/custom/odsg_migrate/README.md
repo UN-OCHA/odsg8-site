@@ -13,10 +13,11 @@ In migration order:
 5. Image file entities (media)
 6. Menu
 7. Page nodes
-8. Taxonomy vocabularies
-6. Taxonomy terms
-10. ODSG document nodes
-12. Announcement nodes
+8. Menu links
+9. Announcement nodes
+10. Taxonomy vocabularies
+11. Taxonomy terms
+12. ODSG document nodes
 
 **Ignored**
 

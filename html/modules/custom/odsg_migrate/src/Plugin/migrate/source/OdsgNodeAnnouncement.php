@@ -6,14 +6,14 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
 
 /**
- * Drupal 7 page nodes source from database.
+ * Drupal 7 announcement nodes source from database.
  *
  * @MigrateSource(
- *   id = "odsg_node_page",
+ *   id = "odsg_node_announcement",
  *   source_provider = "node"
  * )
  */
-class OdsgNodePage extends SqlBase {
+class OdsgNodeAnnouncement extends SqlBase {
 
   /**
    * {@inheritdoc}
@@ -40,8 +40,8 @@ class OdsgNodePage extends SqlBase {
     ]);
     $query->addField('nr', 'uid', 'revision_uid');
 
-    // Only pages.
-    $query->condition('n.type', 'page');
+    // Only announcements.
+    $query->condition('n.type', 'announcement');
 
     return $query;
   }
@@ -79,55 +79,7 @@ class OdsgNodePage extends SqlBase {
       ->condition('f.entity_id', $nid)
       ->condition('f.entity_type', 'node')
       ->condition('f.revision_id', $vid);
-    $body_parts[] = $query->execute()->fetchField();
-
-    // Extra body.
-    $query = $this->select('field_revision_field_extra_box', 'f')
-      ->fields('f', ['field_extra_box_value'])
-      ->condition('f.entity_id', $nid)
-      ->condition('f.entity_type', 'node')
-      ->condition('f.revision_id', $vid);
-    $body_parts[] = $query->execute()->fetchField();
-
-    // Join the body fields together.
-    $row->setSourceProperty('body', implode("\n\n", array_filter($body_parts)));
-
-    // Sidebar content.
-    $query = $this->select('field_revision_field_right_side', 'f')
-      ->fields('f', ['field_right_side_value'])
-      ->condition('f.entity_id', $nid)
-      ->condition('f.entity_type', 'node')
-      ->condition('f.revision_id', $vid);
-    $row->setSourceProperty('sidebar', $query->execute()->fetchField());
-
-    // Retrieve the latest path alias for the page and alter it if it's
-    // a publication or meeting/event page to match the name fixes of the
-    // menus.
-    // @see migrate_plus.migration.odsg_menu.yml
-    // @see OdsgMenuLink::prepareRow()
-    $alias = $this->select('url_alias', 'ua')
-      ->fields('ua', ['alias'])
-      ->condition('ua.source', 'node/' . $nid)
-      ->orderBy('ua.pid', 'DESC')
-      ->range(0, 1)
-      ->execute()
-      ->fetchField();
-
-    if (!empty($alias)) {
-      if (mb_strpos($alias, 'meeting-events/') === 0) {
-        $alias = preg_replace('#^meeting-events/#', '/meetings-events/', $alias);
-        print_r([$alias]);
-      }
-      elseif (mb_strpos($alias, 'publication/') === 0) {
-        $alias = preg_replace('#^publication/#', '/publications/', $alias);
-        print_r([$alias]);
-      }
-      else {
-        // Empty the alias so that no new alias is created.
-        $alias = '';
-      }
-    }
-    $row->setSourceProperty('alias', $alias);
+    $row->setSourceProperty('body', $query->execute()->fetchField());
 
     return parent::prepareRow($row);
   }
