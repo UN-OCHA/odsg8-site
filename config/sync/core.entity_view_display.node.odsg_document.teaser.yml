@@ -1,6 +1,6 @@
 uuid: 89727b96-6cb4-4eb7-95a8-5e81821c4fd0
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.odsg_document.field_year
     - node.type.odsg_document
   module:
+    - private_content
     - text
     - user
 id: node.odsg_document.teaser
@@ -33,6 +34,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  private:
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: private
 hidden:
   field_document: true
   field_document_subtype: true

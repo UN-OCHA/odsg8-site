@@ -13,6 +13,7 @@ dependencies:
     - node.type.odsg_document
   module:
     - datetime
+    - private_content
     - text
     - user
 id: node.odsg_document.default
@@ -82,4 +83,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  private:
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: private
 hidden: {  }
