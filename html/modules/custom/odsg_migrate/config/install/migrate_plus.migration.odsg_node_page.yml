@@ -55,3 +55,16 @@ process:
       plugin: odsg_clean_html
       source: sidebar
   field_sidebar/format: constants/format
+  # Disable path alias generation as aliases are already imported.
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  # Some pages must have a new alias created (but not by pathauto) so we only
+  # skip if the OdsgNodePage::prepareRow() sets the alias as empty.
+  path/alias:
+    plugin: skip_on_empty
+    method: process
+    source: alias
+migration_dependencies:
+  required:
+    - odsg_user

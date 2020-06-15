@@ -35,8 +35,7 @@ class OdsgUser extends SqlBase {
         'language',
         'picture',
         'init',
-      ])
-      ->condition('uid', 0, '>');
+      ]);
   }
 
   /**

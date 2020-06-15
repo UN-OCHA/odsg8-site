@@ -25,4 +25,6 @@ process:
   hierarchy: hierarchy
   module: module
   weight: weight
-
+migration_dependencies:
+  required:
+    - odsg_url_alias

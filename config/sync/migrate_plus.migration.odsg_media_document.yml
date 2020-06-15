@@ -1,4 +1,4 @@
-uuid: 4f7ccc1a-577c-4011-8cdc-dbe30208ab3a
+uuid: 9b848c94-1b4d-47b9-b1fd-659e1ea149d3
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: K-EVSLbQ258t6bSeNB29RvaArMWs5koH3Edk1CVWrl8
+  default_config_hash: Pw10RqehvRnixSX5j0rJWXfq9wuKB6B_PggKEPeaZAw
 id: odsg_media_document
 class: null
 field_plugin_method: null
@@ -33,4 +33,6 @@ process:
   field_media_file/target_id: fid
 destination:
   plugin: 'entity:media'
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - odsg_file

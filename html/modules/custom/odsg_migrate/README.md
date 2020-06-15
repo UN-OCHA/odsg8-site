@@ -4,15 +4,19 @@ ODSG Migration to Drupal 8
 Migrated content
 ----------------
 
-1. Users
-2. Taxonomy vocabularies
-3. Taxonomy terms
-4. Files
-5. Document file entities (media)
-6. Image file entities (media)
-7. ODSG document nodes
-8. Page nodes
-9. Announcement nodes
+In migration order:
+
+1. URL aliases
+2. Users
+3. Files
+4. Document file entities (media)
+5. Image file entities (media)
+6. Menu
+7. Page nodes
+8. Taxonomy vocabularies
+6. Taxonomy terms
+10. ODSG document nodes
+12. Announcement nodes
 
 **Ignored**
 
@@ -23,8 +27,8 @@ Migrated content
 
 **Files**
 
-The migration files don't copy the files, this will be done independently by
+The file migration doesn't copy the files, this will be done independently by
 copying the file directories.
 
 TODO: investigate if we can move the images and documents to the `images` and
-`documents` folders and add redirections (ex: nginx) for the existing documents.
+`documents` folders and add redirections (ex: nginx or redirect module) for the existing documents.

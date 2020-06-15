@@ -10,7 +10,7 @@ use Drupal\migrate_drupal\Plugin\migrate\source\d7\FieldableEntity;
  *
  * @MigrateSource(
  *   id = "odsg_file",
- *   source_provide = "file"
+ *   source_provider = "file"
  * )
  */
 class OdsgFile extends FieldableEntity {

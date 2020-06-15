@@ -205,14 +205,15 @@ class OdsgCleanHtml extends ProcessPluginBase {
     $dom->formatOutput = TRUE;
     $html = $dom->saveHTML();
 
-    // Drupal doesn't have a drupal_strrpos so we use the multibyte functions
-    // directly. We are only dealing with UTF-8 and mbstring is supposed to be
-    // installed anyway.
-    $start = mb_strpos($html, '<body>') + 6;
+    // Search for the body tag and return its content.
+    $start = mb_strpos($html, '<body>');
     $end = mb_strrpos($html, '</body>');
+    if ($start !== FALSE && $end !== FALSE) {
+      $start += 6;
+      return mb_substr($html, $start, $end - $start);
+    }
 
-    // Return the extracted body content.
-    return mb_substr($html, $start, $end - $start);
+    return '';
   }
 
   /**
@@ -499,7 +500,8 @@ class OdsgCleanHtml extends ProcessPluginBase {
       $newNode->appendChild($node->firstChild);
     }
     // Copy the attributes.
-    if (!empty($allowed_attributes) && $node->hasattributes()) {
+    $allowed_attributes = array_flip($allowed_attributes);
+    if (!empty($allowed_attributes) && $node->hasAttributes()) {
       foreach ($node->attributes as $attribute) {
         if (isset($allowed_attributes[$attribute->name])) {
           $newNode->setAttribute($attribute->name, $attribute->value);

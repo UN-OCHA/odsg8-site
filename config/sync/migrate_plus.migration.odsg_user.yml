@@ -1,4 +1,4 @@
-uuid: c60eed64-3fee-481a-b720-303199122466
+uuid: acf99250-38e7-4326-a3c5-a285dfeba852
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: 6OuIuAMnOizw0PNcPc1kbM_1f10NjGQ9vJtkLWxaQhk
+  default_config_hash: jbsBquvd-iQC22tY3i7yd453ZnL1OzngTUipqCIBKa0
 id: odsg_user
 class: null
 field_plugin_method: null
@@ -53,9 +53,21 @@ process:
   field_title: title
   field_member_state: member_state
   field_duty_station: duty_station
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias:
+    -
+      plugin: default_value
+      default_value: ''
+    -
+      plugin: skip_on_empty
+      method: process
 destination:
   plugin: 'entity:user'
 migration_dependencies:
+  required:
+    - odsg_url_alias
   optional:
     - language
     - default_language

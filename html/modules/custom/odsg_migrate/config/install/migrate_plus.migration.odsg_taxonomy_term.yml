@@ -27,6 +27,17 @@ process:
       plugin: migration_lookup
       migration: odsg_taxonomy_term
   changed: timestamp
+  # Disable path alias generation as aliases are already imported.
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias:
+    -
+      plugin: default_value
+      default_value: ''
+    -
+      plugin: skip_on_empty
+      method: process
 migration_dependencies:
   required:
     - odsg_taxonomy_vocabulary

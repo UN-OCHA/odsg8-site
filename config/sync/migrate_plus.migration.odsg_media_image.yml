@@ -1,4 +1,4 @@
-uuid: b7037933-9be7-4727-a8fb-23bb1bc268a7
+uuid: dd21f7c7-953b-4871-9700-42f593c7c0dd
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: YrJlrCvFLRxQXkjx_Ez8Olue6Oz_mwco5Qw5Rx2zy_8
+  default_config_hash: 9jB9m4lvhIaabdU3ngHUr_t7sFYV80IAJs--NjGlutU
 id: odsg_media_image
 class: null
 field_plugin_method: null
@@ -35,4 +35,6 @@ process:
   field_media_image/title: field_file_image_title_text/0/value
 destination:
   plugin: 'entity:media'
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - odsg_file

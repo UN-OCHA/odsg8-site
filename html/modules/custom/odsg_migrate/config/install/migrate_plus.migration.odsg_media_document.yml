@@ -27,3 +27,6 @@ process:
   changed: timestamp
   # File field see media_entity.bundle.document.yml.
   field_media_file/target_id: fid
+migration_dependencies:
+  required:
+    - odsg_file

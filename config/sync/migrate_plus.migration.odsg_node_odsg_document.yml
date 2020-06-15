@@ -1,4 +1,4 @@
-uuid: 25fa60e0-8e59-4f18-a6bf-526ae3ab91bf
+uuid: 17771b77-1c57-4938-af3c-a2dfa339411b
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: YKnT1U2XsshCKpg50zaTZlHfs2dWunzN95MKcIJGqL8
+  default_config_hash: H8NHC3EaYhZlcdm56Y7x2aiYx3tobYgG6QRQiizwv40
 id: odsg_node_odsg_document
 class: null
 field_plugin_method: null
@@ -61,7 +61,21 @@ process:
     plugin: skip_on_empty
     method: process
     source: meeting_title
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias:
+    -
+      plugin: default_value
+      default_value: ''
+    -
+      plugin: skip_on_empty
+      method: process
 destination:
   plugin: 'entity:node'
   bundle: odsg_document
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - odsg_media_document
+    - odsg_taxonomy_term
+    - odsg_user

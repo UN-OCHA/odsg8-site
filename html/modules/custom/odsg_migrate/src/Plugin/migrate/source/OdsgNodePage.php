@@ -100,6 +100,35 @@ class OdsgNodePage extends SqlBase {
       ->condition('f.revision_id', $vid);
     $row->setSourceProperty('sidebar', $query->execute()->fetchField());
 
+    // Retrieve the latest path alias for the page and alter it if it's
+    // a publication or meeting/event page to match the name fixes of the
+    // menus.
+    // @see migrate_plus.migration.odsg_menu.yml
+    // @see OdsgMenuLink::prepareRow()
+    $alias = $this->select('url_alias', 'ua')
+      ->fields('ua', ['alias'])
+      ->condition('ua.source', 'node/' . $nid)
+      ->orderBy('ua.pid', 'DESC')
+      ->range(0, 1)
+      ->execute()
+      ->fetchField();
+
+    if (!empty($alias)) {
+      if (mb_strpos($alias, 'meeting-events/') === 0) {
+        $alias = preg_replace('#^meeting-events/#', '/meetings-events/', $alias);
+        print_r([$alias]);
+      }
+      elseif (mb_strpos($alias, 'publication/') === 0) {
+        $alias = preg_replace('#^publication/#', '/publications/', $alias);
+        print_r([$alias]);
+      }
+      else {
+        // Empty the alias so that no new alias is created.
+        $alias = '';
+      }
+    }
+    $row->setSourceProperty('alias', $alias);
+
     return parent::prepareRow($row);
   }
 
