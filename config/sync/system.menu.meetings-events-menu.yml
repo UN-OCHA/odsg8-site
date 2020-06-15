@@ -1,0 +1,8 @@
+uuid: 2a6f4609-4660-4e75-aed6-5f6fe939e492
+langcode: en
+status: true
+dependencies: {  }
+id: meetings-events-menu
+label: 'Meetings & Events - Menu'
+description: ''
+locked: false

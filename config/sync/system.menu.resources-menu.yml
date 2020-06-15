@@ -1,0 +1,8 @@
+uuid: 908823f2-b8b7-4844-b84f-4943da4757b6
+langcode: en
+status: true
+dependencies: {  }
+id: resources-menu
+label: 'Resources - Menu'
+description: ''
+locked: false

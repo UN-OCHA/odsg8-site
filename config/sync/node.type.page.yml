@@ -3,14 +3,23 @@ langcode: en
 status: true
 dependencies:
   module:
+    - menu_ui
     - private_content
 third_party_settings:
   private_content:
     private: 2
+  menu_ui:
+    available_menus:
+      - about-us-menu
+      - funding-menu
+      - main
+      - meetings-events-menu
+      - resources-menu
+    parent: 'main:'
 name: Page
 type: page
 description: ''
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false
