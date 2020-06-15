@@ -34,7 +34,7 @@
         "drupal/pathauto": "^1.8",
         "drupal/private_content": "2.x-dev",
         "drupal/redirect": "^1.6",
-        "drupal/social_auth_hid": "^2.2",
+        "drupal/social_auth_hid": "^2.3",
         "drush/drush": "^10.2.2",
         "oomphinc/composer-installers-extender": "^1.1.2",
         "unocha/common_design": "^2.7.6",
@@ -46,6 +46,7 @@
         "drupal/console": "^1.9.4",
         "drupal/devel": "^2.1",
         "phpmd/phpmd": "^2.8.2",
+        "phpcompatibility/php-compatibility": "^9.3.5",
         "phpunit/phpunit": "^7.5.20"
     },
     "conflict": {
@@ -71,12 +72,10 @@
         ],
         "post-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "./vendor/bin/phpcs --config-set installed_paths ./vendor/drupal/coder/coder_sniffer",
             "git config core.hooksPath git-hooks"
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "./vendor/bin/phpcs --config-set installed_paths ./vendor/drupal/coder/coder_sniffer",
             "git config core.hooksPath git-hooks"
         ],
         "gulp-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
