@@ -89,6 +89,7 @@ content:
 hidden:
   created: true
   path: true
+  private: true
   promote: true
   sticky: true
   uid: true
