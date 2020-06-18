@@ -1,18 +1,18 @@
-uuid: 01c1123e-fdf9-4414-a895-ad5ac9e20f24
+uuid: fc14671f-d7a0-405e-85ac-ee6720504aad
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.announcement.body
-    - node.type.announcement
+    - field.field.node.public_page.body
+    - field.field.node.public_page.layout_builder__layout
+    - node.type.public_page
   module:
-    - private_content
     - text
     - user
-id: node.announcement.teaser
+id: node.public_page.teaser
 targetEntityType: node
-bundle: announcement
+bundle: public_page
 mode: teaser
 content:
   body:
@@ -28,11 +28,5 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  private:
-    weight: 1
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: private
-hidden: {  }
+hidden:
+  layout_builder__layout: true

@@ -4,10 +4,7 @@ status: true
 dependencies:
   module:
     - menu_ui
-    - private_content
 third_party_settings:
-  private_content:
-    private: 2
   menu_ui:
     available_menus:
       - about-us-menu
@@ -16,9 +13,9 @@ third_party_settings:
       - meetings-events-menu
       - resources-menu
     parent: 'main:'
-name: Page
+name: 'Private page'
 type: page
-description: ''
+description: 'Default site pages that are private and only accessible to users with the "ODSG Donor / UN Employee" role.'
 help: ''
 new_revision: true
 preview_mode: 1

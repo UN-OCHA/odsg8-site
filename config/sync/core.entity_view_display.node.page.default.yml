@@ -1,4 +1,4 @@
-uuid: e031a419-bd30-407f-a872-0f022e0a8edf
+uuid: d06a0b81-d3c9-4976-9e7d-05bebe775e40
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,6 @@ dependencies:
     - node.type.page
   module:
     - layout_builder
-    - private_content
     - text
     - user
 third_party_settings:
@@ -23,8 +22,8 @@ third_party_settings:
           label: Main
           column_widths: 75-25
         components:
-          b07a8643-c754-47ff-a913-57a854eb1036:
-            uuid: b07a8643-c754-47ff-a913-57a854eb1036
+          32a72b79-154c-49d0-90d7-a9cc80d5ec4e:
+            uuid: 32a72b79-154c-49d0-90d7-a9cc80d5ec4e
             region: first
             configuration:
               id: 'field_block:node:page:body'
@@ -41,8 +40,8 @@ third_party_settings:
                 view_mode: view_mode
             additional: {  }
             weight: 0
-          28761313-6a37-411e-a3b2-b5344e7375c2:
-            uuid: 28761313-6a37-411e-a3b2-b5344e7375c2
+          299cc4bf-3758-40a8-a64e-1debfb5dabc7:
+            uuid: 299cc4bf-3758-40a8-a64e-1debfb5dabc7
             region: second
             configuration:
               id: 'field_block:node:page:field_sidebar'
@@ -66,30 +65,23 @@ bundle: page
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_sidebar:
-    weight: 102
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  private:
     weight: 1
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: private
+  field_sidebar:
+    type: text_default
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   layout_builder__layout: true
