@@ -1,0 +1,7 @@
+type: module
+name: ODSG OCHA Feeds
+description: 'Provides view handling of OCHA feeds.'
+package: odsg
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - drupal:views

@@ -11,3 +11,6 @@ permissions:
   - 'access private content'
   - 'use text format filtered_html'
   - 'view media'
+  - 'view published announcement content'
+  - 'view published odsg_document content'
+  - 'view published page content'

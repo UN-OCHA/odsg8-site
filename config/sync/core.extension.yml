@@ -30,11 +30,13 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   node: 0
+  odsg_access: 0
   odsg_migrate: 0
+  odsg_ocha: 0
   page_cache: 0
   path: 0
   path_alias: 0
-  private_content: 0
+  r4032login: 0
   redirect: 0
   social_api: 0
   social_auth: 0

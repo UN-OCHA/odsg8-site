@@ -1,0 +1,20 @@
+base-url: 'https://www.unocha.org/'
+feeds:
+  ocha_annual_reports:
+    label: 'OCHA Annual Reports'
+    url: 'https://www.unocha.org/ocha_annual_report_all/annual_report_all'
+  ocha_core_publications:
+    label: 'OCHA Core Publications'
+    url: 'https://www.unocha.org/ocha_core_publication_all/core_publication_all'
+  ocha_global_humanitarian_overview:
+    label: 'OCHA Global Humanitarian Overview'
+    url: 'https://www.unocha.org/gho_all/gho_report_all'
+  ocha_news_and_updates:
+    label: 'OCHA News and Updates'
+    url: 'https://www.unocha.org/ocha_news_all/stories_all'
+  ocha_plan_and_budget:
+    label: 'OCHA Plan and Budget'
+    url: 'https://www.unocha.org/ocha_plan_and_budget_all/plan_and_budget_all'
+  ocha_strategic_framework:
+    label: 'OCHA Strategic Framework'
+    url: 'https://www.unocha.org/ocha_strategic_framework_all/strategic_framework_all'

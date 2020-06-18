@@ -9,5 +9,7 @@ label: 'Authenticated user'
 weight: -9
 is_admin: false
 permissions:
+  - 'access content'
   - 'cancel account'
   - 'change own username'
+  - 'view published public_page content'

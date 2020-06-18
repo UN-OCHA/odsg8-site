@@ -50,3 +50,6 @@ permissions:
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view page revisions'
+  - 'view published announcement content'
+  - 'view published odsg_document content'
+  - 'view published page content'

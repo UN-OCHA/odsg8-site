@@ -1,0 +1,2 @@
+permission_callbacks:
+  - \Drupal\odsg_access\OdsgAccessPermissions::buildPermissions

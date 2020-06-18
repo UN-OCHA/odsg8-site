@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * ODSG access module file.
+ */
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_access().
+ *
+ * Deny view access to users without the view published 'node bundle' content
+ * permission.
+ */
+function odsg_access_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  $type = $node->bundle();
+  $published = $node->isPublished();
+
+  switch ($op) {
+    case 'view':
+      if ($published && !$account->hasPermission("view published {$type} content", $account)) {
+        return AccessResult::forbidden()->cachePerPermissions();
+      }
+  }
+  // No opinion, let other modules handle the permissions.
+  return AccessResult::neutral();
+}
