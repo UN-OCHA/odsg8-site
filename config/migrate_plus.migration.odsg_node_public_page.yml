@@ -1,0 +1,91 @@
+uuid: 3cb949f6-90a4-47c1-92a0-aa82cf170110
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - odsg_migrate
+_core:
+  default_config_hash: JyU9ZNocZzH3lfPMRg0cSDxDxUGgUIbMGC0nNfllKUM
+id: odsg_node_public_page
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: odsg
+label: 'Migrate ODSG public pages.'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      nid: 100
+      title: '404'
+      body: "<h2>404</h2>\n\n<p>Page not found</p>\n\n<p>Sorry, the page you are looking for could not be found.</p>\n\n<p>Please check the URL, or go back to our homepage.</p>\n\n<p><a href=\"/\">Back to Homepage</a></p>\n\n"
+      alias: /404
+    -
+      nid: 200
+      title: 'Welcome to OCHA Donor Support Group'
+      body: "<p>Welcome to the website of the OCHA Donor Support Group. We are excited to announce that you will be able to access the site using Humanitarian ID (HID) - a unique authentication and contact management system designed especially for the humanitarian community.</p>\n\n<p>All current ODSG Partners are invited to login to visit the member site, where they will find all materials and resources related to the OCHA Donor Support Group.</p>"
+      alias: /welcome
+  ids:
+    nid:
+      type: integer
+  constants:
+    bundle: public_page
+    created: 1590969600
+    changed: 1590969600
+    format: filtered_html
+    log: ''
+    status: 1
+    uid: 1
+process:
+  nid: nid
+  vid: nid
+  uid: constants/uid
+  type: constants/bundle
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  created: constants/created
+  changed: constants/changed
+  status: constants/status
+  revision_uid: constants/uid
+  revision_log: constants/log
+  revision_timestamp: constants/created
+  body/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: body
+    -
+      plugin: odsg_clean_html
+      source: body
+  body/format: constants/format
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias:
+    plugin: skip_on_empty
+    method: process
+    source: alias
+  layout_builder__layout:
+    -
+      plugin: odsg_import_layout
+      source:
+        - constants/bundle
+        - nid
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: sub_process
+      process:
+        section: section
+destination:
+  plugin: 'entity:node'
+  bundle: public_page
+migration_dependencies:
+  required:
+    - odsg_user

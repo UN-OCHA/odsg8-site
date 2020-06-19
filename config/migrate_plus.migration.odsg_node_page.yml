@@ -1,4 +1,4 @@
-uuid: 47c24c9c-f68f-4c48-b203-fd0a7dcaef8c
+uuid: 500658c3-52c7-4daa-a850-b5c60fa45d4c
 langcode: en
 status: true
 dependencies:
@@ -6,14 +6,14 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: GbWoAyuzTsOFh1c_eNtX6A_SgLoHT09kxmteSqGcAw4
+  default_config_hash: XgqgfgCzvCcrQblXBU2lMd8hsChO8zn6Yao9uiNtD5E
 id: odsg_node_page
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags: null
 migration_group: odsg
-label: 'Migrate ODSG pages.'
+label: 'Migrate ODSG private pages.'
 source:
   plugin: odsg_node_page
   bundle: page
@@ -60,6 +60,19 @@ process:
     plugin: skip_on_empty
     method: process
     source: alias
+  layout_builder__layout:
+    -
+      plugin: odsg_import_layout
+      source:
+        - type
+        - nid
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: sub_process
+      process:
+        section: section
 destination:
   plugin: 'entity:node'
   bundle: page

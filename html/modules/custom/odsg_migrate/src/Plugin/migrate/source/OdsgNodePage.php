@@ -43,6 +43,9 @@ class OdsgNodePage extends SqlBase {
     // Only pages.
     $query->condition('n.type', 'page');
 
+    // Exclude the 404 page as a public 404 page is created instead.
+    $query->condition('n.nid', 5993, '<>');
+
     return $query;
   }
 
@@ -116,11 +119,9 @@ class OdsgNodePage extends SqlBase {
     if (!empty($alias)) {
       if (mb_strpos($alias, 'meeting-events/') === 0) {
         $alias = preg_replace('#^meeting-events/#', '/meetings-events/', $alias);
-        print_r([$alias]);
       }
       elseif (mb_strpos($alias, 'publication/') === 0) {
         $alias = preg_replace('#^publication/#', '/publications/', $alias);
-        print_r([$alias]);
       }
       else {
         // Empty the alias so that no new alias is created.
