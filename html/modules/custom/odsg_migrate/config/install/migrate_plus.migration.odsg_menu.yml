@@ -12,6 +12,10 @@ source:
   plugin: odsg_menu
 destination:
   plugin: entity:menu
+  # If the menu already exists, then the following fields will be updated.
+  overwrite_properties:
+    - label
+    - description
 process:
   id:
     plugin: static_map

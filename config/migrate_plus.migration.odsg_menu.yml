@@ -1,4 +1,4 @@
-uuid: abe36850-48da-43d9-b6c9-7ea9d1b3f51c
+uuid: af3f5d5e-b01b-4d4c-9c2e-ba77725b373c
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: lCTdHfjVL7S0gQwJDZ2PfFAyskVbGJ06FvvKS5ZAt4Y
+  default_config_hash: oxbSw67k-BmMn71VbebhRFKsdT0hpHBuC-HDLbfP3-k
 id: odsg_menu
 class: null
 field_plugin_method: null
@@ -38,6 +38,9 @@ process:
   description: description
 destination:
   plugin: 'entity:menu'
+  overwrite_properties:
+    - label
+    - description
 migration_dependencies:
   required:
     - odsg_user

@@ -35,7 +35,9 @@ class OdsgUser extends SqlBase {
         'language',
         'picture',
         'init',
-      ]);
+      ])
+      // Skip the anonymous and admin users.
+      ->condition('u.uid', 1, '>');
   }
 
   /**
