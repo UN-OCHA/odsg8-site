@@ -1,0 +1,36 @@
+uuid: f12ea1e3-d087-4600-8d08-956e020d3c9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+    - user
+  theme:
+    - common_design_subtheme
+id: usermenu
+theme: common_design_subtheme
+region: header_top
+weight: -3
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+      odsg_donor_un_employee: odsg_donor_un_employee
+      content_manager: content_manager
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
