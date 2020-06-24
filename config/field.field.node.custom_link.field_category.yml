@@ -1,0 +1,29 @@
+uuid: 12aad439-42ed-4e55-a1a8-7112ced46aa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.custom_link
+    - taxonomy.vocabulary.page_landing
+id: node.custom_link.field_category
+field_name: field_category
+entity_type: node
+bundle: custom_link
+label: Category
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page_landing: page_landing
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

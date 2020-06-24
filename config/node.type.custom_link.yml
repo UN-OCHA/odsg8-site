@@ -1,4 +1,4 @@
-uuid: 96753c81-8f53-488c-a1d2-ed9eda05cc13
+uuid: 0097ec2f-dd4a-434c-b3d4-ee6163748d96
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'ODSG document'
-type: odsg_document
-description: 'ODSG Documents with a file attachment.'
+name: 'Custom Link'
+type: custom_link
+description: 'Custom links that appear on the resources, meetings & events and funding landing pages.'
 help: ''
 new_revision: true
 preview_mode: 1

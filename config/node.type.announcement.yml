@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: Announcement
 type: announcement
-description: ''
+description: 'Global announcements (ex: next meeting) displayed in the dashboard.'
 help: ''
 new_revision: true
 preview_mode: 1

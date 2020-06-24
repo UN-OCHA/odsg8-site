@@ -1,0 +1,33 @@
+uuid: 1e9ce402-93cd-4c1f-8b8e-ba81acc40834
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order
+    - node.type.custom_link
+    - taxonomy.vocabulary.order
+  content:
+    - 'taxonomy_term:order:08acaff7-71a5-47eb-a2e3-4935f456eabd'
+id: node.custom_link.field_order
+field_name: field_order
+entity_type: node
+bundle: custom_link
+label: Order
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 08acaff7-71a5-47eb-a2e3-4935f456eabd
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      order: order
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

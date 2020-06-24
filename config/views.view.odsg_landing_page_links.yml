@@ -1,31 +1,27 @@
-uuid: ab22728a-d9d8-4268-9d99-51e9db08c06c
+uuid: 454dabc1-c17e-4e6a-9aab-964e8f64276e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_file
-    - field.storage.node.body
-    - field.storage.node.field_meeting_title
-    - field.storage.node.field_publication_date
-    - node.type.odsg_document
-    - taxonomy.vocabulary.document_type_project_report
+    - field.storage.node.field_image
+    - field.storage.node.field_link
+    - image.style.medium
+    - node.type.custom_link
+    - taxonomy.vocabulary.page_landing
   content:
-    - 'taxonomy_term:document_type_project_report:53bc3d91-6c17-4033-beee-dfbfbd63adc3'
-    - 'taxonomy_term:document_type_project_report:8d587362-d2b6-4d0f-b20b-71554c45122b'
-    - 'taxonomy_term:document_type_project_report:974e8de6-b218-4c08-bcef-1d99b0f743a2'
-    - 'taxonomy_term:document_type_project_report:a596176e-d2c7-49bd-bc3f-20a80fa5c0fc'
+    - 'taxonomy_term:page_landing:1d8cebdb-f2ba-4a0d-b77f-9b5759bc5c87'
+    - 'taxonomy_term:page_landing:897ea10c-c0bc-49e8-b131-837d90df94ca'
+    - 'taxonomy_term:page_landing:e20b12e5-cfd1-455f-965e-68b87b7d579f'
   module:
-    - datetime
-    - file
+    - link
     - media
     - node
     - taxonomy
-    - text
     - user
-id: odsg_meetings
-label: 'ODSG Meetings'
+id: odsg_landing_page_links
+label: 'ODSG Landing page links'
 module: views
-description: 'Blocks with lists of ODSG meeting documents.'
+description: 'Blocks with menus made of custom links for the Resources, Meetings & Events and Funding landing pages.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -39,7 +35,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access private content'
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -64,157 +60,26 @@ display:
       pager:
         type: none
         options:
-          items_per_page: 0
           offset: 0
       style:
         type: html_list
         options:
-          grouping:
-            -
-              field: nothing_1
-              rendered: true
-              rendered_strip: false
+          grouping: {  }
           row_class: ''
-          default_row_class: true
+          default_row_class: false
           type: ul
           wrapper_class: item-list
           class: ''
       row:
         type: fields
       fields:
-        field_publication_date:
-          id: field_publication_date
-          table: node__field_publication_date
-          field: field_publication_date
-          relationship: none
-          group_type: group
-          admin_label: 'Publication date'
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_custom
-          settings:
-            timezone_override: ''
-            date_format: 'd M Y'
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: 'Document description'
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '{{ title }}'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         title:
           id: title
           table: node_field_data
           field: title
           relationship: none
           group_type: group
-          admin_label: 'Document title'
+          admin_label: ''
           label: ''
           exclude: true
           alter:
@@ -235,8 +100,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -270,75 +135,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
           plugin_id: field
-        field_media_file:
-          id: field_media_file
-          table: media__field_media_file
-          field: field_media_file
-          relationship: field_document
-          group_type: group
-          admin_label: 'Attached document URL'
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_meeting_title:
-          id: field_meeting_title
-          table: node__field_meeting_title
-          field: field_meeting_title
+        field_image:
+          id: field_image
+          table: node__field_image
+          field: field_image
           relationship: none
           group_type: group
           admin_label: ''
@@ -384,9 +185,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_label
+          type: media_thumbnail
           settings:
-            link: false
+            image_style: medium
+            image_link: ''
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -398,18 +200,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
+        field_link:
+          id: field_link
+          table: node__field_link
+          field: field_link
           relationship: none
           group_type: group
-          admin_label: 'List title'
+          admin_label: ''
           label: ''
           exclude: true
           alter:
-            alter_text: true
-            text: '{{ field_publication_date }} - {{ field_meeting_title }}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -445,20 +247,38 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: null
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         nothing:
           id: nothing
           table: views
           field: nothing
           relationship: none
           group_type: group
-          admin_label: 'List item link'
+          admin_label: ''
           label: ''
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="{{ field_media_file }}">{{ body }}</a>'
+            text: '<h3><a href="{{ field_link}}">{{ field_image}}<span>{{ title }}</span></a></h3>'
             make_link: false
             path: ''
             absolute: false
@@ -483,14 +303,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -515,23 +335,23 @@ display:
           table: node_field_data
           field: type
           value:
-            odsg_document: odsg_document
+            custom_link: custom_link
           entity_type: node
           entity_field: type
           plugin_id: bundle
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_document_type_target_id:
-          id: field_document_type_target_id
-          table: node__field_document_type
-          field: field_document_type_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
           operator: or
           value:
-            10: 10
+            411: 411
           group: 1
           exposed: false
           expose:
@@ -564,28 +384,15 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: document_type_project_report
+          vid: page_landing
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
       sorts:
-        field_publication_date_value:
-          id: field_publication_date_value
-          table: node__field_publication_date
-          field: field_publication_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: day
-          plugin_id: datetime
-        body_value:
-          id: body_value
-          table: node__body
-          field: body_value
+        field_order_target_id:
+          id: field_order_target_id
+          table: node__field_order
+          field: field_order_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -598,30 +405,21 @@ display:
           id: title
           table: node_field_data
           field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
           order: ASC
-          exposed: false
-          expose:
-            label: ''
           entity_type: node
           entity_field: title
           plugin_id: standard
-      title: 'Geneva Meetings'
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+      title: Resources
       header: {  }
       footer: {  }
       empty: {  }
-      relationships:
-        field_document:
-          id: field_document
-          table: node__field_document
-          field: field_document
-          relationship: none
-          group_type: group
-          admin_label: 'field_document: Media'
-          required: true
-          plugin_id: standard
+      relationships: {  }
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
@@ -633,22 +431,17 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_meeting_title'
-        - 'config:field.storage.node.field_publication_date'
-  block_field_missions:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'
+  block_landing_page_links_funding:
     display_plugin: block
-    id: block_field_missions
-    display_title: 'Block: Field Missions'
+    id: block_landing_page_links_funding
+    display_title: 'Block: Funding custom links'
     position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
-      allow:
-        items_per_page: false
-      block_description: 'Block: Field Missions'
-      title: 'Field Missions'
+      title: 'Landing page links - Funding'
       defaults:
         title: false
         filters: false
@@ -672,23 +465,23 @@ display:
           table: node_field_data
           field: type
           value:
-            odsg_document: odsg_document
+            custom_link: custom_link
           entity_type: node
           entity_field: type
           plugin_id: bundle
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_document_type_target_id:
-          id: field_document_type_target_id
-          table: node__field_document_type
-          field: field_document_type_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
           operator: or
           value:
-            12: 12
+            410: 410
           group: 1
           exposed: false
           expose:
@@ -721,7 +514,7 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: document_type_project_report
+          vid: page_landing
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
@@ -738,22 +531,17 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_meeting_title'
-        - 'config:field.storage.node.field_publication_date'
-  block_geneva_meetings:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'
+  block_landing_page_links_meetings_events:
     display_plugin: block
-    id: block_geneva_meetings
-    display_title: 'Block: Geneva Meetings'
+    id: block_landing_page_links_meetings_events
+    display_title: 'Block: Meetings & Events custom links'
     position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
-      allow:
-        items_per_page: false
-      block_description: 'Block: Geneva Meetings'
-      title: 'Geneva Meetings'
+      title: 'Landing page links - Meetings & Events'
       defaults:
         title: false
         filters: false
@@ -777,23 +565,23 @@ display:
           table: node_field_data
           field: type
           value:
-            odsg_document: odsg_document
+            custom_link: custom_link
           entity_type: node
           entity_field: type
           plugin_id: bundle
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_document_type_target_id:
-          id: field_document_type_target_id
-          table: node__field_document_type
-          field: field_document_type_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
           operator: or
           value:
-            9: 9
+            409: 409
           group: 1
           exposed: false
           expose:
@@ -826,7 +614,7 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: document_type_project_report
+          vid: page_landing
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
@@ -843,22 +631,17 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_meeting_title'
-        - 'config:field.storage.node.field_publication_date'
-  block_high_level_meetings:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'
+  block_landing_page_links_resources:
     display_plugin: block
-    id: block_high_level_meetings
-    display_title: 'Block: High-Level Meetings'
+    id: block_landing_page_links_resources
+    display_title: 'Block: Resources custom links'
     position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
-      allow:
-        items_per_page: false
-      block_description: 'Block: High-Level Meetings'
-      title: 'High-Level Meetings'
+      title: 'Landing page links - Resources'
       defaults:
         title: false
         filters: false
@@ -882,23 +665,23 @@ display:
           table: node_field_data
           field: type
           value:
-            odsg_document: odsg_document
+            custom_link: custom_link
           entity_type: node
           entity_field: type
           plugin_id: bundle
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_document_type_target_id:
-          id: field_document_type_target_id
-          table: node__field_document_type
-          field: field_document_type_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
           operator: or
           value:
-            11: 11
+            411: 411
           group: 1
           exposed: false
           expose:
@@ -931,7 +714,7 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: document_type_project_report
+          vid: page_landing
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
@@ -948,112 +731,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_meeting_title'
-        - 'config:field.storage.node.field_publication_date'
-  block_new_york_meetings:
-    display_plugin: block
-    id: block_new_york_meetings
-    display_title: 'Block: New York Meetings'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      allow:
-        items_per_page: false
-      block_description: 'Block: New York Meetings'
-      title: 'New York Meetings'
-      defaults:
-        title: false
-        filters: false
-        filter_groups: false
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            odsg_document: odsg_document
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        field_document_type_target_id:
-          id: field_document_type_target_id
-          table: node__field_document_type
-          field: field_document_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            10: 10
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: document_type_project_report
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_meeting_title'
-        - 'config:field.storage.node.field_publication_date'
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'
