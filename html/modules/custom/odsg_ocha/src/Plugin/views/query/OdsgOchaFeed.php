@@ -182,7 +182,7 @@ class OdsgOchaFeed extends QueryPluginBase {
             }
             // Skip the rest of the documents if we reach the number of items
             // to return.
-            if ($index >= $limit) {
+            if ($limit !== 0 && $index >= $limit) {
               break;
             }
           }

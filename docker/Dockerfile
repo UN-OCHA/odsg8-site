@@ -28,6 +28,8 @@ ENV  GIT_REF=$GITHUB_REF
 LABEL info.humanitarianresponse.build.date=$BUILD_DATE \
       info.humanitarianresponse.build.vcs-url=$VCS_URL \
       info.humanitarianresponse.build.vcs-ref=$VCS_REF
+# Add PHP Soap extension to request OCHA Contribution Tracking System API.
+RUN apk -U add php7-soap
 
 COPY --from=builder /srv/www/config /srv/www/config/
 COPY --from=builder /srv/www/html /srv/www/html/

@@ -18,3 +18,6 @@ feeds:
   ocha_strategic_framework:
     label: 'OCHA Strategic Framework'
     url: 'https://www.unocha.org/ocha_strategic_framework_all/strategic_framework_all'
+funding:
+  url: https://oct.unocha.org/OCTws/OCHAOnline.asmx?wsdl
+  start: 2008
