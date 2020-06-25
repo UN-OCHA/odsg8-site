@@ -1,4 +1,7 @@
 {
     "patches": {
+        "drupal/core": {
+            "Ensure views table caption details are not displayed when the summary is empty": "https://www.drupal.org/files/issues/2020-06-11/3149930-7.patch"
+        }
     }
 }
