@@ -1,0 +1,5 @@
+fourcol_titled_section:
+  version: VERSION
+  css:
+    theme:
+      layouts/fourcol_titled_section/fourcol_titled_section.css: {}

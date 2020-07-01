@@ -1,0 +1,5 @@
+type: module
+name: ODSG General
+description: 'Provides customizations for the ODSG site.'
+package: odsg
+core_version_requirement: ^8.8 || ^9

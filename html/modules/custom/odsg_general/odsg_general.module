@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * ODSG General module file.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_ENTITY_TYPE_prepare_form().
+ *
+ * Ensure there is a `year` taxonomy term for the current year when editing
+ * an ODSG document.
+ *
+ * We do this in this hook instead of a form_atler hook so that the newly
+ * created terms if any can be used when populating the year field values.
+ */
+function odsg_general_node_prepare_form(EntityInterface $entity, $operation, FormStateInterface $form_state) {
+  if (($operation == 'default' || $operation == 'edit') && $entity->bundle() === 'odsg_document') {
+    odsg_general_create_year_terms();
+  }
+}
+
+/**
+ * Create year terms up to the current year if they don't exist.
+ */
+function odsg_general_create_year_terms() {
+  $current_year = gmdate('Y');
+  $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+  // Get the latest year.
+  $ids = $storage->getQuery()
+    ->condition('vid', 'year')
+    ->sort('name', 'DESC')
+    ->range(0, 1)
+    ->accessCheck(FALSE)
+    ->execute();
+
+  $year = !empty($ids) ? Term::load(reset($ids))->getName() : $current_year;
+
+  // Skip if there is nothing to create.
+  if ($year >= $current_year) {
+    return;
+  }
+
+  // List of years to create.
+  $years = range($year + 1, $current_year);
+
+  // Ensure we don't create the terms twice.
+  $terms = $storage->loadByProperties([
+    'vid' => 'year',
+    'name' => $years,
+  ]);
+
+  // Extract the years to create.
+  $years = array_diff($years, array_map(function ($term) {
+    return $term->getName();
+  }, $terms));
+
+  // Create the terms.
+  foreach ($years as $year) {
+    Term::create([
+      'parent' => [],
+      'name' => $year,
+      'vid' => 'year',
+      // Ensure the year order is correct.
+      'weight' => -$year,
+    ])->save();
+  }
+}
