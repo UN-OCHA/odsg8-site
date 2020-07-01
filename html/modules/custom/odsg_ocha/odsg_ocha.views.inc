@@ -22,9 +22,16 @@ function odsg_ocha_views_data() {
       // Fields.
       'id' => [
         'title' => t('ID'),
-        'help' => t('Document id on https://unocha.org'),
+        'help' => t('Document id on https://www.unocha.org'),
         'field' => [
           'id' => 'numeric',
+        ],
+      ],
+      'link' => [
+        'title' => t('Document URL'),
+        'help' => t('Link to the document on https://www.unocha.org'),
+        'field' => [
+          'id' => 'standard',
         ],
       ],
       'title' => [
@@ -48,9 +55,9 @@ function odsg_ocha_views_data() {
           'id' => 'standard',
         ],
       ],
-      'preview' => [
-        'title' => t('Preview URL'),
-        'help' => t("URL of the attached document's cover preview"),
+      'image' => [
+        'title' => t('Image URL'),
+        'help' => t("URL of the attached document's cover preview or article image"),
         'field' => [
           'id' => 'standard',
         ],

@@ -1,8 +1,11 @@
 ODSG OCHA
 =========
 
-This module provides basic integration of the UN OCHA feeds through a views
-query plugin.
+This module provides basic integration of the UN OCHA feeds and Contributions
+Tracking System (OCT) through views query plugins.
+
+OCHA Feeds
+----------
 
 As the feed data is really basic without possibility to control the number of
 elements they contain nor sort them or filter them, OCHA feed views should
@@ -13,8 +16,26 @@ display and select "query settings" then the feed to use.
 
 Available fields are:
 
-- `td`: node id on https://www.unocha.org
-- `title`: title of the document
-- `updated`: timestamp of the last update of the document
+- `id`: Node id on https://www.unocha.org
+- `link`: Link to the document on https://www.unocha.org
+- `title`: Title of the document
+- `updated`: Timestamp of the last update of the document
 - `file`: URL of the first attachment of the document
-- `preview`: URL of the cover preview of the attachment
+- `image`: URL of the cover preview of the attachment or article image
+
+OCHA OCT
+--------
+
+As the OCT data is really basic without possibility to control the number of
+elements they contain nor sort them, OCHA funding views should
+not set any `sort` options and only filtering by `year` is possible.
+
+Available fields are:
+
+- `rank`: Donor rank
+- `donor`: Donor name
+- `code`: Identifier: iso2 code for countries or some string otherwise
+- `earmarked`: Earmarked donations in USD
+- `unearmarked`: UnEarmarked donations in USD
+- `total`: Total donations in USD
+- `year`: Donation year

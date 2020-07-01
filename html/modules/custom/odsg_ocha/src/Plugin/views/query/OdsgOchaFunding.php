@@ -99,6 +99,7 @@ class OdsgOchaFunding extends QueryPluginBase {
     $url = \Drupal::config('odsg_ocha.settings')->get('funding.url');
 
     if (!empty($url)) {
+      // Default to the current year if no condition was provided.
       $year = $this->yearCondition ?? date('Y');
 
       // Query parameters from the ODSG drupal 7 site. Unfortunately there is no
@@ -112,11 +113,6 @@ class OdsgOchaFunding extends QueryPluginBase {
         'ExcludeDonorIds' => 44,
         'ProjectGroupID' => 192,
       ];
-
-      // Initialize the pager. We only handle offset and limit.
-      $view->initPager();
-      $limit = $view->pager->getItemsPerPage();
-      $offset = $view->pager->getOffset();
 
       try {
         $client = new SoapClient($url);
@@ -135,18 +131,13 @@ class OdsgOchaFunding extends QueryPluginBase {
           $data = $result->GetDonorRankingForOCHAOnlineV2Result->Donors->DonorRankV2;
 
           $index = 0;
-          foreach (array_slice($data, $offset) as $item) {
+          foreach ($data as $item) {
             $item = $this->validateDonorData((array) $item);
             // Only add the item if valid. The index property is required.
             if (!empty($item)) {
               $item['index'] = $index++;
               $item['year'] = $year;
               $view->result[] = new ResultRow($item);
-            }
-            // Skip the rest of the documents if we reach the number of items
-            // to return.
-            if ($limit !== 0 && $index >= $limit) {
-              break;
             }
           }
         }
@@ -156,6 +147,16 @@ class OdsgOchaFunding extends QueryPluginBase {
       }
     }
 
+    // Initialize the pager. We only handle offset and limit.
+    $view->initPager();
+    $limit = $view->pager->getItemsPerPage();
+    $offset = $view->pager->getOffset();
+    $view->pager->current_page = 0;
+    $view->pager->total_items = count($view->result);
+
+    // Apply the offset and limit on the result set as the OCT API doesn't
+    // handle them.
+    $view->result = array_slice($view->result, $offset, !empty($limit) ? $limit : NULL);
     $view->total_rows = count($view->result);
     $view->execute_time = time() - REQUEST_TIME;
   }

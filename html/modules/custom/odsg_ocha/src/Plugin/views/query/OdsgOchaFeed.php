@@ -149,6 +149,7 @@ class OdsgOchaFeed extends QueryPluginBase {
     $view->result = [];
 
     if (isset($feeds[$this->options['feed']]['url'])) {
+      // Request settings.
       $url = $feeds[$this->options['feed']]['url'];
       $method = 'GET';
       $options = [
@@ -159,11 +160,6 @@ class OdsgOchaFeed extends QueryPluginBase {
         ],
       ];
 
-      // Initialize the pager. We only handle offset and limit.
-      $view->initPager();
-      $limit = $view->pager->getItemsPerPage();
-      $offset = $view->pager->getOffset();
-
       try {
         $response = $this->httpClient->request($method, $url, $options);
         $code = $response->getStatusCode();
@@ -173,17 +169,12 @@ class OdsgOchaFeed extends QueryPluginBase {
           $data = Json::decode($body);
 
           $index = 0;
-          foreach (array_slice($data, $offset) as $item) {
+          foreach ($data as $item) {
             $item = $this->validateDocument($item);
             // Only add the item if valid. The index property is required.
             if (!empty($item)) {
               $item['index'] = $index++;
               $view->result[] = new ResultRow($item);
-            }
-            // Skip the rest of the documents if we reach the number of items
-            // to return.
-            if ($limit !== 0 && $index >= $limit) {
-              break;
             }
           }
         }
@@ -193,6 +184,19 @@ class OdsgOchaFeed extends QueryPluginBase {
       }
     }
 
+    // Initialize the pager. We only handle offset and limit.
+    $view->initPager();
+    $limit = $view->pager->getItemsPerPage();
+    $offset = $view->pager->getOffset();
+    $view->pager->current_page = 0;
+    $view->pager->total_items = count($view->result);
+    \Drupal::logger('odsg_ocha')->notice(print_r([
+      $view->pager->total_items,
+    ], TRUE));
+
+    // Apply the offset and limit on the result set as the feed service doesn't
+    // handle them.
+    $view->result = array_slice($view->result, $offset, !empty($limit) ? $limit : NULL);
     $view->total_rows = count($view->result);
     $view->execute_time = time() - REQUEST_TIME;
   }
@@ -211,6 +215,8 @@ class OdsgOchaFeed extends QueryPluginBase {
    *   Sanitized data or empty array if invalid.
    */
   protected function validateDocument(array $data) {
+    $data['link'] = static::getOchaFeedBaseUrl() . ltrim($data['path'] ?? '', '/');
+
     $filters = [
       // Node id on the https://www.unocha.org.
       'nid' => [
@@ -233,8 +239,13 @@ class OdsgOchaFeed extends QueryPluginBase {
         'filter' => FILTER_CALLBACK,
         'options' => [$this, 'validateUrl'],
       ],
-      // URL of the cover preview of the first attachment.
+      // URL of the cover preview of the first attachment or article image.
       'uri' => [
+        'filter' => FILTER_CALLBACK,
+        'options' => [$this, 'validateUrl'],
+      ],
+      // Link to the document on the OCHA corporate site.
+      'link' => [
         'filter' => FILTER_CALLBACK,
         'options' => [$this, 'validateUrl'],
       ],
@@ -245,13 +256,17 @@ class OdsgOchaFeed extends QueryPluginBase {
 
     // Skip if any of the validations failed or a field is missing.
     foreach ($filters as $key => $dummy) {
-      if (!isset($filtered[$key])) {
+      // The attachment is not mandatory, all others are.
+      if (!isset($filtered[$key]) && $key !== 'field_publication_document') {
         return [];
       }
     }
 
     // File is normally an array so we extract the first element.
-    if (is_array($filtered['field_publication_document'])) {
+    if (!isset($filtered['field_publication_document'])) {
+      $file = '';
+    }
+    elseif (is_array($filtered['field_publication_document'])) {
       $file = reset($filtered['field_publication_document']);
     }
     else {
@@ -261,10 +276,11 @@ class OdsgOchaFeed extends QueryPluginBase {
     // Friendly renaming of the keys as defined in odsg_ocha.views.inc.
     return [
       'id' => $filtered['nid'],
+      'link' => $filtered['link'],
       'title' => $filtered['title'],
       'updated' => $filtered['changed'],
       'file' => $file,
-      'preview' => $filtered['uri'],
+      'image' => $filtered['uri'],
     ];
   }
 
@@ -308,22 +324,6 @@ class OdsgOchaFeed extends QueryPluginBase {
     catch (Exception $exception) {
       return NULL;
     }
-  }
-
-  /**
-   * Validate a file URL.
-   *
-   * @param string $url
-   *   File URL to validate.
-   *
-   * @return string|null
-   *   URL or NULL if the validation failed.
-   */
-  protected function validateFile($url) {
-    // The attachments are an array of files with one item most of the time.
-    // In any case, we are only interested by the first one.
-    $url = is_array($url) ? reset($url) : $url;
-    return $this->validateUrl($url);
   }
 
   /**
