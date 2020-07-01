@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: 'ODSG document'
 type: odsg_document
-description: 'ODSG Documents with a file attachment.'
+description: 'ODSG Documents with a file attachment or external file URL.'
 help: ''
 new_revision: true
 preview_mode: 1

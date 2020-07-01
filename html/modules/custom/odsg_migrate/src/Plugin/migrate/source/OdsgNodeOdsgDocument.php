@@ -302,7 +302,9 @@ class OdsgNodeOdsgDocument extends SqlBase {
     // The certified statements of accounts files are missing, we preserve the
     // url to them in case we find them somewhere so that they can be updated.
     if (mb_strpos($uri, '/Certified Statements of Accounts/')) {
+      // Generate a proper relative URI to the file.
       $url = file_url_transform_relative(file_create_url($uri));
+      $url = 'https://odsg.unocha.org/' . ltrim($url, '/');
       $row->setSourceProperty('external_file_url', $url);
       return;
     }

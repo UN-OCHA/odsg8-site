@@ -7,12 +7,14 @@ dependencies:
     - field.field.node.odsg_document.field_document
     - field.field.node.odsg_document.field_document_subtype
     - field.field.node.odsg_document.field_document_type
+    - field.field.node.odsg_document.field_link
     - field.field.node.odsg_document.field_meeting_title
     - field.field.node.odsg_document.field_publication_date
     - field.field.node.odsg_document.field_year
     - node.type.odsg_document
   module:
     - datetime
+    - link
     - media_library
     - text
 id: node.odsg_document.default
@@ -49,6 +51,14 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_link:
+    weight: 8
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_meeting_title:
     weight: 7
     settings:
@@ -75,7 +85,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   title:

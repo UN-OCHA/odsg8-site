@@ -1,0 +1,23 @@
+uuid: 55c56db7-17a8-411d-8f8e-d77b169e224c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.odsg_document
+  module:
+    - link
+id: node.odsg_document.field_link
+field_name: field_link
+entity_type: node
+bundle: odsg_document
+label: 'External file URL'
+description: 'URL of a file that is not or should not be stored in the ODSG site. Ex: audit reports hosted on https://ochanet.unocha.org.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
