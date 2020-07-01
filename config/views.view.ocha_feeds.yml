@@ -7,7 +7,7 @@ dependencies:
 id: ocha_feeds
 label: 'OCHA Feeds'
 module: views
-description: ''
+description: 'List of publications from the UN OCHA corporate site.'
 tag: ''
 base_table: odsg_ocha_feed
 base_field: ''
@@ -972,7 +972,7 @@ display:
   block_ocha_strategic_framework_full:
     display_plugin: block
     id: block_ocha_strategic_framework_full
-    display_title: 'Block: Full OCHA Stategic Framework'
+    display_title: 'Block: Full OCHA Strategic Framework'
     position: 9
     display_options:
       display_extenders: {  }
