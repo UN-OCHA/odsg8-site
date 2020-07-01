@@ -1,8 +1,0 @@
-uuid: da67d5e7-60a2-43a8-9448-893467d23c61
-langcode: en
-status: true
-dependencies: {  }
-name: 'Page Landing'
-vid: page_landing
-description: ''
-weight: 0

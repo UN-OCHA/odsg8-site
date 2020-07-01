@@ -1,8 +1,0 @@
-uuid: c001db74-a720-48d1-9600-a3f3b0dc158f
-langcode: en
-status: true
-dependencies: {  }
-name: Role
-vid: role
-description: ''
-weight: 0
