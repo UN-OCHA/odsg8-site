@@ -552,6 +552,17 @@ display:
         groups:
           1: AND
       display_extenders: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
     display_plugin: default
     display_title: Master
     id: default
