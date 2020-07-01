@@ -4,8 +4,8 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.custom_link.field_category
     - field.field.node.custom_link.field_image
+    - field.field.node.custom_link.field_landing_page
     - field.field.node.custom_link.field_link
     - field.field.node.custom_link.field_order
     - node.type.custom_link
@@ -22,7 +22,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_category: true
   field_image: true
+  field_landing_page: true
   field_link: true
   field_order: true

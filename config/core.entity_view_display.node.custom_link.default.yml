@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.custom_link.field_category
     - field.field.node.custom_link.field_image
+    - field.field.node.custom_link.field_landing_page
     - field.field.node.custom_link.field_link
     - field.field.node.custom_link.field_order
     - image.style.medium
@@ -18,14 +18,6 @@ targetEntityType: node
 bundle: custom_link
 mode: default
 content:
-  field_category:
-    weight: 1
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_image:
     weight: 3
     label: above
@@ -34,6 +26,14 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail
+    region: content
+  field_landing_page:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_link:
     weight: 2

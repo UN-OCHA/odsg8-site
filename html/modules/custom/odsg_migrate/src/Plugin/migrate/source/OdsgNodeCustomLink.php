@@ -88,14 +88,14 @@ class OdsgNodeCustomLink extends SqlBase {
     $nid = $row->getSourceProperty('nid');
     $vid = $row->getSourceProperty('vid');
 
-    // Category.
+    // Landing page.
     // Note: "categroy" is because the field name has a typo in the D7 site...
     $query = $this->select('field_revision_field_categroy', 'f')
       ->fields('f', ['field_categroy_tid'])
       ->condition('f.entity_id', $nid)
       ->condition('f.entity_type', 'node')
       ->condition('f.revision_id', $vid);
-    $row->setSourceProperty('category', $query->execute()->fetchField());
+    $row->setSourceProperty('landing_page', $query->execute()->fetchField());
 
     // Link URL.
     $query = $this->select('field_revision_field_landing_link', 'f')

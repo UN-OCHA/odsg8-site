@@ -1,17 +1,17 @@
-uuid: 12aad439-42ed-4e55-a1a8-7112ced46aa1
+uuid: 8a031b9e-1357-4203-b305-1000dcd1357e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_category
+    - field.storage.node.field_landing_page
     - node.type.custom_link
-    - taxonomy.vocabulary.page_landing
-id: node.custom_link.field_category
-field_name: field_category
+    - taxonomy.vocabulary.landing_page
+id: node.custom_link.field_landing_page
+field_name: field_landing_page
 entity_type: node
 bundle: custom_link
-label: Category
-description: ''
+label: 'Landing page'
+description: 'Page on which the link will be displayed.'
 required: true
 translatable: false
 default_value: {  }
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      page_landing: page_landing
+      landing_page: landing_page
     sort:
       field: name
       direction: asc

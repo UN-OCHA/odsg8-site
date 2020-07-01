@@ -39,10 +39,10 @@ process:
     plugin: skip_on_empty
     method: row
     source: link
-  field_category/target_id:
+  field_landing_page/target_id:
     plugin: skip_on_empty
     method: row
-    source: category
+    source: landing_page
   field_image/target_id:
     plugin: skip_on_empty
     method: row
