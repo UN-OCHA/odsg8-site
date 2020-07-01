@@ -16,6 +16,21 @@ use Drupal\migrate\Row;
 class OdsgNodeCustomLink extends SqlBase {
 
   /**
+   * Duplicate images.
+   *
+   * List of images that are duplicates keyed by the duplicate and with the
+   * image to keep as value.
+   *
+   * @var array
+   */
+  public static $imageDuplicates = [
+    56 => 50,
+    58 => 51,
+    61 => 57,
+    63 => 50,
+  ];
+
+  /**
    * {@inheritdoc}
    */
   public function query() {
@@ -103,7 +118,10 @@ class OdsgNodeCustomLink extends SqlBase {
       ->condition('f.entity_id', $nid)
       ->condition('f.entity_type', 'node')
       ->condition('f.revision_id', $vid);
-    $row->setSourceProperty('image', $query->execute()->fetchField());
+    $fid = $query->execute()->fetchField();
+    // Replace duplicate images.
+    $fid = static::$imageDuplicates[$fid] ?? $fid;
+    $row->setSourceProperty('image', $fid);
 
     // Order.
     $query = $this->select('field_revision_field_order', 'f')

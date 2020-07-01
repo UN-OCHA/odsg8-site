@@ -29,8 +29,18 @@ process:
       # Prevent generating a new machine_name when the vocabulary already
       # exists in the database.
       migrated: true
-  label: name
-  name: name
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        page_landing: landing_page
+  label:
+    plugin: static_map
+    bypass: true
+    source: name
+    map:
+      'Page Landing': 'Landing Page'
+  name: '@label'
   description: description
   hierarchy: hierarchy
   module: module

@@ -39,6 +39,10 @@ process:
     plugin: skip_on_empty
     method: process
     source: document
+  field_link/url:
+    plugin: skip_on_empty
+    method: process
+    source: external_file_url
   body/value:
     plugin: skip_on_empty
     method: process

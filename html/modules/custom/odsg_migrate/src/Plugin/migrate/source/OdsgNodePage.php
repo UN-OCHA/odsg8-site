@@ -130,6 +130,12 @@ class OdsgNodePage extends SqlBase {
     }
     $row->setSourceProperty('alias', $alias);
 
+    // Special handling of the node 1 to extract the ODSG title.
+    if ($nid == 1) {
+      $row->setSourceProperty('title', 'The OCHA Donor Support Group (ODSG)');
+      $row->setSourceProperty('body', 'The ODSG acts as a sounding board and a source of advice on policy, management, budgetary and financial matters to OCHA. The group discusses concrete measures that members may take individually or collectively to assist OCHA in better fulfilling its mission and goals on the basis of humanitarian principles.');
+    }
+
     return parent::prepareRow($row);
   }
 

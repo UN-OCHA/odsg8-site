@@ -27,7 +27,9 @@ class OdsgTaxonomyVocabulary extends SqlBase {
         'module',
         'weight',
         'machine_name',
-      ]);
+      ])
+      // Skip the unused Active and Role taxonomy vocabularies.
+      ->condition('vid', [6, 7], 'NOT IN');
   }
 
   /**

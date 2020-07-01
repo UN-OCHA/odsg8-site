@@ -107,7 +107,7 @@ class OdsgMigrateCommands extends DrushCommands implements SiteAliasManagerAware
     $count = 0;
     foreach ($layouts as $key => $data) {
       // Sort the sections by delta.
-      sort($data);
+      ksort($data);
 
       // Save as yaml and reset the keys as some deltas may have been skipped.
       $data = Yaml::dump(array_values($data));

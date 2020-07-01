@@ -30,6 +30,8 @@ class OdsgTaxonomyTerm extends SqlBase {
         'weight',
         'format',
       ])
+      // Skip the unused Active and Role taxonomy vocabularies.
+      ->condition('vid', [6, 7], 'NOT IN')
       ->distinct();
   }
 
@@ -56,6 +58,17 @@ class OdsgTaxonomyTerm extends SqlBase {
       ->fields('th', ['parent'])
       ->condition('tid', $row->getSourceProperty('tid'));
     $row->setSourceProperty('parent', $query->execute()->fetchCol());
+
+    // Order the `year` terms by most recent first.
+    if ($row->getSourceProperty('vid') == 2) {
+      $weight = -intval($row->getSourceProperty('name'), 10);
+      $row->setSourceProperty('weight', $weight);
+    }
+    // Order the `order` terms by lowest order first.
+    elseif ($row->getSourceProperty('vid') == 10) {
+      $weight = intval($row->getSourceProperty('name'), 10);
+      $row->setSourceProperty('weight', $weight);
+    }
 
     return parent::prepareRow($row);
   }

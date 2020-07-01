@@ -1,4 +1,4 @@
-uuid: 9fb46a64-ca97-4282-9181-c07c396ce233
+uuid: bf675115-723c-46cb-b410-d40d70f9d8ec
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: H8NHC3EaYhZlcdm56Y7x2aiYx3tobYgG6QRQiizwv40
+  default_config_hash: iKL712jtChCYP2yA5CqWfOgjxlAnTc-4NXJLoz2zbvs
 id: odsg_node_odsg_document
 class: null
 field_plugin_method: null
@@ -37,6 +37,10 @@ process:
     plugin: skip_on_empty
     method: process
     source: document
+  field_link/url:
+    plugin: skip_on_empty
+    method: process
+    source: external_file_url
   body/value:
     plugin: skip_on_empty
     method: process

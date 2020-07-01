@@ -17,14 +17,15 @@ In migration order:
 9. Announcement nodes
 10. Taxonomy vocabularies
 11. Taxonomy terms
-12. ODSG document nodes
+12. Custom link nodes (previously page_landing_ nodes)
+13. ODSG document nodes
+14. Public page nodes (new content type)
 
 **Ignored**
 
 1. Audio file entities (none)
 2. Video file entities (none)
-3. Page landing nodes (legacy, not used)
-4. Story publications (legacy, none)
+3. Story publications (legacy, none)
 
 **Files**
 

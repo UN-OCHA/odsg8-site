@@ -15,7 +15,13 @@ process:
     plugin: migration_lookup
     migration: odsg_taxonomy_vocabulary
     source: vid
-  name: name
+  name:
+    plugin: static_map
+    bypass: true
+    source: name
+    map:
+      'Meeting & Events': 'Meetings & Events'
+      'Resource': 'Resources'
   description: description
   weight: weight
   parent:

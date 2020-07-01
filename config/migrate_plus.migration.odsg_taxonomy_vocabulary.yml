@@ -1,4 +1,4 @@
-uuid: 9d67163c-1dc3-4b22-9164-ff24cd4f8703
+uuid: cb2b30cc-6958-4c44-ae7b-9eb5cc2bbd42
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - odsg_migrate
 _core:
-  default_config_hash: on5FN8fMRn-YvabzOP3JkJkgQJVYK2pLopXdqLWVDvI
+  default_config_hash: WJrJcHVS0mptIaE963_K9qNQCoPP6topnf9SFiaTaF8
 id: odsg_taxonomy_vocabulary
 class: null
 field_plugin_method: null
@@ -27,8 +27,18 @@ process:
       field: vid
       length: 32
       migrated: true
-  label: name
-  name: name
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        page_landing: landing_page
+  label:
+    plugin: static_map
+    bypass: true
+    source: name
+    map:
+      'Page Landing': 'Landing Page'
+  name: '@label'
   description: description
   hierarchy: hierarchy
   module: module

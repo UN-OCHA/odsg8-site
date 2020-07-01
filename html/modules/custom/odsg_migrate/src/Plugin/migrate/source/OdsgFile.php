@@ -2,6 +2,7 @@
 
 namespace Drupal\odsg_migrate\Plugin\migrate\source;
 
+use Drupal\Core\Database\Query\Condition;
 use Drupal\migrate\Row;
 use Drupal\migrate_drupal\Plugin\migrate\source\d7\FieldableEntity;
 
@@ -27,7 +28,25 @@ class OdsgFile extends FieldableEntity {
       $query->condition('fm.type', $this->configuration['type']);
     }
 
-    return $query;
+    $query->leftJoin('file_usage', 'fu', 'fu.fid = fm.fid');
+
+    // Select only documents or images used by custom link nodes.
+    $or = new Condition('OR');
+    $or->condition('fm.type', 'document', '=');
+    $or->condition('fu.type', 'node', '=');
+    $query->condition($or);
+
+    // Exclude the files attached to the duplicate ODSG documents as they will
+    // not be migrated.
+    $or = new Condition('OR');
+    $or->isNull('fu.id');
+    $or->condition('fu.id', array_keys(OdsgNodeOdsgDocument::$duplicates), 'NOT IN');
+    $query->condition($or);
+
+    // Exclude duplicate images.
+    $query->condition('fm.fid', array_keys(OdsgNodeCustomLink::$imageDuplicates), 'NOT IN');
+
+    return $query->distinct();
   }
 
   /**
