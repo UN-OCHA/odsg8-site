@@ -1,0 +1,144 @@
+/**
+ * Page title.
+ */
+.page-title {
+  padding-bottom: 0;
+  border-bottom: none;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/**
+ * Section tiles.
+ */
+main h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2.5em 0 1.25em;
+}
+
+/**
+ * Styling of the annoucnement section.
+ */
+.odsg-announcement {
+  position: relative;
+  /* Include the icon width for the left and right margins. */
+  padding: 1em calc(1em + 80px);
+  margin-top: 2.5em;
+  font-size: 1.5rem;
+  text-align: center;
+  /* The border color is omitted to inherit from the font color. */
+  border: 1px solid;
+}
+.odsg-announcement:before {
+  content: "";
+  position: absolute;
+  left: 0.25em;
+  /* Center vertically with the margin-top. */
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  margin-top: -40px;
+  background-image: url(img/announcement.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Styling for the Meetings & Events and Publications sections.
+ */
+.layout--fourcol-titled-section .layout--content {
+  display: block;
+  /* Compensate for the margin of the ocha-publication items. */
+  margin: -1.5em;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.layout--fourcol-titled-section .layout--content .layout__region {
+  display: inline-block;
+  vertical-align: top;
+  width: 220px;
+  /* Ensure consistent spacing between items. */
+  margin: 1.5em;
+  text-align: left;
+}
+
+@supports (display: grid) {
+  .layout--fourcol-titled-section .layout--content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-gap: 1.5em;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+/**
+ * Styling of the Meetings & Events.
+ */
+.layout--fourcol-titled-section.layout--label--meetings--events .layout--content {
+  grid-template-columns: repeat(auto-fill, 250px);
+}
+.layout--fourcol-titled-section.layout--label--meetings--events .layout--content .layout__region {
+  width: 250px;
+  padding: 1.2em 1em 2em 1em;
+  background-color: var(--cd-light-bluey-grey);
+}
+.odsg-meetings-events {
+  position: relative;
+  padding-top: calc(1em + 80px);
+  padding-bottom: 1em;
+  text-align: center;
+}
+.odsg-meetings-events a {
+  display: block;
+  margin-top: 0.5em;
+}
+.odsg-meetings-events:before {
+  content: "";
+  position: absolute;
+  /* Center horizontally with the margin-left. */
+  left: 50%;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.odsg-meetings-events.high-level-meetings:before {
+  background-image: url(img/high-level-meetings.png);
+}
+.odsg-meetings-events.geneva-meetings:before {
+  background-image: url(img/geneva-meetings.png);
+}
+.odsg-meetings-events.new-york-meetings:before {
+  background-image: url(img/field-missions.png);
+}
+.odsg-meetings-events.field-missions:before {
+  background-image: url(img/new-york-meetings.png);
+}
+
+
+
+/**
+ * Align more links in views.
+ */
+.block.block-views,
+.block.block-views .views-element-container {
+  height: 100%;
+}
+.block.block-views .views-element-container .view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.block.block-views .views-element-container .view .view-content {
+  flex-grow: 1;
+}
+
+

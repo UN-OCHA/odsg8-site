@@ -1,0 +1,85 @@
+/**
+ * Simple grid emulation when disply:grid is not supported.
+ */
+.odsg-publications {
+  /* Compensate for the margin of the ocha-publication items. */
+  margin: -1.5em;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.odsg-publication {
+  display: inline-block;
+  vertical-align: top;
+  width: 220px;
+  /* Ensure consistent spacing between items. */
+  margin: 1.5em;
+  text-align: left;
+}
+
+/**
+ * The rules for the figure and img are to have the image use 100% of the height
+ * while preserving the aspect ratio, cropping horizontally images that are too
+ * large and fitting and centering smaller ones, when object-fit: cover is not
+ * supported.
+ *
+ * The default aspect ratio is for the portrait PDF covers.
+ */
+.odsg-publication figure {
+  display: block;
+  position: relative;
+  width: 220px;
+  height: 313px;
+  margin: 0 0 0.5em 0;
+  overflow: hidden;
+}
+.odsg-publication img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+/**
+ * News and Updates have a different aspect ratio for their image: 3/2.
+ */
+.odsg-publications.news-updates .odsg-publication {
+  width: 330px;
+}
+.odsg-publications.news-updates .odsg-publication figure {
+  width: 330px;
+  height: 220px;
+}
+
+/**
+ * Better image cropping and resizing when supported.
+ */
+@supports (object-fit: cover) {
+  .odsg-publication img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/**
+ * Better grid when supported.
+ */
+@supports (display: grid) {
+  .odsg-publications {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-gap: 1.5em;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .odsg-publications.news-updates {
+    grid-template-columns: repeat(auto-fill, 330px);
+  }
+}

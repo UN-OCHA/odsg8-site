@@ -1,4 +1,86 @@
-# OCHA Common Design sub theme for Drupal 8
+OCHA Common Design sub theme for the Drupal 8 ODSG site
+=======================================================
+
+See below for [generic information](#ocha-ommon-design-sub-theme-for-Drupal-8)
+about the OCHA Common Design sub theme.
+
+Requirements
+------------
+
+The customizations for the ODSG site require the installation of the
+[components](https://www.drupal.org/project/components) drupal module.
+
+Customizations
+--------------
+
+The contains additions to the default common design subtheme:
+
+**Base styling**
+
+- [Forms](sass/components/_forms.css)
+
+  Styling for the drupal inline forms.
+
+- [Tables](sass/components/_tables.css)
+
+  Styling for the tables.
+
+**Regions**
+
+- A _breadcrumb_ region has been added with the following files:
+  - [region template](templates/regions/region--breadcrumb.html.twig)
+  - [region styling](sass/odsg/regions/breadcrumb.scss)
+
+**Components**
+
+- [components/odsg-donor-ranking](components/odsg-donor-ranking):
+
+  Styling for the donor ranking tables.
+
+- [components/odsg-landing-page-links](components/odsg-landing-page-links):
+
+  Styling for the custom menus on landing pages on ODSG.
+
+- [components/odsg-more-link](components/odsg-more-link):
+
+  Styling for more links displayed on ODSG.
+
+- [components/odsg-publications](components/odsg-publications):
+
+  Styling for the OCHA publications displayed on ODSG.
+
+**Page styling**
+
+- [pages/odsg-homepage](components/odsg-homepage):
+
+  Specific styling for the homepage.
+
+**Templates**
+
+- [OCHA Feeds views template](templates/views/views-view-list--ocha-feeds.html.twig):
+
+  Override of the views list template to use the `odsg-publications` component
+  for the OCHA Feeds (OCHA publications on ODSG).
+
+- [OCHA Funding views template](templates/views/views-view-table--ocha-funding.html.twig):
+
+  Override of the views table template to use the `odsg-donor-ranking` component
+  for the OCHA Funding tables.
+
+**Preprocessors**
+
+- The [common_design_subtheme.theme](common_design_subtheme.theme) file contains
+  a fiew preprocess hooks to work with the new components and page styling.
+
+**Overrides**
+
+- Header: [Logos](img/logos)
+- Header: [OCHA services](templates/cd/cd-header/cd-ocha.html.twig)
+- Footer: [Social menu](templates/cd/cd-footer/cd-social-menu.html.twig)
+
+---
+
+## OCHA Common Design sub theme for Drupal 8 {generic-info}
 
 A sub theme, extending [common_design](https://github.com/UN-OCHA/common_design) base theme.
 
@@ -8,23 +90,29 @@ Clone this repo to /themes/custom/ and rename the folder and associated theme fi
 `common_design_subtheme` to your theme name.
 
 ### Customise the logo
+
 - Set the logo `logo: 'img/logos/logo.svg'` in the `common_design_subtheme.info.yml` file, and in the `sass/cd-header/_cd-logo.scss` partial override file.
 - Adjust the grid column width in `sass/cd-header/_cd-header.scss` partial override file to accommodate the logo.
 
 ### Change the path of the libraries
+
 In the `common_design_subtheme.info.yml` change the path of the global style sheet to reflect the new sub theme name.
+
 ```
 libraries:
 - common_design_subtheme/global-styling
 ```
 
 ### Customise the favicon and homescreen icons
+
 Replace the favicon in the theme's root, and the homescreen icons in `img/` with branded versions
 
 ### Customise colours
+
 - Change colour-related variable names and values in `sass/cd/_cd_variables.scss` and replace in all references to in partial overrides in `common_design_subtheme/sass/cd/`
 
 ### Other customisations
+
 Override sass partials and extend twig templates from the base theme as needed, copying them into the sub theme and linking them using `@import` for sass and `extend` or `embed` for twig templates.
 
 Add new components by defining new libraries in `common_design_subtheme.libraries.yml` and attaching them to relevant templates. Or use existing components from `common_design.libraries.yml` base theme by attaching the libraries to twig template overrides in the sub theme.

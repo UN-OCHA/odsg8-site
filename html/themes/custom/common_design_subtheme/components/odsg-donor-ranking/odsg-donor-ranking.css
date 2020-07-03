@@ -1,0 +1,740 @@
+/**
+ * Show the country flag icon on large screens.
+ *
+ * See common_desing/components/cd-table/cd-table.css for the breakpoint.
+ */
+@media (min-width: 576px) {
+  /**
+   * This applies to both the <th> and <td>, ensuring they are aligned.
+   */
+  .odsg-donor-ranking .odsg-donor-ranking--donor:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+  }
+
+  /**
+   * Base rules to display the country flag in a circle.
+   */
+  .odsg-donor-ranking td.odsg-donor-ranking--donor:before {
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /**
+   * Country flags based on the ISO2 code of the country.
+   */
+  .odsg-donor-ranking .odsg-donor-code-ad td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ad.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ae td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ae.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-af td.odsg-donor-ranking--donor:before {
+    background-image: url(img/af.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ag td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ag.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ai td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ai.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-al td.odsg-donor-ranking--donor:before {
+    background-image: url(img/al.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-am td.odsg-donor-ranking--donor:before {
+    background-image: url(img/am.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ao td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ao.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ar td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ar.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-as td.odsg-donor-ranking--donor:before {
+    background-image: url(img/as.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-at td.odsg-donor-ranking--donor:before {
+    background-image: url(img/at.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-au td.odsg-donor-ranking--donor:before {
+    background-image: url(img/au.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-aw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/aw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ax td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ax.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-az td.odsg-donor-ranking--donor:before {
+    background-image: url(img/az.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ba td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ba.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bb td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bb.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bd td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bd.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-be td.odsg-donor-ranking--donor:before {
+    background-image: url(img/be.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bf td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bf.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bh td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bh.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bi td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bi.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bj td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bj.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bo td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bo.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-br td.odsg-donor-ranking--donor:before {
+    background-image: url(img/br.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bs td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bs.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bt td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bt.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-by td.odsg-donor-ranking--donor:before {
+    background-image: url(img/by.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-bz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/bz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ca td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ca.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cd td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cd.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cf td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cf.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ch td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ch.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ci td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ci.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ck td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ck.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cl td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cl.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-co td.odsg-donor-ranking--donor:before {
+    background-image: url(img/co.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cv td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cv.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cx td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cx.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cy td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cy.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-cz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/cz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-de td.odsg-donor-ranking--donor:before {
+    background-image: url(img/de.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-dj td.odsg-donor-ranking--donor:before {
+    background-image: url(img/dj.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-dk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/dk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-dm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/dm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-do td.odsg-donor-ranking--donor:before {
+    background-image: url(img/do.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-dz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/dz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ec td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ec.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ee td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ee.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-eg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/eg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-er td.odsg-donor-ranking--donor:before {
+    background-image: url(img/er.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-es td.odsg-donor-ranking--donor:before {
+    background-image: url(img/es.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-et td.odsg-donor-ranking--donor:before {
+    background-image: url(img/et.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-eu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/eu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-fi td.odsg-donor-ranking--donor:before {
+    background-image: url(img/fi.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-fj td.odsg-donor-ranking--donor:before {
+    background-image: url(img/fj.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-fk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/fk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-fm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/fm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-fo td.odsg-donor-ranking--donor:before {
+    background-image: url(img/fo.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-fr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/fr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ga td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ga.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gb td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gb.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gd td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gd.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ge td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ge.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gh td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gh.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gi td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gi.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gl td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gl.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gq td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gq.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gs td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gs.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gt td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gt.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-gy td.odsg-donor-ranking--donor:before {
+    background-image: url(img/gy.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-hk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/hk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-hn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/hn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-hr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/hr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ht td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ht.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-hu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/hu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-id td.odsg-donor-ranking--donor:before {
+    background-image: url(img/id.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ie td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ie.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-il td.odsg-donor-ranking--donor:before {
+    background-image: url(img/il.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-im td.odsg-donor-ranking--donor:before {
+    background-image: url(img/im.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-in td.odsg-donor-ranking--donor:before {
+    background-image: url(img/in.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-io td.odsg-donor-ranking--donor:before {
+    background-image: url(img/io.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-iq td.odsg-donor-ranking--donor:before {
+    background-image: url(img/iq.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ir td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ir.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-is td.odsg-donor-ranking--donor:before {
+    background-image: url(img/is.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-it td.odsg-donor-ranking--donor:before {
+    background-image: url(img/it.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-je td.odsg-donor-ranking--donor:before {
+    background-image: url(img/je.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-jm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/jm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-jo td.odsg-donor-ranking--donor:before {
+    background-image: url(img/jo.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-jp td.odsg-donor-ranking--donor:before {
+    background-image: url(img/jp.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ke td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ke.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kh td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kh.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ki td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ki.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-km td.odsg-donor-ranking--donor:before {
+    background-image: url(img/km.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kp td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kp.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ky td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ky.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-kz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/kz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-la td.odsg-donor-ranking--donor:before {
+    background-image: url(img/la.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lb td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lb.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-li td.odsg-donor-ranking--donor:before {
+    background-image: url(img/li.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ls td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ls.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lt td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lt.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-lv td.odsg-donor-ranking--donor:before {
+    background-image: url(img/lv.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ly td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ly.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ma td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ma.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-md td.odsg-donor-ranking--donor:before {
+    background-image: url(img/md.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-me td.odsg-donor-ranking--donor:before {
+    background-image: url(img/me.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mh td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mh.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ml td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ml.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mo td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mo.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mp td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mp.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mq td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mq.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ms td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ms.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mt td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mt.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mv td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mv.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mx td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mx.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-my td.odsg-donor-ranking--donor:before {
+    background-image: url(img/my.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-mz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/mz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-na td.odsg-donor-ranking--donor:before {
+    background-image: url(img/na.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-nc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/nc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ne td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ne.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-nf td.odsg-donor-ranking--donor:before {
+    background-image: url(img/nf.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ng td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ng.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ni td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ni.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-nl td.odsg-donor-ranking--donor:before {
+    background-image: url(img/nl.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-no td.odsg-donor-ranking--donor:before {
+    background-image: url(img/no.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-np td.odsg-donor-ranking--donor:before {
+    background-image: url(img/np.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-nr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/nr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-nu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/nu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-nz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/nz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-om td.odsg-donor-ranking--donor:before {
+    background-image: url(img/om.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pa td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pa.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pe td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pe.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pf td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pf.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ph td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ph.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pl td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pl.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ps td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ps.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pt td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pt.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-pw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/pw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-py td.odsg-donor-ranking--donor:before {
+    background-image: url(img/py.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-qa td.odsg-donor-ranking--donor:before {
+    background-image: url(img/qa.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-re td.odsg-donor-ranking--donor:before {
+    background-image: url(img/re.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ro td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ro.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-rs td.odsg-donor-ranking--donor:before {
+    background-image: url(img/rs.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ru td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ru.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-rw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/rw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sa td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sa.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sb td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sb.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sd td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sd.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-se td.odsg-donor-ranking--donor:before {
+    background-image: url(img/se.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sh td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sh.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-si td.odsg-donor-ranking--donor:before {
+    background-image: url(img/si.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sl td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sl.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-so td.odsg-donor-ranking--donor:before {
+    background-image: url(img/so.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ss td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ss.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-st td.odsg-donor-ranking--donor:before {
+    background-image: url(img/st.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sv td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sv.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sx td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sx.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sy td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sy.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-sz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/sz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-td td.odsg-donor-ranking--donor:before {
+    background-image: url(img/td.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tf td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tf.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-th td.odsg-donor-ranking--donor:before {
+    background-image: url(img/th.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tj td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tj.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tk td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tk.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tl td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tl.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-to td.odsg-donor-ranking--donor:before {
+    background-image: url(img/to.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tr td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tr.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tt td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tt.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tv td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tv.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tw.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-tz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/tz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ua td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ua.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ug td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ug.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-us td.odsg-donor-ranking--donor:before {
+    background-image: url(img/us.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-uy td.odsg-donor-ranking--donor:before {
+    background-image: url(img/uy.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-uz td.odsg-donor-ranking--donor:before {
+    background-image: url(img/uz.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-va td.odsg-donor-ranking--donor:before {
+    background-image: url(img/va.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-vc td.odsg-donor-ranking--donor:before {
+    background-image: url(img/vc.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ve td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ve.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-vg td.odsg-donor-ranking--donor:before {
+    background-image: url(img/vg.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-vi td.odsg-donor-ranking--donor:before {
+    background-image: url(img/vi.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-vn td.odsg-donor-ranking--donor:before {
+    background-image: url(img/vn.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-vu td.odsg-donor-ranking--donor:before {
+    background-image: url(img/vu.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ws td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ws.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-ye td.odsg-donor-ranking--donor:before {
+    background-image: url(img/ye.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-za td.odsg-donor-ranking--donor:before {
+    background-image: url(img/za.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-zm td.odsg-donor-ranking--donor:before {
+    background-image: url(img/zm.svg);
+  }
+  .odsg-donor-ranking .odsg-donor-code-zw td.odsg-donor-ranking--donor:before {
+    background-image: url(img/zw.svg);
+  }
+}

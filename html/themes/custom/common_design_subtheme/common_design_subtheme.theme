@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Override, alter and preprocess functions for the OCHA Common Design subtheme.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_preprocess_layout().
+ */
+function common_design_subtheme_preprocess_layout(&$variables) {
+  // Add a class based on the administrative label of the layout for easier
+  // styling of sections.
+  if (!empty($variables['settings']['label'])) {
+    $class = 'layout--label--' . Html::getClass($variables['settings']['label']);
+    $variables['attributes']['class'][] = $class;
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_list().
+ */
+function common_design_subtheme_preprocess_views_view_list(&$variables) {
+  // Ensure the list.attributes is available for use in the template because
+  // core views doesn't do its jobs properly and only adds it when classes to
+  // apply to the list element have been defined which prevents manipulating
+  // the attributes object in the template.
+  //
+  // @see template_preprocess_views_view_list()
+  if (empty($variables['list']['attributes'])) {
+    $variables['list']['attributes'] = new Attribute();
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function common_design_subtheme_preprocess_page(&$variables) {
+  // Add the page specific css to the homepage.
+  if (!empty($variables['is_front'])) {
+    // Set cacheability based on the condition.
+    $variables['page']['#cache']['contexts'][] = 'url.path.is_front';
+    $variables['#attached']['library'][] = 'common_design_subtheme/odsg-homepage';
+  }
+}

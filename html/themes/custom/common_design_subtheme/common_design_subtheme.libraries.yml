@@ -4,7 +4,25 @@ global-styling:
       css/styles.css: {}
 
 # Custom components
-# cd-article-teaser:
-#   css:
-#     theme:
-#       components/cd-article-teaser/cd-article-teaser.css: {}
+odsg-donor-ranking:
+  css:
+    theme:
+      components/odsg-donor-ranking/odsg-donor-ranking.css: {}
+odsg-landing-page-links:
+  css:
+    theme:
+      components/odsg-landing-page-links/odsg-landing-page-links.css: {}
+odsg-more-link:
+  css:
+    theme:
+      components/odsg-more-link/odsg-more-link.css: {}
+odsg-publications:
+  css:
+    theme:
+      components/odsg-publications/odsg-publications.css: {}
+
+# Page specifics.
+odsg-homepage:
+  css:
+    theme:
+      pages/odsg-homepage/odsg-homepage.css: {}

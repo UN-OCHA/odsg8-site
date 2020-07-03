@@ -17,6 +17,7 @@ regions:
   header_logo: Header logo
   header_navigation: Header navigation
   hero: Hero
+  breadcrumb: Breadcrumb
   highlighted: Highlighted
   content: Content
   sidebar_first: First sidebar
@@ -29,9 +30,12 @@ regions:
 #   common_design/cd-article-teaser:
 #     - common_design_subtheme/cd-article-teaser
 
-# CD components
+# Components and page.
 # Requires Components module
-# component-libraries:
-#   cd-components:
-#     paths:
-#       - components
+component-libraries:
+  odsg-components:
+    paths:
+      - components
+  odsg-pages:
+    paths:
+      - pages

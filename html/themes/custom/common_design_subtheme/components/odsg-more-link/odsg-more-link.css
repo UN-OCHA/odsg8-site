@@ -1,0 +1,19 @@
+.odsg-more-link {
+  /* This is to avoid having the link appear under another element. */
+  position: relative;
+  text-align: center;
+}
+.odsg-more-link a {
+  padding: 0.8em 1.2em;
+  /* The border color is omitted to inherit from the font color. */
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.odsg-more-link a:hover,
+.odsg-more-link a:active,
+.odsg-more-link a:focus {
+  text-decoration: underline;
+}

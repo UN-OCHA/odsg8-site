@@ -18,6 +18,10 @@
 @import 'base/typography';
 
 //——————————————————————————————————————————————————————————————————————————————
-// Components
+// ODSG customizations
 //——————————————————————————————————————————————————————————————————————————————
 
+@import 'odsg/base/typography';
+@import 'odsg/components/forms';
+@import 'odsg/components/tables';
+@import 'odsg/regions/breadcrumb';
