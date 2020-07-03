@@ -18,7 +18,9 @@
 %}
 {% if content %}
   <section{{ attributes.addClass(classes) }}>
+    {% if (settings.label is not empty) %}
     <h2>{{ settings.label }}</h2>
+    {% endif %}
 
     <div class="layout--content">
       {% if content.first %}
