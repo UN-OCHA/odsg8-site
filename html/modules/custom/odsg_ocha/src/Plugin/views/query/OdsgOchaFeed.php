@@ -190,9 +190,6 @@ class OdsgOchaFeed extends QueryPluginBase {
     $offset = $view->pager->getOffset();
     $view->pager->current_page = 0;
     $view->pager->total_items = count($view->result);
-    \Drupal::logger('odsg_ocha')->notice(print_r([
-      $view->pager->total_items,
-    ], TRUE));
 
     // Apply the offset and limit on the result set as the feed service doesn't
     // handle them.
