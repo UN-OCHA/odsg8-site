@@ -10,10 +10,10 @@ dependencies:
     - node.type.odsg_document
     - taxonomy.vocabulary.document_type_project_report
   content:
-    - 'taxonomy_term:document_type_project_report:062ed140-a0fb-4b79-baad-f73e55d7b4c6'
-    - 'taxonomy_term:document_type_project_report:85657154-8f6a-47dc-b1b1-25f4fff8b04a'
-    - 'taxonomy_term:document_type_project_report:8d6c68b7-c358-4c2b-a4e3-a78d2faf18ac'
-    - 'taxonomy_term:document_type_project_report:f71c18c0-8599-46cd-bc5b-3a62dcb71644'
+    - 'taxonomy_term:document_type_project_report:02e4dbc3-2874-4d98-9a30-6ff7ee82dc31'
+    - 'taxonomy_term:document_type_project_report:6721fd2a-9a4b-4e8f-99f1-5d66105b6a2b'
+    - 'taxonomy_term:document_type_project_report:f0dae640-dc79-47be-a7ab-64f7ea62d1dc'
+    - 'taxonomy_term:document_type_project_report:f4558195-7208-46c7-9bb0-bb9887647393'
   module:
     - datetime
     - file
@@ -1058,7 +1058,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'odsg-meetings-events odsg-meetings-events-field-missions'
+          row_class: 'odsg-meetings-events field-missions'
           default_row_class: false
       row:
         type: fields
@@ -1339,7 +1339,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>Field Missions</h3>\r\n<p><a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>Field Missions</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
             make_link: false
             path: ''
             absolute: false
@@ -1495,7 +1495,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'odsg-meetings-events odsg-meetings-events-field-missions'
+          row_class: 'odsg-meetings-events geneva-meetings'
           default_row_class: false
       row:
         type: fields
@@ -1776,7 +1776,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>Geneva Meetings</h3>\r\n<p><a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>Geneva Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
             make_link: false
             path: ''
             absolute: false
@@ -1932,7 +1932,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'odsg-meetings-events odsg-meetings-events-field-missions'
+          row_class: 'odsg-meetings-events high-level-meetings'
           default_row_class: false
       row:
         type: fields
@@ -2213,7 +2213,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>High-Level Capital Meetings</h3>\r\n<p><a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>High-Level Capital Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
             make_link: false
             path: ''
             absolute: false
@@ -2369,7 +2369,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'odsg-meetings-events odsg-meetings-events-field-missions'
+          row_class: 'odsg-meetings-events new-york-meetings'
           default_row_class: false
       row:
         type: fields
@@ -2650,7 +2650,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>New York Meetings</h3>\r\n<p><a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>New York Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
             make_link: false
             path: ''
             absolute: false

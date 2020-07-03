@@ -69,7 +69,7 @@ display:
           row_class: ''
           default_row_class: false
           type: ul
-          wrapper_class: item-list
+          wrapper_class: ''
           class: ''
       row:
         type: fields
