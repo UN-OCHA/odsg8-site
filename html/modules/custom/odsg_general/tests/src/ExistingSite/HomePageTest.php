@@ -20,8 +20,6 @@ class HomePageTest extends ExistingSiteBase {
 
     $this->assertSession()->pageTextContains('Welcome to OCHA Donor Support Group');
     $this->assertSession()->pageTextContains('Login with Humanitarian ID');
-
-    xxxsss
   }
 
 }
