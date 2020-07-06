@@ -97,3 +97,9 @@ fin drush --uri=test.odsg8-site.docksal cr
 fin drush --uri=test.odsg8-site.docksal en yaml_content -y
 fin drush --uri=test.odsg8-site.docksal yaml-content-import /var/www/.travis/
 ```
+
+Run tests using docksal
+
+```bash
+fin exec DTT_BASE_URL=http://test.odsg8-site.docksal/ ./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript --printer '\Drupal\Tests\Listeners\HtmlOutputPrinter'
+```
