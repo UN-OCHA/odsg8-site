@@ -50,7 +50,8 @@
         "drupal/yaml_content": "^1.0@alpha",
         "phpcompatibility/php-compatibility": "^9.3.5",
         "phpmd/phpmd": "^2.8.2",
-        "phpunit/phpunit": "^7.5.20"
+        "phpunit/phpunit": "^7.5.20",
+        "weitzman/drupal-test-traits": "^1.5"
     },
     "conflict": {
         "drupal/drupal": "*"
