@@ -1,0 +1,29 @@
+uuid: 83845591-f4c8-46be-bf7e-0ebdced44c55
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - common_design_subtheme
+id: pagetitle
+theme: common_design_subtheme
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      announcement: announcement
+      custom_link: custom_link
+      odsg_document: odsg_document
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

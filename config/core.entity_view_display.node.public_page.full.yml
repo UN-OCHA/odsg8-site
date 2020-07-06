@@ -1,26 +1,30 @@
-uuid: fc14671f-d7a0-405e-85ac-ee6720504aad
+uuid: f30721dd-ea7d-4c39-a2cf-1aed2dacc47f
 langcode: en
 status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.full
     - field.field.node.public_page.body
     - field.field.node.public_page.layout_builder__layout
     - node.type.public_page
   module:
+    - layout_builder
     - text
     - user
-id: node.public_page.teaser
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.public_page.full
 targetEntityType: node
 bundle: public_page
-mode: teaser
+mode: full
 content:
   body:
     label: hidden
-    type: text_summary_or_trimmed
+    type: text_default
     weight: 101
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
     region: content
   links:

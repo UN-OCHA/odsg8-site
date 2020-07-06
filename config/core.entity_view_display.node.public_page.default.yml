@@ -19,18 +19,33 @@ third_party_settings:
       -
         layout_id: layout_onecol
         layout_settings:
-          label: ''
+          label: Title
         components:
-          9dc5dd88-b3d4-4283-b30e-a835930a3b82:
-            uuid: 9dc5dd88-b3d4-4283-b30e-a835930a3b82
+          379de940-3ad7-4ff7-9ad1-32d5cd9f5637:
+            uuid: 379de940-3ad7-4ff7-9ad1-32d5cd9f5637
             region: content
             configuration:
+              id: 'field_block:node:public_page:title'
+              label: Title
+              provider: layout_builder
               label_display: '0'
+              formatter:
+                label: above
+                type: string
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
               context_mapping:
                 entity: layout_builder.entity
-              id: 'extra_field_block:node:public_page:links'
+                view_mode: view_mode
             additional: {  }
             weight: 0
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: Main
+        components:
           1559208a-f1d7-4e24-8f5a-f17d01146945:
             uuid: 1559208a-f1d7-4e24-8f5a-f17d01146945
             region: content
