@@ -10,17 +10,17 @@ exclude='(\.(js|ico|scss|xsl)$)'
 
 # The linter path is relative to the root of the repository.
 root="$(git rev-parse --show-toplevel)"
-linter="php"
+linter="vendor/bin/phpcs"
 linter="$root/$linter"
-options='-l'
+options='-p --report=full --standard=phpcs.xml'
 
 if [ -x "$(command -v fin)" ]; then
   linter="fin"
-  options='exec php -l'
+  options='exec vendor/bin/phpcs -p --report=full --standard=phpcs.xml'
   root='.'
 fi
 
-message='Linting staged PHP files...'
+message='Linting staged PHP/CSS files...'
 
 # Load and execute the linting code.
 . "$(dirname "$0")/lint-common"
