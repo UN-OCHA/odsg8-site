@@ -49,11 +49,11 @@
  * News and Updates have a different aspect ratio for their image: 3/2.
  */
 .odsg-publications.news-updates .odsg-publication {
-  width: 330px;
+  width: 300px;
 }
 .odsg-publications.news-updates .odsg-publication figure {
-  width: 330px;
-  height: 220px;
+  width: 300px;
+  height: 200px;
 }
 
 /**
@@ -78,8 +78,12 @@
     grid-gap: 1.5em;
     justify-content: space-around;
     width: 100%;
+    margin: 0;
+  }
+  .odsg-publication {
+    margin: 0;
   }
   .odsg-publications.news-updates {
-    grid-template-columns: repeat(auto-fill, 330px);
+    grid-template-columns: repeat(auto-fill, 300px);
   }
 }
