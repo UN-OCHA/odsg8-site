@@ -47,7 +47,6 @@ script:
   # PHP CS
   - ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
   - test ! -d ./html/modules/custom || ./vendor/bin/phpcs -p --report=full ./html/modules/custom
-  - # test ! -d ./html/themes/custom || ./vendor/bin/phpcs -p --report=full ./html/themes/custom
 
   # Drupal install
   - mysql -e "CREATE DATABASE drupal;"
