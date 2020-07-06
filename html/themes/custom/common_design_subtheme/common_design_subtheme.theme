@@ -39,10 +39,37 @@ function common_design_subtheme_preprocess_views_view_list(&$variables) {
  * Implements hook_preprocess_page().
  */
 function common_design_subtheme_preprocess_page(&$variables) {
+  // Set cacheability based on the condition.
+  $variables['page']['#cache']['contexts'][] = 'url.path.is_front';
   // Add the page specific css to the homepage.
   if (!empty($variables['is_front'])) {
-    // Set cacheability based on the condition.
-    $variables['page']['#cache']['contexts'][] = 'url.path.is_front';
     $variables['#attached']['library'][] = 'common_design_subtheme/odsg-homepage';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function common_design_subtheme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements'])) {
+    $elements = $variables['elements'];
+
+    // Add a suggestion for field blocks in the form:
+    // `block--field-block--entity-type--field-name`.
+    if (isset($elements['#base_plugin_id'], $elements['content'])) {
+      if ($elements['#base_plugin_id'] === 'field_block') {
+        $suggestion = implode('__', array_filter([
+          'block',
+          $elements['#base_plugin_id'],
+          $elements['content']['#entity_type'] ?? '',
+          $elements['content']['#field_name'] ?? '',
+        ]));
+
+        // Do not add the suggestion if it's already present.
+        if (!in_array($suggestion, $suggestions)) {
+          $suggestions[] = $suggestion;
+        }
+      }
+    }
   }
 }
