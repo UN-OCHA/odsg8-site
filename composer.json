@@ -47,8 +47,9 @@
         "drupal/coder": "^8.3.9",
         "drupal/console": "^1.9.4",
         "drupal/devel": "^2.1",
-        "phpmd/phpmd": "^2.8.2",
+        "drupal/yaml_content": "^1.0@alpha",
         "phpcompatibility/php-compatibility": "^9.3.5",
+        "phpmd/phpmd": "^2.8.2",
         "phpunit/phpunit": "^7.5.20"
     },
     "conflict": {

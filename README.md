@@ -81,3 +81,19 @@ Notes
 Some notes related to the initial installation and development are available in
 the [notes.md](notes.md) file.
 
+Local testing
+-------------
+
+```bash
+mkdir -p ./html/sites/test
+cp ./.travis/local/* ./html/sites/test/
+
+fin db create test
+fin drush --uri=test.odsg8-site.docksal si minimal -y
+fin drush --uri=test.odsg8-site.docksal cset system.site uuid $(grep uuid ./config/system.site.yml | awk '{print $2}') -y
+fin drush --uri=test.odsg8-site.docksal cim -y
+fin drush --uri=test.odsg8-site.docksal cr
+
+fin drush --uri=test.odsg8-site.docksal en yaml_content -y
+fin drush --uri=test.odsg8-site.docksal yaml-content-import /var/www/.travis/
+```
