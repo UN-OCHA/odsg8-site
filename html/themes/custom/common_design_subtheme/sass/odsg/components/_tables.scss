@@ -2,8 +2,35 @@
 // ODSG customizations: Tables
 //——————————————————————————————————————————————————————————————————————————————
 
-table caption {
-  padding: 0.6em;
-  color: $cd-ocha-blue;
-  font-size: 1.4rem;
+table {
+  margin: 0 auto 3rem;
+  border-collapse: collapse;
+  width: 100%;
+
+  caption {
+    padding: 0.6em;
+    color: $cd-ocha-blue;
+    font-size: 1.4rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid $cd-site-bg-color;
+  }
+
+  th {
+    color: $cd-ocha-blue;
+    border-bottom: 1px solid white;
+    background: $cd-site-bg-color;
+  }
+
+  a {
+    word-break: break-word;
+  }
+
+  tfoot {
+    font-weight: bold;
+  }
 }
