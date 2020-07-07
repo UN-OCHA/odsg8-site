@@ -19,10 +19,16 @@ process:
       - constants/slash
       - source
   alias:
-    plugin: concat
-    source:
-      - constants/slash
-      - alias
+    -
+      plugin: skip_on_value
+      value: '404'
+      method: row
+      source: alias
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - alias
   # Default to undefined ("und") if no language is defined.
   langcode:
     plugin: default_value
