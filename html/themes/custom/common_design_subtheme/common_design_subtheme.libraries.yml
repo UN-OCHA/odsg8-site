@@ -8,6 +8,10 @@ odsg-donor-ranking:
   css:
     theme:
       components/odsg-donor-ranking/odsg-donor-ranking.css: {}
+odsg-hid-login:
+  css:
+    theme:
+      components/odsg-hid-login/odsg-hid-login.css: {}
 odsg-landing-page-links:
   css:
     theme:
