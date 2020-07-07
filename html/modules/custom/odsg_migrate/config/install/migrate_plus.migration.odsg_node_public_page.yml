@@ -11,7 +11,7 @@ source:
     -
       nid: 100
       title: '404'
-      body: "<h2>404</h2>\n\n<p>Page not found</p>\n\n<p>Sorry, the page you are looking for could not be found.</p>\n\n<p>Please check the URL, or go back to our homepage.</p>\n\n<p><a href=\"/\">Back to Homepage</a></p>\n\n"
+      body: "<p>Page not found</p>\n\n<p>Sorry, the page you are looking for could not be found.</p>\n\n<p>Please check the URL, or go back to our homepage.</p>\n\n<p><a href=\"/\">Back to Homepage</a></p>\n\n"
       alias: '/404'
     -
       nid: 200
