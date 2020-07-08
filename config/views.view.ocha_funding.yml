@@ -22,8 +22,12 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
-        options: {  }
+        type: time
+        options:
+          results_lifespan: 3600
+          results_lifespan_custom: 0
+          output_lifespan: 3600
+          output_lifespan_custom: 0
       query:
         type: views_query
         options: {  }
@@ -529,6 +533,7 @@ display:
         use_ajax: false
         pager: false
         fields: false
+        cache: false
       filters:
         year:
           id: year
@@ -957,6 +962,9 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+      cache:
+        type: none
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:
