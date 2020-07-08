@@ -19,7 +19,8 @@ class HomePageTest extends ExistingSiteBase {
     $this->assertSession()->statusCodeEquals(200);
 
     $this->assertSession()->pageTextContains('Welcome to OCHA Donor Support Group');
-    $this->assertSession()->pageTextContains('Login with Humanitarian ID');
+    $this->assertSession()->pageTextContains('Log in with');
+    $this->assertSession()->elementAttributeContains('css', '.odsg-hid-login--logo', 'alt', 'Humanitarian ID');
   }
 
 }
