@@ -17,9 +17,17 @@ The contains additions to the default common design subtheme:
 
 **Base styling**
 
+- [Blocks](sass/components/_blocks.css)
+
+  Styling for the blocks.
+
 - [Forms](sass/components/_forms.css)
 
   Styling for the drupal inline forms.
+
+- [Layouts](sass/components/_layouts.css)
+
+  Styling for the layouts.
 
 - [Tables](sass/components/_tables.css)
 
@@ -36,6 +44,10 @@ The contains additions to the default common design subtheme:
 - [components/odsg-donor-ranking](components/odsg-donor-ranking):
 
   Styling for the donor ranking tables.
+
+- [components/odsg-hid-login](components/odsg-hid-login):
+
+  Styling for the Log In With Humanitarian ID block.
 
 - [components/odsg-landing-page-links](components/odsg-landing-page-links):
 
@@ -57,6 +69,13 @@ The contains additions to the default common design subtheme:
 
 **Templates**
 
+- [Node title block template](templates/block/block--field-block--node--title.html.twig):
+
+  Block to display a node's title to be used inside layouts. This is currently
+  used for the public and private pages in replacement of the `page-title`
+  block. Ideally we'd like to use the `page-title` block directly in the layout
+  but it's not available (https://www.drupal.org/project/drupal/issues/3029819).
+
 - [OCHA Feeds views template](templates/views/views-view-list--ocha-feeds.html.twig):
 
   Override of the views list template to use the `odsg-publications` component
@@ -66,6 +85,11 @@ The contains additions to the default common design subtheme:
 
   Override of the views table template to use the `odsg-donor-ranking` component
   for the OCHA Funding tables.
+
+- [ODSG Landing page links template](templates/views/views-view-list--odsg-landing-page-links.html.twig):
+
+  Override of the views list template to use the `odsg-landing-page-links`
+  component for the custom menus on landing pages.
 
 **Preprocessors**
 

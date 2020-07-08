@@ -26,10 +26,16 @@ process:
       - constants/slash
       - source
   alias:
-    plugin: concat
-    source:
-      - constants/slash
-      - alias
+    -
+      plugin: skip_on_value
+      value: '404'
+      method: row
+      source: alias
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - alias
   langcode:
     plugin: default_value
     source: language

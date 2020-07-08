@@ -4,7 +4,7 @@ mail: admin@odsg.unocha.org
 slogan: ''
 page:
   403: ''
-  404: /node/5993
+  404: /node/100
   front: /node/1
 admin_compact_mode: false
 weight_select_max: 100

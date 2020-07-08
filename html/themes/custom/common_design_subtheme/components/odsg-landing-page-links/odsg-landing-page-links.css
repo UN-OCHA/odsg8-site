@@ -9,8 +9,8 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  height: 180px;
-  width: 180px;
+  height: 240px;
+  width: 240px;
   /* Ensure consistent spacing between items. */
   margin: 1.5em;
   text-align: left;
@@ -45,8 +45,14 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  padding: 0.25em;
+  background: rgba(0,0,0,0.4);
   text-align: center;
+}
+.odsg-landing-page-link a:hover span,
+.odsg-landing-page-link a:active span,
+.odsg-landing-page-link a:focus span {
+  background: rgba(0,0,0,0.6);
 }
 
 /**
