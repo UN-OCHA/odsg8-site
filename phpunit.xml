@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- TODO set checkForUnintentionallyCoveredCode="true" once https://www.drupal.org/node/2626832 is resolved. -->
-<!-- PHPUnit expects functional tests to be run with either a privileged user
- or your current system user. See core/tests/README.md and
- https://www.drupal.org/node/2116263 for details.
--->
-<phpunit bootstrap="./html/core/tests/bootstrap.php" colors="true"
-         beStrictAboutTestsThatDoNotTestAnything="true"
-         beStrictAboutOutputDuringTests="true"
-         beStrictAboutChangesToGlobalState="true"
-         printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter">
-  <php>
-    <!-- Set error reporting to E_ALL. -->
-    <ini name="error_reporting" value="32767"/>
-    <!-- Do not limit the amount of memory tests take to run. -->
-    <ini name="memory_limit" value="-1"/>
-    <env name="SIMPLETEST_BASE_URL" value="https://odsg8.rw.test"/>
-    <env name="SIMPLETEST_DB" value="mysql://odsg8:odsg8@mysql/odsg8"/>
-    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="./shared/test-output"/>
+<!-- Using this project's bootstrap file allows tests in `ExistingSite`,
+    `ExistingSiteSelenium2DriverTest`, and `ExistingSiteWebDriverTest`
+     to run alongside core's test types. -->
+<phpunit bootstrap="vendor/weitzman/drupal-test-traits/src/bootstrap-fast.php">
+    <php>
+        <env name="DTT_BASE_URL" value="http://cerf8.local.docksal"/>
+        <env name="DTT_API_URL" value="http://chrome:9222"/>
+        <env name="DTT_MINK_DRIVER_ARGS" value='["chrome", null, "http://selenium:4444/wd/hub"]'/>
+        <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/tmp"/>
+        <!-- To disable deprecation testing completely uncomment the next line. -->
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled"/>
+        <!-- Specify the default directory screenshots should be placed. -->
+        <!--<env name="DTT_SCREENSHOT_REPORT_DIRECTORY" value=""/>-->
+    </php>
 
-  </php>
-  <testsuites>
-    <testsuite name="unit">
-      <directory>./html/modules/custom/*/tests/src/Unit</directory>
-    </testsuite>
-    <testsuite name="kernel">
-      <directory>./html/modules/custom/*/tests/src/Kernel</directory>
-    </testsuite>
-  </testsuites>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./html/modules/custom/*/tests/src/Unit</directory>
+        </testsuite>
+        <testsuite name="kernel">
+            <directory>./html/modules/custom/*/tests/src/Kernel</directory>
+        </testsuite>
+        <testsuite name="existing-site">
+            <directory>./html/modules/custom/*/tests/src/ExistingSite</directory>
+        </testsuite>
+        <testsuite name="existing-site-javascript">
+            <directory>./html/modules/custom/*/tests/src/ExistingSiteJavascript</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

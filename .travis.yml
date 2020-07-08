@@ -1,12 +1,10 @@
 dist: trusty
 language: php
 cache:
-  directories:
-  - $HOME/.composer
-  - $HOME/.npm
+  - composer
 
-# addons:
-#   chrome: stable
+addons:
+  chrome: stable
 
 php:
   - 7.3
@@ -16,9 +14,6 @@ mysql:
   username: root
   encoding: utf8
 
-services:
-  - docker
-
 env:
   global:
      - DRUPAL_REPO='git://drupalcode.org/project/drupal.git'
@@ -26,15 +21,12 @@ env:
      - DRUSH_VERSION='8.*'
      - PHPCS_VERSION='2.9.*@dev'
      - CODER_VERSION='dev-8.x-2.x'
-     - DB=mysql
+     - DB=sqlite
 
-#install:
-#  - test -n "${SSH_AGENT_PID}" && ssh-agent -k
+install:
+  ssh-agent -k
 
 before_script:
-  # Check the docker images we want actually exists.
-  - grep 'unocha/unified-builder:' docker/Dockerfile | awk '{print $2}' | xargs docker pull
-  - grep 'unocha/php7-k8s:' docker/Dockerfile | awk '{print $2}' | xargs docker pull
   # Composer.
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
   - source $HOME/.bashrc
@@ -47,32 +39,45 @@ before_script:
   - cd $TRAVIS_BUILD_DIR
   - composer install
 
-  # LightHouseBot
-  # - npm i --save-dev https://github.com/GoogleChromeLabs/lighthousebot
-
-  # PWMetrics
-  # - npm i
-
 script:
   # PHP linting
-  - set -e
   - test ! -d ./html/modules/custom || find -L ./html/modules/custom -iregex '.*\.\(php\|module\|inc\|install\)$' -print0 | xargs -0 -n 1 -P 4 php -l
   - test ! -d ./html/themes/custom || find -L ./html/themes/custom -iregex '.*\.\(php\|module\|inc\|install\)$' -print0 | xargs -0 -n 1 -P 4 php -l
-  - set +e
 
   # PHP CS
   - ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
-  - set -e
   - test ! -d ./html/modules/custom || ./vendor/bin/phpcs -p --report=full ./html/modules/custom
-  - test ! -d ./html/themes/custom || ./vendor/bin/phpcs -p --report=full ./html/themes/custom
-  - set +e
 
-  # Theme build.
-  - composer run gulp
+  # Drupal install
+  - mysql -e "CREATE DATABASE drupal;"
+  - mysql -e "GRANT ALL ON drupal.* to drupal@127.0.0.1 IDENTIFIED BY 'drupal';"
+
+  - cd ${TRAVIS_BUILD_DIR}
+  - mkdir -p ./html/sites/default
+  - cp .travis/default.se* ./html/sites/default/
+
+  - cd ${TRAVIS_BUILD_DIR}/html
+  - ../vendor/bin/drush -y si --db-url=mysql://drupal:drupal@127.0.0.1/drupal minimal
+  - ../vendor/bin/drush -y cset system.site uuid $(grep uuid ${TRAVIS_BUILD_DIR}/config/system.site.yml | awk '{print $2}')
+  - ../vendor/bin/drush -y cim --source=${TRAVIS_BUILD_DIR}/config
+  - ../vendor/bin/drush rs 127.0.0.1:8080 >/dev/null 2>&1 &
+  - ../vendor/bin/drush php-eval 'node_access_rebuild();'
+  - ../vendor/bin/drush cr
+  - sleep 5
+
+  - ../vendor/bin/drush en yaml_content -y
+  - ../vendor/bin/drush yaml-content-import ${TRAVIS_BUILD_DIR}/.travis/
+
+  # Chrome headless
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - sleep 5
+
+  # Test
+  - cd $TRAVIS_BUILD_DIR
+  - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript
 
 after_success:
-  - cd $TRAVIS_BUILD_DIR
-  - killall -9 php
+  - echo "The tests completed without errors."
 
 after_failure:
   - echo "The tests failed. Please check the output above for problems."
