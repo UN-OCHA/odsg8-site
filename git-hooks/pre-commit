@@ -18,6 +18,6 @@ fi
 
 # The commit will be aborted if any of the pre-commit script failed.
 if [ "$result" -eq 1 ]; then
-  printf "\033[0;31mPre-commit validation failed. Aborting commit!\033[0m\n"
+  printf "\n\033[0;31mPre-commit validation failed. Aborting commit!\033[0m\n"
   exit 1
 fi

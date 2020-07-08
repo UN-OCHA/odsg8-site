@@ -5,21 +5,13 @@
 # We only lint files from custom modules.
 # We ignore generated css files (styles*.css), sass and javascript files which
 # are linted separately, images and XSL files.
-include='^html/modules/custom'
+include='^html/(modules|themes)/custom'
 exclude='(\.(js|ico|scss|xsl)$)'
 
 # The linter path is relative to the root of the repository.
-root="$(git rev-parse --show-toplevel)"
+relative=1
 linter="vendor/bin/phpcs"
-linter="$root/$linter"
 options='-p --report=full --standard=phpcs.xml'
-
-if [ -x "$(command -v fin)" ]; then
-  linter="fin"
-  options='exec vendor/bin/phpcs -p --report=full --standard=phpcs.xml'
-  root='.'
-fi
-
 message='Linting staged PHP/CSS files...'
 
 # Load and execute the linting code.
