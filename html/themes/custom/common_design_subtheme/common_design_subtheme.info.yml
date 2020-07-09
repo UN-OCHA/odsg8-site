@@ -8,7 +8,7 @@ logo: 'img/logos/logo.svg'
 
 # Defines libraries group in which we can add css/js.
 libraries:
-- common_design_subtheme/global-styling
+  - common_design_subtheme/global-styling
 
 # Regions
 regions:
@@ -39,3 +39,6 @@ component-libraries:
   odsg-pages:
     paths:
       - pages
+
+ckeditor_stylesheets:
+  - css/styles.css
