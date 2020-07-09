@@ -6,7 +6,6 @@ dependencies:
     - system.menu.account
   module:
     - system
-    - user
   theme:
     - common_design_subtheme
 id: usermenu
@@ -23,14 +22,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-      odsg_donor_un_employee: odsg_donor_un_employee
-      content_manager: content_manager
-      administrator: administrator
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
+visibility: {  }
