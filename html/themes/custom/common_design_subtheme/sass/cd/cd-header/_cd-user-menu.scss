@@ -15,11 +15,11 @@
 .cd-global-header .menu {
   li:last-child a,
   li:last-child button {
-   padding-right: 0;
+    padding-right: 0;
 
-   &::after {
-     content: none;
-   }
+    &::after {
+      content: none;
+    }
   }
 }
 

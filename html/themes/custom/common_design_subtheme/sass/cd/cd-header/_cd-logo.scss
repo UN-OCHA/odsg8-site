@@ -15,7 +15,7 @@
   // sass-lint:disable no-duplicate-properties
   @include max-width(md) {
     background: url('../img/logos/logo-mobile.png') center no-repeat;
-    background: rgba(0,0,0,0) url('../img/logos/logo-mobile.svg') center no-repeat;
+    background: rgba(0, 0, 0, 0) url('../img/logos/logo-mobile.svg') center no-repeat;
   }
 
   @include tablet {

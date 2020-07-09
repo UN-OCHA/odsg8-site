@@ -60,6 +60,7 @@
     }
   }
 
+  // sass-lint:disable nesting-depth
   @include desktop {
     .cd-nav > .menu {
       > .menu-item {
@@ -93,4 +94,5 @@
       }
     }
   }
+  // sass-lint:enable nesting-depth
 }
