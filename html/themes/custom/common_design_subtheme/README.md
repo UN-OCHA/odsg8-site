@@ -67,6 +67,13 @@ The contains additions to the default common design subtheme:
 
   Specific styling for the homepage.
 
+**Layouts**
+
+- [layouts/twocol_section](layouts/twocol_section):
+
+  Overrides the layout builder two columns section to add margins and use the
+  common_design breakpoints.
+
 **Templates**
 
 - [Node title block template](templates/block/block--field-block--node--title.html.twig):

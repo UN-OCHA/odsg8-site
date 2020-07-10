@@ -25,12 +25,7 @@ regions:
   footer_soft: Soft footer
   footer_navigation: Footer navigation
 
-# Add implementation-specific styles to base theme components
-# libraries-extend:
-#   common_design/cd-article-teaser:
-#     - common_design_subtheme/cd-article-teaser
-
-# Components and page.
+# Components and pages.
 # Requires Components module
 component-libraries:
   odsg-components:
@@ -40,5 +35,13 @@ component-libraries:
     paths:
       - pages
 
+# Use the common_design_subtheme styles inside the editor.
 ckeditor_stylesheets:
   - css/styles.css
+
+# Override lubraries.
+libraries-override:
+  layout_builder/twocol_section:
+    css:
+      theme:
+        layouts/twocol_section/twocol_section.css: layouts/twocol_section/twocol_section.css
