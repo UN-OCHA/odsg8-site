@@ -53,3 +53,4 @@ permissions:
   - 'view published announcement content'
   - 'view published odsg_document content'
   - 'view published page content'
+  - 'view the administration theme'
