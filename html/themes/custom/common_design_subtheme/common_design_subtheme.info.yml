@@ -39,7 +39,7 @@ component-libraries:
 ckeditor_stylesheets:
   - css/styles.css
 
-# Override lubraries.
+# Override libraries.
 libraries-override:
   layout_builder/twocol_section:
     css:
