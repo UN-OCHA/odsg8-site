@@ -1,4 +1,16 @@
 /**
+ * Override styles added by the common_design/cd-table component for the
+ * caption as it doesn't look great for the OCHA Donor Ranking table.
+ */
+.odsg-donor-ranking.cd-table caption {
+  background: none;
+  padding: 0.6em;
+  margin-top: 0;
+  caption-side: top;
+  text-align: center;
+}
+
+/**
  * Show the country flag icon on large screens.
  *
  * See common_desing/components/cd-table/cd-table.css and
