@@ -17,7 +17,6 @@ regions:
   header_logo: Header logo
   header_navigation: Header navigation
   hero: Hero
-  breadcrumb: Breadcrumb
   highlighted: Highlighted
   content: Content
   sidebar_first: First sidebar
@@ -40,6 +39,8 @@ ckeditor_stylesheets:
   - css/styles.css
 
 # Override libraries.
+#
+# @todo: put that in the common_design theme instead.
 libraries-override:
   layout_builder/twocol_section:
     css:

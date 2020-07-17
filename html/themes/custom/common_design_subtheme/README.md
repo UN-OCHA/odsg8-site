@@ -35,12 +35,6 @@ The contains additions to the default common design subtheme:
   component and should be updated if relevant changes were made to the
   cd-table component to ensure consistency.
 
-**Regions**
-
-- A _breadcrumb_ region has been added with the following files:
-  - [region template](templates/regions/region--breadcrumb.html.twig)
-  - [region styling](sass/odsg/regions/breadcrumb.scss)
-
 **Components**
 
 - [components/odsg-donor-ranking](components/odsg-donor-ranking):
