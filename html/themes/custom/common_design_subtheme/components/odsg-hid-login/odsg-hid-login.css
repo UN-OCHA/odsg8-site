@@ -1,4 +1,4 @@
-.odsg-hid-login--label {
+.odsg-hid-login__label {
   display: block;
   color: var(--cd-dark-grey);
   font-size: 1.2rem;
@@ -8,7 +8,7 @@
   text-transform: uppercase;
 }
 
-.odsg-hid-login--logo {
+.odsg-hid-login__logo {
   display: block;
   width: 300px;
   height: 42px;
@@ -21,9 +21,9 @@
  *
  * @todo Find a better way to highlight the state of the link.
  */
-.odsg-hid-login--link:hover .odsg-hid-login--logo,
-.odsg-hid-login--link:active .odsg-hid-login--logo,
-.odsg-hid-login--link:focus .odsg-hid-login--logo {
+.odsg-hid-login__link:hover .odsg-hid-login__logo,
+.odsg-hid-login__link:active .odsg-hid-login__logo,
+.odsg-hid-login__link:focus .odsg-hid-login__logo {
   opacity: 0.7;
 }
 
@@ -33,11 +33,11 @@
  * See common_desing/common_design.breakpoints.yml for the breakpoint.
  */
 @media (min-width: 576px) {
-  .odsg-hid-login--label {
+  .odsg-hid-login__label {
     font-size: 2rem;
   }
 
-  .odsg-hid-login--logo {
+  .odsg-hid-login__logo {
     width: 500px;
     height: 70px;
   }

@@ -1,14 +1,12 @@
 {{ attach_library('common_design_subtheme/odsg-hid-login') }}
 
+{% set parameters = destination is empty ? {} : {'destination': destination} %}
+
 {% if social_networks.social_auth_hid is not empty %}
 <h2 class="odsg-hid-login">
-  <span class="odsg-hid-login--label">{{ 'Log in with' | t }}</span>
-  {% if (destination) %}
-  <a class="odsg-hid-login--link" href="{{ path(social_networks.social_auth_hid.route) }}?destination={{ destination }}">
-  {% else %}
-  <a class="odsg-hid-login--link" href="{{ path(social_networks.social_auth_hid.route) }}">
-  {% endif %}
-    <img class="odsg-hid-login--logo" src="{{ file_url(directory ~ '/img/logos/hid-logo.svg') }}" alt="Humanitarian ID">
+  <span class="odsg-hid-login__label">{{ 'Log in with' | t }}</span>
+  <a class="odsg-hid-login__link" href="{{ path(social_networks.social_auth_hid.route, parameters) }}">
+    <img class="odsg-hid-login__logo" src="{{ directory ~ '/components/odsg-hid-login/img/hid-logo.svg' }}" alt="Humanitarian ID">
   </a>
 </h2>
 {% endif %}
