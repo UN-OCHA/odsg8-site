@@ -31,7 +31,9 @@ The contains additions to the default common design subtheme:
 
 - [Tables](sass/components/_tables.css)
 
-  Styling for the tables.
+  Styling for the tables. This is derived from the common_design/cd-table
+  component and should be updated if relevant changes were made to the
+  cd-table component to ensure consistency.
 
 **Regions**
 

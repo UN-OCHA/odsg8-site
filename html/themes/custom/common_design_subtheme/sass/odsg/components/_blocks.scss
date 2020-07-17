@@ -1,7 +1,0 @@
-/**
- * Avoid extra margin for for the first paragraph, list etc. in a block.
- */
-.layout .block > .field > *:first-child,
-.layout .block > .visually-hidden:first-child + * {
-  margin-top: 0;
-}
