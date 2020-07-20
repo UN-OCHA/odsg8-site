@@ -45,7 +45,7 @@ The contains additions to the default common design subtheme:
 
   Styling for the Log In With Humanitarian ID block.
 
-- [components/odsg-landing-page-links](components/odsg-landing-page-links):
+- [components/odsg-landing-page-link-list](components/odsg-landing-page-link-list):
 
   Styling for the custom menus on landing pages on ODSG.
 

@@ -12,10 +12,10 @@ odsg-hid-login:
   css:
     theme:
       components/odsg-hid-login/odsg-hid-login.css: {}
-odsg-landing-page-links:
+odsg-landing-page-link-list:
   css:
     theme:
-      components/odsg-landing-page-links/odsg-landing-page-links.css: {}
+      components/odsg-landing-page-link-list/odsg-landing-page-link-list.css: {}
 odsg-more-link:
   css:
     theme:
