@@ -1,0 +1,45 @@
+/**
+ * Annoucement block with an icon.
+ */
+.odsg-announcement {
+  position: relative;
+  /* Include the icon height for the top margin. */
+  padding: calc(1.5em + 80px) 0.5em 1em 0.5em;
+  margin-top: 2.5em;
+  font-size: 1.5rem;
+  text-align: center;
+  /* The border color is omitted to inherit from the font color. */
+  border: 1px solid;
+}
+.odsg-announcement:before {
+  content: "";
+  position: absolute;
+  /* Center horizontally with the margin-left. */
+  left: 50%;
+  top: 0.5em;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  background-image: url(img/announcement.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/**
+ * Larger fonts on large screens.
+ *
+ * See common_desing/common_design.breakpoints.yml for the breakpoint.
+ */
+@media (min-width: 576px) {
+  .odsg-announcement {
+    /* Include the icon width for the left and right margins. */
+    padding: 1.5em calc(1.5em + 80px);
+  }
+  .odsg-announcement:before {
+    left: 0.5em;
+    /* Center vertically with the margin-top. */
+    top: 50%;
+    margin-left: 0;
+    margin-top: -40px;
+  }
+}

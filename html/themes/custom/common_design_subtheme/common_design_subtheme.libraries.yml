@@ -4,6 +4,10 @@ global-styling:
       css/styles.css: {}
 
 # Custom components
+odsg-announcement:
+  css:
+    theme:
+      components/odsg-announcement/odsg-announcement.css: {}
 odsg-donor-ranking-table:
   css:
     theme:

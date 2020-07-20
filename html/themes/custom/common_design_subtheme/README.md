@@ -37,6 +37,10 @@ The contains additions to the default common design subtheme:
 
 **Components**
 
+- [components/odsg-announcement](components/odsg-announcement):
+
+  Styling for the global announcement block.
+
 - [components/odsg-donor-ranking-table](components/odsg-donor-ranking-table):
 
   Styling for the donor ranking tables.
@@ -93,6 +97,11 @@ The contains additions to the default common design subtheme:
 
   Override of the views list template to use the `odsg-landing-page-links`
   component for the custom menus on landing pages.
+
+- [ODSG Announce,ent template](templates/views/views-view-unformatted--odsg-announcement.html.twig):
+
+  Override of the views unformatted template to use the `odsg-announcement`
+  component for the global announcement block.
 
 **Preprocessors**
 
