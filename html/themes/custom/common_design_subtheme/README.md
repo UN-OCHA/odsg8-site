@@ -53,7 +53,7 @@ The contains additions to the default common design subtheme:
 
   Styling for more links displayed on ODSG.
 
-- [components/odsg-publications](components/odsg-publications):
+- [components/odsg-publication-list](components/odsg-publication-list):
 
   Styling for the OCHA publications displayed on ODSG.
 

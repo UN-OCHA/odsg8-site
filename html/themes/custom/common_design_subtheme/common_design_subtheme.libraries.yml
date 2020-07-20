@@ -20,10 +20,10 @@ odsg-more-link:
   css:
     theme:
       components/odsg-more-link/odsg-more-link.css: {}
-odsg-publications:
+odsg-publication-list:
   css:
     theme:
-      components/odsg-publications/odsg-publications.css: {}
+      components/odsg-publication-list/odsg-publication-list.css: {}
 
 # Page specifics.
 odsg-homepage:
