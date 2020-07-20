@@ -83,19 +83,23 @@ The contains additions to the default common design subtheme:
   block. Ideally we'd like to use the `page-title` block directly in the layout
   but it's not available (https://www.drupal.org/project/drupal/issues/3029819).
 
+- [More link](templates/form/container--more-link.twig):
+
+  Override of the more link template to use the `odsg-more-link` component.
+
 - [OCHA Feeds views template](templates/views/views-view-list--ocha-feeds.html.twig):
 
-  Override of the views list template to use the `odsg-publications` component
-  for the OCHA Feeds (OCHA publications on ODSG).
+  Override of the views list template to use the `odsg-publication-list`
+  component for the OCHA Feeds (OCHA publications on ODSG).
 
 - [OCHA Funding views template](templates/views/views-view-table--ocha-funding.html.twig):
 
-  Override of the views table template to use the `odsg-donor-ranking` component
-  for the OCHA Funding tables.
+  Override of the views table template to use the `odsg-donor-ranking-table`
+  component for the OCHA Funding tables.
 
 - [ODSG Landing page links template](templates/views/views-view-list--odsg-landing-page-links.html.twig):
 
-  Override of the views list template to use the `odsg-landing-page-links`
+  Override of the views list template to use the `odsg-landing-page-link-list`
   component for the custom menus on landing pages.
 
 - [ODSG Announce,ent template](templates/views/views-view-unformatted--odsg-announcement.html.twig):
