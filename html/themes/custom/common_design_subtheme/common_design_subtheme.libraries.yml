@@ -4,10 +4,10 @@ global-styling:
       css/styles.css: {}
 
 # Custom components
-odsg-donor-ranking:
+odsg-donor-ranking-table:
   css:
     theme:
-      components/odsg-donor-ranking/odsg-donor-ranking.css: {}
+      components/odsg-donor-ranking-table/odsg-donor-ranking-table.css: {}
 odsg-hid-login:
   css:
     theme:

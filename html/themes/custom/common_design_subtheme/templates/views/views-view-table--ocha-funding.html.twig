@@ -36,7 +36,7 @@
  */
 #}
 {{ attach_library('common_design/cd-table') }}
-{{ attach_library('common_design_subtheme/odsg-donor-ranking') }}
+{{ attach_library('common_design_subtheme/odsg-donor-ranking-table') }}
 {%
   set classes = [
     'cols-' ~ header|length,
@@ -45,7 +45,7 @@
     'cd-table',
     'cd-table--responsive',
     'cd-table--striped',
-    'odsg-donor-ranking',
+    'odsg-donor-ranking-table',
   ]
 %}
 <table{{ attributes.addClass(classes) }}>
@@ -69,7 +69,7 @@
             set column_classes = [
               column.default_classes ? 'views-field',
               column.default_classes ? 'views-field-' ~ fields[key],
-              'odsg-donor-ranking--' ~ fields[key],
+              'odsg-donor-ranking-table__' ~ fields[key],
             ]
           %}
           <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
@@ -105,7 +105,7 @@
           {% for field in column.fields %}
             {% set column_classes = column_classes|merge([
               column.default_classes ? 'views-field-' ~ field,
-              'odsg-donor-ranking--' ~ field
+              'odsg-donor-ranking-table__' ~ field
             ]) %}
           {% endfor %}
           <td{{ column.attributes.addClass(column_classes) }}>

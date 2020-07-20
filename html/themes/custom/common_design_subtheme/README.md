@@ -37,7 +37,7 @@ The contains additions to the default common design subtheme:
 
 **Components**
 
-- [components/odsg-donor-ranking](components/odsg-donor-ranking):
+- [components/odsg-donor-ranking-table](components/odsg-donor-ranking-table):
 
   Styling for the donor ranking tables.
 

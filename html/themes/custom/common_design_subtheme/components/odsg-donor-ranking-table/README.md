@@ -1,5 +1,5 @@
-ODSG Donor Ranking Component
-============================
+ODSG Donor Ranking Table Component
+==================================
 
 Component for the ODSG Donor Ranking tables.
 
