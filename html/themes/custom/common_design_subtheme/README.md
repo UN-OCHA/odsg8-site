@@ -1,7 +1,7 @@
 OCHA Common Design sub theme for the Drupal 8 ODSG site
 =======================================================
 
-See below for [generic information](#ocha-ommon-design-sub-theme-for-Drupal-8)
+See below for [generic information](#ocha-common-design-sub-theme-for-drupal-8)
 about the OCHA Common Design sub theme.
 
 Requirements
@@ -13,7 +13,7 @@ The customizations for the ODSG site require the installation of the
 Customizations
 --------------
 
-The contains additions to the default common design subtheme:
+The list below contains additions to the default common design subtheme:
 
 **Base styling**
 
@@ -120,7 +120,7 @@ The contains additions to the default common design subtheme:
 
 ---
 
-## OCHA Common Design sub theme for Drupal 8 {generic-info}
+## OCHA Common Design sub theme for Drupal 8
 
 A sub theme, extending [common_design](https://github.com/UN-OCHA/common_design) base theme.
 
