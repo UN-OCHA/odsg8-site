@@ -2,8 +2,8 @@ auth:
   social_auth_hid:
     route: social_auth_hid.redirect_to_hid
     img_path: modules/contrib/social_auth_hid/img/hid_logo.png
-post_login: /user
-redirect_user_form: true
+post_login: /
+redirect_user_form: false
 disable_admin_login: true
 disabled_roles:
   odsg_donor_un_employee: '0'
