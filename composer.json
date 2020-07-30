@@ -30,6 +30,7 @@
         "drupal/editor_advanced_link": "^1.8",
         "drupal/core": "^8.9.2",
         "drupal/components": "^2.0-beta3",
+        "drupal/google_tag": "1.4",
         "drupal/migrate_plus": "^4.2",
         "drupal/migrate_tools": "^4.5",
         "drupal/pathauto": "^1.8",

@@ -1,0 +1,8 @@
+uuid: b28f992f-397c-40e3-bf46-6fc4312e26ef
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu
+label: 'Footer Menu'
+description: 'Links in the footer like Terms of Use and Privacy.'
+locked: false
