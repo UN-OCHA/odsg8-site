@@ -2392,6 +2392,9 @@
                         "[web-root]/profiles/README.txt": "assets/scaffold/files/profiles.README.txt",
                         "[web-root]/themes/README.txt": "assets/scaffold/files/themes.README.txt"
                     }
+                },
+                "patches_applied": {
+                    "https://www.drupal.org/project/drupal/issues/2544110": "patches/core--drupal--xss-prevent-protocol-stripping-on-datetime-attribute.patch"
                 }
             },
             "autoload": {
