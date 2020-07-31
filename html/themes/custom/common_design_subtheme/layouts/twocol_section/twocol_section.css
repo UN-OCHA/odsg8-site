@@ -3,21 +3,19 @@
  * Provides the layout styles for two-column layout section.
  */
 
-.layout--twocol-section {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.layout--twocol-section > .layout__region {
-  flex: 0 1 100%;
-}
-
 /**
  * 2 columns layout on larger screens.
  *
  * See common_desing/common_design.breakpoints.yml for the breakpoint.
  */
 @media screen and (min-width: 768px) {
+  .layout--twocol-section {
+    display: flex;
+  }
+
+  .layout--twocol-section > .layout__region {
+    flex: 0 1 100%;
+  }
   .layout--twocol-section > .layout__region--first {
     padding-right: 1.5em;
   }
