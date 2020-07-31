@@ -5,5 +5,9 @@ dependencies: {  }
 id: administrator
 label: Administrator
 weight: -6
-is_admin: true
-permissions: {  }
+is_admin: false
+permissions:
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'view the administration theme'
