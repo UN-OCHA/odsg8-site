@@ -10,6 +10,28 @@ Requirements
 The customizations for the ODSG site require the installation of the
 [components](https://www.drupal.org/project/components) drupal module.
 
+Issues
+------
+
+The heading hierarchy is "incorrect" because the user menu at the top has a `<h2>`
+title while the `<h1>` appears later in the page.
+
+For ODSG, currently the `<h1>` is the node or page title (not the site name in
+the header), which works fine because the homepage is a node with its own title
+corresponding to the site name. This is more "problematic" for other sites like
+https://reliefweb.int where the homepage is a series of sections and having the
+site logo/name as `<h1>` makes more sense. There is an open discussion about that
+[here](https://humanitarian.atlassian.net/browse/WHD-2), though the problem with
+the heading in the user menu is still an issue in terms of hierarchy.
+
+Reference: https://www.w3.org/WAI/tutorials/page-structure/headings/
+
+Notes
+-----
+
+Ensure `site_name` is selected in `/admin/structure/block/manage/sitebranding`
+so that it's available in the `system-branding` block.
+
 Customizations
 --------------
 
@@ -83,6 +105,14 @@ The list below contains additions to the default common design subtheme:
   block. Ideally we'd like to use the `page-title` block directly in the layout
   but it's not available (https://www.drupal.org/project/drupal/issues/3029819).
 
+- [Site logo block (system branding)](templates/block/block--system-branding-block.html.twig)
+
+  This block is for the site logo with the link to the homepage. The overrides
+  removes the wrapping `h1`.
+  In the case of ODSG, the homepage is a node with the site title so we
+  don't need to have a `h1` there. Other non-node pages use the `page-title`
+  block which uses a `h1` tag as well. So that should be fairly consistent.
+
 - [More link](templates/form/container--more-link.twig):
 
   Override of the more link template to use the `odsg-more-link` component.
@@ -102,10 +132,15 @@ The list below contains additions to the default common design subtheme:
   Override of the views list template to use the `odsg-landing-page-link-list`
   component for the custom menus on landing pages.
 
-- [ODSG Announce,ent template](templates/views/views-view-unformatted--odsg-announcement.html.twig):
+- [ODSG Announcement template](templates/views/views-view-unformatted--odsg-announcement.html.twig):
 
   Override of the views unformatted template to use the `odsg-announcement`
   component for the global announcement block.
+
+- [Image template](templates/field/image.html.twig):
+
+  Override of the image template to ensure there is an `alt` attribute.
+  *TODO:* Remove if https://github.com/UN-OCHA/common_design/pull/96 is merged.
 
 **Preprocessors**
 
