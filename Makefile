@@ -16,8 +16,9 @@ build:  clean
 		2>&1 | tee buildlog.txt
 
 clean:
-	rm -rf ./html/themes/custom/common_design_subtheme/node_modules
-	rm -rf ./buildlog.txt ./vendor
+	# This is done in the builder step, preventing breaking some local setups.
+	# rm -rf ./html/themes/custom/common_design_subtheme/node_modules
+	# rm -rf ./buildlog.txt ./vendor
 
 # Always build, never claim cache.
 .PHONY: build

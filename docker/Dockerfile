@@ -1,13 +1,22 @@
-FROM unocha/unified-builder:7.3.18-r0-202005-01 as builder
+FROM unocha/unified-builder:7.3.20-r0-202007-01 as builder
 ARG  BRANCH_ENVIRONMENT
 ENV  NODE_ENV=$BRANCH_ENVIRONMENT
 COPY . /srv/www
 WORKDIR /srv/www
-RUN composer install && \
-    composer gulp && \
-    cp -a docker/settings.php docker/services.yml html/sites/default
+# Clean up previous composer installation and run new one.
+RUN rm -rf ./vendor && \
+    composer install
+# Clean up previous npm installation and run new one. Those commands correspond
+# to running `composer gulp` but without hitting the PHP timeout.
+RUN cd html/themes/custom/common_design_subtheme && \
+    rm -rf ./node_modules && \
+    npm install && \
+    ./node_modules/.bin/gulp build && \
+    rm -rf ./node_modules
+# Copy settings to default site location.
+RUN cp -a docker/settings.php docker/services.yml html/sites/default
 
-FROM unocha/php7-k8s:7.3.18-r0-202005-01-NR
+FROM unocha/php7-k8s:7.3.20-r0-202007-01-NR
 
 ARG VCS_REF
 ARG VCS_URL
