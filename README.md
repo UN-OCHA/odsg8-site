@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/UN-OCHA/odsg8-site.svg?token=q5DydpJDYUBJoayLktvd&branch=develop)](https://travis-ci.com/UN-OCHA/odsg8-site)
+![Build docker image](https://github.com/UN-OCHA/odsg8-site/workflows/Build%20docker%20image/badge.svg)
+
 OCHA Donor Support Group (ODSG) site - Drupal 8 version
 =======================================================
 
