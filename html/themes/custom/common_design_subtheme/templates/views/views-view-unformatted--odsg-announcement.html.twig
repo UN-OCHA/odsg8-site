@@ -30,7 +30,10 @@
       'odsg-announcement',
     ]
   %}
+  {% set content = row.content|render %}
+  {% if content|striptags|trim is not empty %}
   <div{{ row.attributes.addClass(row_classes) }}>
-    {{- row.content -}}
+    {{- content -}}
   </div>
+  {% endif %}
 {% endfor %}
