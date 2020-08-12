@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\NodeInterface;
 
@@ -27,4 +28,19 @@ function odsg_access_node_access(NodeInterface $node, $op, AccountInterface $acc
   }
   // No opinion, let other modules handle the permissions.
   return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for 'user_form'.
+ *
+ * Change permission to assign roles.
+ *
+ * @see Drupal\user\AccountForm::form()
+ */
+function odsg_access_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Allow managing the account roles if there are roles and the current user
+  // has the correct permission.
+  $roles_access = !empty($form['account']['roles']['#options']) &&
+                  \Drupal::currentUser()->hasPermission('assign user roles');
+  $form['account']['roles']['#access'] = $roles_access;
 }
