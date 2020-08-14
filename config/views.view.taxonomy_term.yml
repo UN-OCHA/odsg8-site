@@ -217,12 +217,14 @@ display:
             group_items: {  }
           plugin_id: boolean
       style:
-        type: default
+        type: html_list
         options:
-          grouping: {  }
           row_class: ''
-          default_row_class: true
+          default_row_class: false
           uses_fields: false
+          type: ul
+          wrapper_class: ''
+          class: ''
       row:
         type: 'entity:node'
         options:
@@ -287,6 +289,7 @@ display:
           relationship: none
           view_mode: default
       display_extenders: {  }
+      enabled: false
     cache_metadata:
       contexts:
         - 'languages:language_interface'
@@ -306,6 +309,20 @@ display:
         options: {  }
       path: taxonomy/term/%
       display_extenders: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<h1 class="page-title">[view:title]</h1>'
+          plugin_id: text_custom
+      defaults:
+        header: false
     cache_metadata:
       contexts:
         - 'languages:language_interface'
