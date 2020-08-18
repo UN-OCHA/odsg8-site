@@ -10,10 +10,10 @@ dependencies:
     - node.type.odsg_document
     - taxonomy.vocabulary.document_type_project_report
   content:
-    - 'taxonomy_term:document_type_project_report:02e4dbc3-2874-4d98-9a30-6ff7ee82dc31'
-    - 'taxonomy_term:document_type_project_report:6721fd2a-9a4b-4e8f-99f1-5d66105b6a2b'
-    - 'taxonomy_term:document_type_project_report:f0dae640-dc79-47be-a7ab-64f7ea62d1dc'
-    - 'taxonomy_term:document_type_project_report:f4558195-7208-46c7-9bb0-bb9887647393'
+    - 'taxonomy_term:document_type_project_report:315e7001-4732-488e-ae59-07628c7b98d4'
+    - 'taxonomy_term:document_type_project_report:918a9e91-cb6b-4690-bf32-60a595049ca7'
+    - 'taxonomy_term:document_type_project_report:bad1e253-2d69-4290-9896-7b1a7f5010a2'
+    - 'taxonomy_term:document_type_project_report:c11079c9-0f6e-415c-8f0a-f500701cc650'
   module:
     - datetime
     - file
@@ -398,6 +398,59 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        edit_taxonomy_term:
+          id: edit_taxonomy_term
+          table: taxonomy_term_data
+          field: edit_taxonomy_term
+          relationship: field_meeting_title
+          group_type: group
+          admin_label: 'Link to edit Meeting title term'
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: '[edit]'
+          output_url_as_text: false
+          absolute: false
+          entity_type: taxonomy_term
+          plugin_id: entity_link_edit
         nothing_1:
           id: nothing_1
           table: views
@@ -409,7 +462,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_publication_date }} - {{ field_meeting_title }}'
+            text: '{{ field_publication_date }} - {{ field_meeting_title }} {{ edit_taxonomy_term }}'
             make_link: false
             path: ''
             absolute: false
@@ -447,6 +500,59 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        edit_node:
+          id: edit_node
+          table: node
+          field: edit_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: '[edit]'
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link_edit
         nothing:
           id: nothing
           table: views
@@ -458,7 +564,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="{{ field_media_file }}">{{ body }}</a>'
+            text: '<a href="{{ field_media_file }}">{{ body }}</a>{{ edit_node }}'
             make_link: false
             path: ''
             absolute: false
@@ -620,6 +726,15 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_document: Media'
+          required: true
+          plugin_id: standard
+        field_meeting_title:
+          id: field_meeting_title
+          table: node__field_meeting_title
+          field: field_meeting_title
+          relationship: none
+          group_type: group
+          admin_label: 'field_meeting_title: Taxonomy term'
           required: true
           plugin_id: standard
       arguments: {  }
