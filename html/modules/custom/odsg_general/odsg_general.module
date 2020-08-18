@@ -71,17 +71,3 @@ function odsg_general_create_year_terms() {
     ])->save();
   }
 }
-
-/**
- * Implements hook_form_FORM_ID_alter() for 'user_form'.
- *
- * Hide password fields.
- *
- * @todo Remove if similar feature is added to the `social_auth_hid` module.
- *
- * @see Drupal\user\AccountForm::form()
- */
-function odsg_general_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['account']['pass']['#access'] = FALSE;
-  $form['account']['current_pass']['#access'] = FALSE;
-}
