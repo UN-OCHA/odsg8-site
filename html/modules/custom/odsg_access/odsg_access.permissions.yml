@@ -1,2 +1,5 @@
+assign user roles:
+  title: 'Assign user roles'
+  restrict access: true
 permission_callbacks:
   - \Drupal\odsg_access\OdsgAccessPermissions::buildPermissions
