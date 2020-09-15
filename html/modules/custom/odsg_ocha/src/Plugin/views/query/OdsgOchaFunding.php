@@ -164,6 +164,8 @@ class OdsgOchaFunding extends QueryPluginBase {
   /**
    * Validate and sanitize the donor data received from the OCT API.
    *
+   * Note only donors with the IsOdsg flag set to true will be returned.
+   *
    * @param array $data
    *   Donor data.
    *
@@ -205,6 +207,11 @@ class OdsgOchaFunding extends QueryPluginBase {
         'filter' => FILTER_VALIDATE_INT,
         'options' => ['min_range' => 0],
         'flags' => FILTER_NULL_ON_FAILURE,
+      ],
+      // IsOdsg flag.
+      'IsOdsg' => [
+        'filter' => FILTER_CALLBACK,
+        'options' => [$this, 'validateIsOdsg'],
       ],
     ];
 
@@ -263,6 +270,22 @@ class OdsgOchaFunding extends QueryPluginBase {
     }
     // Sanitize the code.
     return Html::cleanCssIdentifier(Unicode::strtolower(trim($code)));
+  }
+
+  /**
+   * Validate and sanitize the IsOdsg flag.
+   *
+   * @param string $is_odsg
+   *   Value to validate.
+   *
+   * @return bool|null
+   *   TRUE if the flag is true-ish or NULL if the validation failed.
+   */
+  protected function validateIsOdsg($is_odsg) {
+    if (filter_var($is_odsg, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) === TRUE) {
+      return TRUE;
+    }
+    return NULL;
   }
 
 }
