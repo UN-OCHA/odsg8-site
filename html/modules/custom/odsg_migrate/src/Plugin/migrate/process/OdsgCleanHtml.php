@@ -2,9 +2,6 @@
 
 namespace Drupal\odsg_migrate\Plugin\migrate\process;
 
-use DOMDocument;
-use DOMNode;
-use DOMXPath;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\migrate\MigrateException;
 use Drupal\migrate\MigrateExecutableInterface;
@@ -119,12 +116,12 @@ class OdsgCleanHtml extends ProcessPluginBase {
     // Flags to load the HTML string.
     $flags = LIBXML_NONET | LIBXML_NOBLANKS | LIBXML_NOERROR | LIBXML_NOWARNING;
 
-    // Adding this meta tag is necessary to tell DOMDocument we are dealing
+    // Adding this meta tag is necessary to tell \DOMDocument we are dealing
     // with UTF-8 encoded html.
     $meta = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
     $prefix = '<!DOCTYPE html><html><head>' . $meta . '</head><body>';
     $suffix = '</body></html>';
-    $dom = new DOMDocument();
+    $dom = new \DOMDocument();
     $dom->loadHTML($prefix . $value . $suffix, $flags);
 
     // Fix the heading hierarchy.
@@ -193,7 +190,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
     // Remove "ignorable" whitespaces. This is ok-ish for this migration and
     // allows to have a slightly better formatted and more consistent output
     // than without when combined with `formatOutput` below.
-    $xpath = new DOMXPath($dom);
+    $xpath = new \DOMXPath($dom);
     $nodes = $xpath->query('//text()');
     for ($i = $nodes->length - 1; $i >= 0; $i--) {
       $node = $nodes->item($i);
@@ -225,7 +222,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @return bool
    *   TRUE if the node is considered empty.
    */
-  public static function isEmpty(DOMNode $node) {
+  public static function isEmpty(\DOMNode $node) {
     // Trim the content, including nbps.
     $content = preg_replace('/(?:^\s+)|(?:\s+$)/u', '', $node->textContent);
     return empty($content);
@@ -237,7 +234,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   Heading node.
    */
-  public static function handleHeading(DOMNode $node) {
+  public static function handleHeading(\DOMNode $node) {
     // Remove all the attributes except the 'id' that we keep to allow
     // internal links.
     static::removeAttributes($node, ['id']);
@@ -249,7 +246,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   Link node.
    */
-  public static function handleLink(DOMNode $node) {
+  public static function handleLink(\DOMNode $node) {
     $url = $node->getAttribute('href');
 
     // Remove links with an invalid url.
@@ -294,7 +291,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   Image node.
    */
-  public static function handleImage(DOMNode $node) {
+  public static function handleImage(\DOMNode $node) {
     $url = $node->getAttribute('src');
 
     // Remove images with an invalid url.
@@ -318,7 +315,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   Table node.
    */
-  public static function handleTable(DOMNode $node) {
+  public static function handleTable(\DOMNode $node) {
     $dom = $node->ownerDocument;
     $fragment = $dom->createDocumentFragment();
 
@@ -369,7 +366,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   Table cell node.
    */
-  public static function handleTableCell(DOMNode $node) {
+  public static function handleTableCell(\DOMNode $node) {
     static::removeAttributes($node, ['colspan']);
   }
 
@@ -379,7 +376,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   List item node.
    */
-  public static function handleListItem(DOMNode $node) {
+  public static function handleListItem(\DOMNode $node) {
     // Add a list parent to orphan list items.
     if ($node->parentNode->tagName !== 'ul' && $node->parentNode->tagName !== 'ol') {
       $listElement = $node->ownerDocument->createElement('ul');
@@ -399,7 +396,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   Strong node.
    */
-  public static function handleStrong(DOMNode $node) {
+  public static function handleStrong(\DOMNode $node) {
     // Tags for which there is no need to have a strong element.
     static $tags = [
       'h1' => TRUE,
@@ -429,7 +426,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param \DOMNode $node
    *   BR node.
    */
-  public static function handleLineBreak(DOMNode $node) {
+  public static function handleLineBreak(\DOMNode $node) {
     // Tags for which there is no need to have line breaks.
     static $tags = [
       'h1' => TRUE,
@@ -463,7 +460,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param array $allowed_attributes
    *   List of allowed attributes.
    */
-  public static function removeAttributes(DOMNode $node, array $allowed_attributes = []) {
+  public static function removeAttributes(\DOMNode $node, array $allowed_attributes = []) {
     if ($node->hasAttributes()) {
       $allowed_attributes = array_flip($allowed_attributes);
 
@@ -488,7 +485,7 @@ class OdsgCleanHtml extends ProcessPluginBase {
    * @param array $allowed_attributes
    *   Attributes to move to the new node.
    */
-  public static function changeTag(DOMNode $node, $tag, array $allowed_attributes = []) {
+  public static function changeTag(\DOMNode $node, $tag, array $allowed_attributes = []) {
     if (!empty($tag)) {
       $newNode = $node->ownerDocument->createElement($tag);
     }
@@ -515,19 +512,19 @@ class OdsgCleanHtml extends ProcessPluginBase {
   /**
    * Get the nodes matching the tag name.
    *
-   * DOMElement::GetElementsByTagName returns a live collection. We convert it
+   * \DOMElement::GetElementsByTagName returns a live collection. We convert it
    * to a flat array so that the nodes can be manipulated during the iteration
    * without creating infinite loops for example when adding iframe wrappers.
    *
    * @param \DOMNode $node
-   *   Node (DOMDocument or DOMElement)
+   *   Node (\DOMDocument or \DOMElement)
    * @param string $tag
    *   Tag name or `*` for all nodes.
    *
    * @return array
    *   List of nodes with the given tag name.
    */
-  public static function getElementsByTagName(DOMNode $node, $tag) {
+  public static function getElementsByTagName(\DOMNode $node, $tag) {
     $elements = [];
     if (method_exists($node, 'getElementsByTagName')) {
       foreach ($node->getElementsByTagName($tag) as $element) {
