@@ -2,9 +2,6 @@
 
 namespace Drupal\odsg_ocha\Plugin\views\query;
 
-use DateTime;
-use DateTimeZone;
-use Exception;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
@@ -314,11 +311,11 @@ class OdsgOchaFeed extends QueryPluginBase {
       return NULL;
     }
     try {
-      $date = new DateTime($date, new DateTimeZone('UTC'));
+      $date = new \DateTime($date, new \DateTimeZone('UTC'));
       // 'Views' expects a timestamp for 'date' type fields.
       return $date->getTimestamp();
     }
-    catch (Exception $exception) {
+    catch (\Exception $exception) {
       return NULL;
     }
   }

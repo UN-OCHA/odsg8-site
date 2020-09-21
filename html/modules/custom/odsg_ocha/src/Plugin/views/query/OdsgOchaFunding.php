@@ -2,8 +2,6 @@
 
 namespace Drupal\odsg_ocha\Plugin\views\query;
 
-use Exception;
-use SoapClient;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Unicode;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
@@ -115,7 +113,7 @@ class OdsgOchaFunding extends QueryPluginBase {
       ];
 
       try {
-        $client = new SoapClient($url);
+        $client = new \SoapClient($url);
 
         // Get the donations data.
         $result = $client->GetDonorRankingForOCHAOnlineV2($parameters);
@@ -142,7 +140,7 @@ class OdsgOchaFunding extends QueryPluginBase {
           }
         }
       }
-      catch (Exception $exception) {
+      catch (\Exception $exception) {
         watchdog_exception('odsg_ocha', $exception);
       }
     }
