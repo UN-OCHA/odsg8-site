@@ -21,15 +21,16 @@
     ],
     "require": {
         "php": ">=7.3",
-        "composer/installers": "^1.9.0",
+        "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6.7",
-        "drupal/allowed_formats": "^1.2",
-        "drupal-composer/drupal-scaffold": "^2.6.1",
         "drupal-composer/preserve-paths": "^0.1.5",
         "drupal/admin_denied": "^1.0",
-        "drupal/editor_advanced_link": "^1.8",
-        "drupal/core": "^8.9.6",
+        "drupal/allowed_formats": "^1.2",
         "drupal/components": "^2.0-beta3",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-dev": "^8.8",
+        "drupal/core-recommended": "^8.8",
+        "drupal/editor_advanced_link": "^1.8",
         "drupal/google_tag": "1.4",
         "drupal/maintenance200": "^1.0",
         "drupal/migrate_plus": "^4.2",
@@ -40,6 +41,7 @@
         "drupal/social_auth_hid": "^2.5",
         "drush/drush": "^10.2.2",
         "oomphinc/composer-installers-extender": "^1.1.2",
+        "symfony/flex": "^1.10",
         "unocha/common_design": "^2.8.2",
         "webflo/drupal-finder": "^1.0.0",
         "zaporylie/composer-drupal-optimizations": "^1.1.1"
@@ -119,7 +121,19 @@
             "initial": {
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
+            },
+            "locations": {
+                "web-root": "html/"
             }
+        },
+        "merge-plugin": {
+            "include": [
+                "html/core/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "merge-extra": false
         }
+
     }
 }
