@@ -106,3 +106,4 @@ Run tests using docksal
 ```bash
 fin exec DTT_BASE_URL=http://test.odsg8-site.docksal/ ./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript --printer '\Drupal\Tests\Listeners\HtmlOutputPrinter'
 ```
+
