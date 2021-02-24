@@ -4,7 +4,7 @@
 
 .cd-language-switcher__btn {
   &:focus {
-    outline: 3px solid $implementation-highlight;
+    outline: 3px solid $cd-blue--bright;
   }
 }
 
@@ -12,11 +12,11 @@
   li a {
     &:hover,
     &:focus {
-      color: $implementation-highlight;
+      color: $cd-blue--bright;
     }
 
     &:focus {
-      outline: 3px solid $implementation-highlight;
+      outline: 3px solid $cd-blue--bright;
     }
   }
 }
