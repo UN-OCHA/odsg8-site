@@ -8,6 +8,10 @@
   list-style: none;
   text-align: center;
 }
+.odsg-publication-list h3 {
+  font-size: 1.125rem;
+  font-weight: 700
+}
 .odsg-publication-list__item {
   display: inline-block;
   vertical-align: top;

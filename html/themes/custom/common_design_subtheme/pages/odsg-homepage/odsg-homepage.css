@@ -89,6 +89,10 @@
   padding-bottom: 1em;
   text-align: center;
 }
+.odsg-meetings-events h3 {
+  font-size: 1.125rem;
+  font-weight: 700
+}
 .odsg-meetings-events a {
   display: block;
   margin-top: 0.5em;
