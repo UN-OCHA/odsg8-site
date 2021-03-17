@@ -31,11 +31,11 @@
     // Ideally we would have used a component for the menu in the sidebar
     // but there doesn't seem to be any way to identify a particular block in
     // a layout so we cannot add a template suggestion.
-    .menu {
+    nav ul {
       list-style: none;
       padding-left: 0;
 
-      .menu {
+      li > ul {
         padding-left: 1em;
       }
 
