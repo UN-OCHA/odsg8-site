@@ -18,6 +18,8 @@
 
 .odsg-landing-page-link-list__item h3 {
   margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
 }
 .odsg-landing-page-link-list__item a {
   position: absolute;

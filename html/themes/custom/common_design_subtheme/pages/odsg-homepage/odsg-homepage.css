@@ -17,7 +17,7 @@
   margin: 0 auto;
   padding: 0 1em;
 }
-.layout--label--hero .page-title {
+.layout--label--hero .cd-page-title {
   margin-top: 0;
   padding-bottom: 0;
   border-bottom: none;
@@ -33,7 +33,7 @@
   .layout--label--hero {
     font-size: 1.3rem;
   }
-  .layout--label--hero .page-title {
+  .layout--label--hero .cd-page-title {
     font-size: 3rem;
   }
 }
