@@ -81,7 +81,7 @@
 .layout--fourcol-titled-section.layout--label--meetings--events .layout--content .layout__region {
   width: 250px;
   padding: 1.2em 1em 2em 1em;
-  background-color: var(--cd-light-bluey-grey);
+  background-color: var(--cd-blue-grey--light);
 }
 .odsg-meetings-events {
   position: relative;
