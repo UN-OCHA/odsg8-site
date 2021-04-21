@@ -2,12 +2,12 @@
 // Base styles
 //——————————————————————————————————————————————————————————————————————————————
 body {
-  font-size: $cd-font-size--base;
+  color: $cd-grey--dark;
   font-family: $cd-font--system;
+  font-size: $cd-font-size--base;
+  line-height: 1.5;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: $cd-grey--dark;
-  line-height: 1.5;
 }

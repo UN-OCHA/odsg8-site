@@ -8,9 +8,9 @@
 //——————————————————————————————————————————————————————————————————————————————
 
 table {
+  width: 100%;
   margin: 0 auto 3rem;
   border-collapse: collapse;
-  width: 100%;
 
   caption {
     padding: 0.6em;
@@ -22,8 +22,8 @@ table {
   td {
     padding: 0.5rem;
     text-align: left;
-    border: 1px solid $cd-blue-grey;
     word-break: break-word;
+    border: 1px solid $cd-blue-grey;
   }
 
   th {
