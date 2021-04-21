@@ -1,8 +1,7 @@
 name:  OCHA Common Design sub theme
 type: theme
 description: OCHA Common Design sub theme
-core: 8.x
-# Defines the base theme
+core_version_requirement: ^8.8 || ^9
 base theme: common_design
 logo: 'img/logos/ocha-lockup-blue.svg'
 
@@ -25,16 +24,6 @@ regions:
   footer_soft: Soft footer
   footer_navigation: Footer navigation
 
-# Components and pages.
-# Requires Components module
-component-libraries:
-  odsg-components:
-    paths:
-      - components
-  odsg-pages:
-    paths:
-      - pages
-
 # Use the common_design_subtheme styles inside the editor.
 ckeditor_stylesheets:
   - css/styles.css
@@ -47,3 +36,11 @@ libraries-override:
     css:
       theme:
         layouts/twocol_section/twocol_section.css: layouts/twocol_section/twocol_section.css
+
+# Custom namespace
+# https://www.drupal.org/docs/contributed-modules/components/understanding-twig-namespaces
+# Requires Components module
+components:
+  namespaces:
+    odsg-components: components
+    odsg-pages: pages
