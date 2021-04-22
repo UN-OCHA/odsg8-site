@@ -7,11 +7,11 @@ WORKDIR /srv/www
 RUN rm -rf ./vendor && \
     composer install
 # Clean up previous npm installation and run new one. Those commands correspond
-# to running `composer gulp` but without hitting the PHP timeout.
+# to running `composer sass` but without hitting the PHP timeout.
 RUN cd html/themes/custom/common_design_subtheme && \
     rm -rf ./node_modules && \
     npm install && \
-    ./node_modules/.bin/gulp build && \
+    ./node_modules/.bin/sass sass:build && \
     rm -rf ./node_modules
 # Copy settings to default site location.
 RUN cp -a docker/settings.php docker/services.yml html/sites/default
