@@ -17,7 +17,7 @@
   margin: 0 auto;
   padding: 0 1em;
 }
-.layout--label--hero .page-title {
+.layout--label--hero .cd-page-title {
   margin-top: 0;
   padding-bottom: 0;
   border-bottom: none;
@@ -33,7 +33,7 @@
   .layout--label--hero {
     font-size: 1.3rem;
   }
-  .layout--label--hero .page-title {
+  .layout--label--hero .cd-page-title {
     font-size: 3rem;
   }
 }
@@ -81,13 +81,17 @@
 .layout--fourcol-titled-section.layout--label--meetings--events .layout--content .layout__region {
   width: 250px;
   padding: 1.2em 1em 2em 1em;
-  background-color: var(--cd-light-bluey-grey);
+  background-color: var(--cd-blue-grey--light);
 }
 .odsg-meetings-events {
   position: relative;
   padding-top: calc(1em + 80px);
   padding-bottom: 1em;
   text-align: center;
+}
+.odsg-meetings-events h3 {
+  font-size: 1.125rem;
+  font-weight: 700
 }
 .odsg-meetings-events a {
   display: block;

@@ -26,7 +26,7 @@
         "drupal-composer/preserve-paths": "^0.1.5",
         "drupal/admin_denied": "^1.0",
         "drupal/allowed_formats": "^1.2",
-        "drupal/components": "^2.0-beta3",
+        "drupal/components": "^2.4",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-dev": "^8.8",
         "drupal/core-recommended": "^8.8",
@@ -39,10 +39,11 @@
         "drupal/r4032login": "1.1",
         "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^2.5",
+        "drupal/stage_file_proxy": "^1.1",
         "drush/drush": "^10.2.2",
         "oomphinc/composer-installers-extender": "^1.1.2",
         "symfony/flex": "^1.10",
-        "unocha/common_design": "^2.8.9",
+        "unocha/common_design": "^4.0.0",
         "webflo/drupal-finder": "^1.0.0",
         "zaporylie/composer-drupal-optimizations": "^1.1.1"
     },
@@ -85,13 +86,13 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "git config core.hooksPath git-hooks"
         ],
-        "gulp-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
-        "gulp-build": "cd html/themes/custom/common_design_subtheme && ./node_modules/.bin/gulp build",
-        "gulp-cleanup": "cd html/themes/custom/common_design_subtheme && rm -rf ./node_modules",
-        "gulp": [
-            "@gulp-prepare",
-            "@gulp-build",
-            "@gulp-cleanup"
+        "sass-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
+        "sass-build": "cd html/themes/custom/common_design_subtheme && ./node_modules/.bin/sass sass:build",
+        "sass-cleanup": "cd html/themes/custom/common_design_subtheme && rm -rf ./node_modules",
+        "sass": [
+            "@sass-prepare",
+            "@sass-build",
+            "@sass-cleanup"
         ]
     },
     "extra": {

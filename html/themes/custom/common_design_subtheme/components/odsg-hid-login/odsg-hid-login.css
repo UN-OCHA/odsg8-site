@@ -1,11 +1,11 @@
 .odsg-hid-login__label {
   display: block;
-  color: var(--cd-dark-grey);
-  font-size: 1.2rem;
-  font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  color: var(--cd-grey--dark);
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .odsg-hid-login__logo {
