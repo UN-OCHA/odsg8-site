@@ -3,11 +3,11 @@
  * caption as it doesn't look great for the OCHA Donor Ranking table.
  */
 .odsg-donor-ranking-table.cd-table caption {
-  background: none;
-  padding: 0.6em;
   margin-top: 0;
+  padding: 0.6em;
   caption-side: top;
   text-align: center;
+  background: none;
 }
 
 /**
@@ -21,12 +21,12 @@
    * This applies to both the <th> and <td>, ensuring they are aligned.
    */
   .odsg-donor-ranking-table .odsg-donor-ranking-table__donor:before {
-    content: "";
     display: inline-block;
-    vertical-align: middle;
-    height: 40px;
     width: 40px;
+    height: 40px;
     margin-right: 20px;
+    content: "";
+    vertical-align: middle;
   }
 
   /**
@@ -34,9 +34,9 @@
    */
   .odsg-donor-ranking-table td.odsg-donor-ranking-table__donor:before {
     border-radius: 50%;
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
   }
 
   /**

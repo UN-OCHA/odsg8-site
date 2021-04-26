@@ -6,12 +6,12 @@
 .odsg-more-link a {
   display: inline-block;
   padding: 0.5em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
   /* The border color is omitted to inherit from the font color. */
   border: 1px solid;
   border-radius: 4px;
   font-size: 0.9rem;
-  text-transform: uppercase;
-  text-decoration: none;
 }
 .odsg-more-link a:hover,
 .odsg-more-link a:active,

@@ -1,17 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display the node title as a block.
- *
- * We ignore options to display the block title and we add the page-title
- * class to ensure consistent display with the `page title` block on other
- * pages.
- *
- * Note: ideally we'd want to use the `page title` block directly in the
- * layout builder but it's been disabled.
- *
- * @see https://www.drupal.org/project/drupal/issues/3029819
- * @see https://www.drupal.org/project/drupal/issues/2938129
+ * Theme override to display a block.
  *
  * Available variables:
  * - plugin_id: The ID of the block implementation.
@@ -42,10 +32,14 @@
     'block-' ~ plugin_id|clean_class,
   ]
 %}
+
 <div{{ attributes.addClass(classes) }}>
-  <h1 class="cd-page-title">
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </h1>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 </div>
