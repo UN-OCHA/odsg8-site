@@ -2,47 +2,37 @@
 // Layouts
 //——————————————————————————————————————————————————————————————————————————————
 
-
 // Default layout for the homepage, public pages and landing pages.
 .layout.layout--onecol,
 .layout.layout--fourcol-titled-section {
 
   h2 {
     margin: 1.5em 0 0.75em;
-    font-size: 1.8rem;
     text-align: center;
-
-    @include desktop {
-      font-size: 2.2rem;
-    }
   }
 }
 
 // Default layout for the private pages.
-.layout.layout--twocol-section--75-25 {
+.layout.layout--twocol-section--75-25 .layout__region--second {
 
-  .layout__region--second {
+  h2 {
+    color: var(--cd-grey--dark);
+    font-size: var(--cd-font-size--large);
+  }
 
-    h2 {
-      color: $cd-dark-grey;
-      font-size: 1.25rem;
+  // Ideally we would have used a component for the menu in the sidebar
+  // but there doesn't seem to be any way to identify a particular block in
+  // a layout so we cannot add a template suggestion.
+  nav ul {
+    padding-left: 0;
+    list-style: none;
+
+    li > ul {
+      padding-left: 1em;
     }
 
-    // Ideally we would have used a component for the menu in the sidebar
-    // but there doesn't seem to be any way to identify a particular block in
-    // a layout so we cannot add a template suggestion.
-    .menu {
-      list-style: none;
-      padding-left: 0;
-
-      .menu {
-        padding-left: 1em;
-      }
-
-      .is-active {
-        font-weight: bold;
-      }
+    .is-active {
+      font-weight: bold;
     }
   }
 }
-
