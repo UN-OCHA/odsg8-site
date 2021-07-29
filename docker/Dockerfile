@@ -1,10 +1,11 @@
-FROM unocha/unified-builder:7.3-stable as builder
+FROM unocha/unified-builder:7.4-develop as builder
 ARG  BRANCH_ENVIRONMENT
 ENV  NODE_ENV=$BRANCH_ENVIRONMENT
 COPY . /srv/www
 WORKDIR /srv/www
 # Clean up previous composer installation and run new one.
 RUN rm -rf ./vendor && \
+    composer self-update --2 && \
     composer install
 # Clean up previous npm installation and run new one. Those commands correspond
 # to running `composer sass` but without hitting the PHP timeout.
@@ -16,7 +17,7 @@ RUN cd html/themes/custom/common_design_subtheme && \
 # Copy settings to default site location.
 RUN cp -a docker/settings.php docker/services.yml html/sites/default
 
-FROM unocha/php7-k8s:${TAG:-7.3-NR-stable}
+FROM unocha/php-k8s:${TAG:-7.4-NR-develop}
 
 ARG VCS_REF
 ARG VCS_URL
