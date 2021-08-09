@@ -41,7 +41,6 @@
         "drupal/r4032login": "^2.1",
         "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^2.6",
-        "drupal/stage_file_proxy": "^1.1",
         "drush/drush": "^10.2.2",
         "oomphinc/composer-installers-extender": "^2.0",
         "symfony/flex": "^1.10",
@@ -82,11 +81,11 @@
         ],
         "post-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "git config core.hooksPath git-hooks"
+            "git config core.hooksPath git-hooks || true"
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "git config core.hooksPath git-hooks"
+            "git config core.hooksPath git-hooks || true"
         ],
         "sass-prepare": "cd html/themes/custom/common_design_subtheme && npm install",
         "sass-build": "cd html/themes/custom/common_design_subtheme && ./node_modules/.bin/sass sass:build",
@@ -118,6 +117,7 @@
             "drush/Commands/{$name}": ["type:drupal-drush"]
         },
         "preserve-paths": [
+            "html/modules/custom",
             "html/themes/custom"
         ],
         "drupal-scaffold": {
