@@ -3,7 +3,6 @@
 namespace Drupal\odsg_ocha\Plugin\views\query;
 
 use Drupal\Component\Utility\Html;
-use Drupal\Component\Utility\Unicode;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
@@ -267,7 +266,7 @@ class OdsgOchaFunding extends QueryPluginBase {
       return NULL;
     }
     // Sanitize the code.
-    return Html::cleanCssIdentifier(Unicode::strtolower(trim($code)));
+    return Html::cleanCssIdentifier(mb_strtolower(trim($code)));
   }
 
   /**

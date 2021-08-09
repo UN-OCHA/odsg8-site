@@ -5,7 +5,7 @@ COPY . /srv/www
 WORKDIR /srv/www
 # Clean up previous composer installation and run new one.
 RUN rm -rf ./vendor && \
-    composer self-update --2 && \
+    composer self-update && \
     composer install
 # Clean up previous npm installation and run new one. Those commands correspond
 # to running `composer sass` but without hitting the PHP timeout.
