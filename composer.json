@@ -36,7 +36,7 @@
         "drupal/google_tag": "1.4",
         "drupal/maintenance200": "^1.0",
         "drupal/migrate_plus": "^5.1",
-        "drupal/migrate_tools": "^4.5",
+        "drupal/migrate_tools": "^5.0",
         "drupal/pathauto": "^1.8",
         "drupal/r4032login": "^2.1",
         "drupal/redirect": "^1.6",
