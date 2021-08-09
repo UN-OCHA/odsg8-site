@@ -179,12 +179,6 @@
     "drupal/maintenance200": {
         "version": "1.1.0"
     },
-    "drupal/migrate_plus": {
-        "version": "4.2.0"
-    },
-    "drupal/migrate_tools": {
-        "version": "4.5.0"
-    },
     "drupal/pathauto": {
         "version": "1.8.0"
     },
