@@ -28,15 +28,10 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
-  migrate: 0
-  migrate_drupal: 0
-  migrate_plus: 0
-  migrate_tools: 0
   node: 0
   odsg_access: 0
   odsg_general: 0
   odsg_layouts: 0
-  odsg_migrate: 0
   odsg_ocha: 0
   page_cache: 0
   path: 0

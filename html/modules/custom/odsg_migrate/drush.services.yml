@@ -1,6 +1,0 @@
-services:
-  odsg_migrate.commands:
-    class: \Drupal\odsg_migrate\Commands\OdsgMigrateCommands
-    arguments: ['@config.installer', '@config.manager']
-    tags:
-      - { name: drush.command }
