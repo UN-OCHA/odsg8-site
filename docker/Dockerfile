@@ -1,4 +1,4 @@
-FROM unocha/unified-builder:7.4-develop as builder
+FROM public.ecr.aws/unocha/unified-builder:${TAG:-8.0-stable} as builder
 ARG  BRANCH_ENVIRONMENT
 ENV  NODE_ENV=$BRANCH_ENVIRONMENT
 COPY . /srv/www
@@ -17,7 +17,7 @@ RUN cd html/themes/custom/common_design_subtheme && \
 # Copy settings to default site location.
 RUN cp -a docker/settings.php docker/services.yml html/sites/default
 
-FROM unocha/php-k8s:${TAG:-7.4-NR-develop}
+FROM public.ecr.aws/unocha/php-k8s:${TAG:-8.0-NR-stable}
 
 ARG VCS_REF
 ARG VCS_URL
@@ -39,7 +39,7 @@ LABEL info.humanitarianresponse.build.date=$BUILD_DATE \
       info.humanitarianresponse.build.vcs-url=$VCS_URL \
       info.humanitarianresponse.build.vcs-ref=$VCS_REF
 # Add PHP Soap extension to request OCHA Contribution Tracking System API.
-RUN apk -U add php7-soap
+RUN apk add php8-soap
 
 COPY --from=builder /srv/www/config /srv/www/config/
 COPY --from=builder /srv/www/html /srv/www/html/
