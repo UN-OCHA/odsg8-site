@@ -9,7 +9,6 @@ module:
   contextual: 0
   ctools: 0
   datetime: 0
-  dblog: 0
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
@@ -50,7 +49,6 @@ module:
   toolbar: 0
   update: 0
   user: 0
-  views_ui: 0
   pathauto: 1
   views: 10
   minimal: 1000
