@@ -86,6 +86,11 @@ Notes
 Some notes related to the initial installation and development are available in
 the [notes.md](notes.md) file.
 
+For local development, add this line to settings.local.php:
+`$config['config_split.config_split.config_dev']['status'] = TRUE;`
+After importing a fresh database, run `drush cim` to enable devel, database log
+and stage_file_proxy.
+
 Local testing
 -------------
 
