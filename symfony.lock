@@ -140,6 +140,12 @@
     "drupal/components": {
         "version": "2.0.0-beta3"
     },
+    "drupal/config_filter": {
+        "version": "2.2.0"
+    },
+    "drupal/config_split": {
+        "version": "2.0.0-beta4"
+    },
     "drupal/console": {
         "version": "1.9.7"
     },
@@ -188,6 +194,9 @@
     "drupal/redirect": {
         "version": "1.6.0"
     },
+    "drupal/seckit": {
+        "version": "2.0.0"
+    },
     "drupal/social_api": {
         "version": "2.0.0-rc3"
     },
@@ -196,6 +205,9 @@
     },
     "drupal/social_auth_hid": {
         "version": "2.5.0"
+    },
+    "drupal/stage_file_proxy": {
+        "version": "1.1.0"
     },
     "drupal/token": {
         "version": "1.7.0"
@@ -247,6 +259,9 @@
     },
     "justinrainbow/json-schema": {
         "version": "5.2.10"
+    },
+    "kint-php/kint": {
+        "version": "3.3"
     },
     "laminas/laminas-diactoros": {
         "version": "1.8.7p2"
