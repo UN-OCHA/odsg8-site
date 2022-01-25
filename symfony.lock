@@ -32,6 +32,9 @@
     "composer/metadata-minifier": {
         "version": "1.0.0"
     },
+    "composer/pcre": {
+        "version": "1.0.0"
+    },
     "composer/semver": {
         "version": "1.5.1"
     },
@@ -304,12 +307,6 @@
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
-    },
-    "nette/finder": {
-        "version": "v2.5.2"
-    },
-    "nette/utils": {
-        "version": "v3.2.2"
     },
     "nikic/php-parser": {
         "version": "v4.10.2"
