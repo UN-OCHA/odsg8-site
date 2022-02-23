@@ -1,0 +1,5 @@
+services:
+  odsg_general.route_subscriber:
+    class: Drupal\odsg_general\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
