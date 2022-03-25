@@ -11,12 +11,12 @@ pattern: '[node:content-type]/[node:title]'
 selection_criteria:
   565e7467-60cb-42c2-8592-d5c8d1485feb:
     id: node_type
-    bundles:
-      odsg_document: odsg_document
     negate: false
+    uuid: 565e7467-60cb-42c2-8592-d5c8d1485feb
     context_mapping:
       node: node
-    uuid: 565e7467-60cb-42c2-8592-d5c8d1485feb
+    bundles:
+      odsg_document: odsg_document
 selection_logic: and
 weight: -9
 relationships: {  }

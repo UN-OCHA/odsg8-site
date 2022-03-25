@@ -11,12 +11,12 @@ pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
   d04af623-27dd-4897-b0fe-787d5cf374ec:
     id: node_type
-    bundles:
-      page: page
     negate: false
+    uuid: d04af623-27dd-4897-b0fe-787d5cf374ec
     context_mapping:
       node: node
-    uuid: d04af623-27dd-4897-b0fe-787d5cf374ec
+    bundles:
+      page: page
 selection_logic: and
 weight: -8
 relationships: {  }
