@@ -18,18 +18,18 @@ plugin: 'system_menu_block:main'
 settings:
   id: 'system_menu_block:main'
   label: 'Main menu'
-  provider: system
   label_display: '0'
+  provider: system
   level: 1
   depth: 0
   expand_all_items: false
 visibility:
   user_role:
     id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
     roles:
       odsg_donor_un_employee: odsg_donor_un_employee
       content_manager: content_manager
       administrator: administrator
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
