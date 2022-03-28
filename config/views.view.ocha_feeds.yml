@@ -13,51 +13,12 @@ base_table: odsg_ocha_feed
 base_field: ''
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: none
-        options: {  }
-      cache:
-        type: time
-        options:
-          results_lifespan: 3600
-          results_lifespan_custom: 0
-          output_lifespan: 3600
-          output_lifespan_custom: 0
-      query:
-        type: views_query
-        options:
-          feed: ''
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: some
-        options:
-          items_per_page: 1
-          offset: 0
-      style:
-        type: html_list
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: false
-          type: ul
-          wrapper_class: ''
-          class: ''
-      row:
-        type: fields
+      title: Publications
       fields:
         link:
           id: link
@@ -66,6 +27,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -107,7 +69,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         file:
           id: file
           table: odsg_ocha_feed
@@ -115,6 +76,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -156,7 +118,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         image:
           id: image
           table: odsg_ocha_feed
@@ -164,6 +125,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -205,7 +167,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         title:
           id: title
           table: odsg_ocha_feed
@@ -213,6 +174,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -254,7 +216,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         nothing:
           id: nothing
           table: views
@@ -262,6 +223,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -303,84 +265,122 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
-      filters: {  }
-      sorts: {  }
-      title: Publications
-      header: {  }
-      footer: {  }
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 1
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: time
+        options:
+          results_lifespan: 3600
+          results_lifespan_custom: 0
+          output_lifespan: 3600
+          output_lifespan_custom: 0
       empty: {  }
-      relationships: {  }
+      sorts: {  }
       arguments: {  }
-      display_extenders: {  }
+      filters: {  }
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          type: ul
+          wrapper_class: ''
+          class: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          feed: ''
+      relationships: {  }
       use_more: true
       use_more_always: true
       use_more_text: more
-      link_url: /resources
       link_display: custom_url
+      link_url: /resources
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_annual_reports:
-    display_plugin: block
     id: block_ocha_annual_reports
     display_title: 'Block: OCHA Annual Reports'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Annual Reports'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
       query:
         type: views_query
         options:
           feed: ocha_annual_reports
+      defaults:
+        query: false
+        title: false
+        link_display: false
+        link_url: false
+      display_description: ''
       link_display: custom_url
       link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_annual_reports_full:
-    display_plugin: block
     id: block_ocha_annual_reports_full
     display_title: 'Block: Full OCHA Annual Reports'
+    display_plugin: block
     position: 7
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Annual Reports - Full'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_annual_reports
-      link_display: '0'
-      link_url: /publications/annual-reports
       pager:
         type: none
         options:
           offset: 0
+      query:
+        type: views_query
+        options:
+          feed: ocha_annual_reports
+      defaults:
+        query: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+      display_description: ''
       use_more: false
       use_more_always: false
       use_more_text: more
+      link_display: '0'
+      link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
       allow:
         items_per_page: false
     cache_metadata:
@@ -389,63 +389,63 @@ display:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_core_publications:
-    display_plugin: block
     id: block_ocha_core_publications
     display_title: 'Block: OCHA Core Publications'
+    display_plugin: block
     position: 2
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Core Publications'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
       query:
         type: views_query
         options:
           feed: ocha_core_publications
+      defaults:
+        query: false
+        title: false
+        link_display: false
+        link_url: false
+      display_description: ''
       link_display: custom_url
       link_url: /publications/core-publications
+      display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_core_publications_full:
-    display_plugin: block
     id: block_ocha_core_publications_full
     display_title: 'Block: Full OCHA Core Publications'
+    display_plugin: block
     position: 8
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Core Publications - Full'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_core_publications
-      link_display: '0'
-      link_url: /publications/annual-reports
       pager:
         type: none
         options:
           offset: 0
+      query:
+        type: views_query
+        options:
+          feed: ocha_core_publications
+      defaults:
+        query: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+      display_description: ''
       use_more: false
       use_more_always: false
       use_more_text: more
+      link_display: '0'
+      link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
       allow:
         items_per_page: false
     cache_metadata:
@@ -454,63 +454,63 @@ display:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_global_humanitarian_overview:
-    display_plugin: block
     id: block_ocha_global_humanitarian_overview
     display_title: 'Block: OCHA Global Humanitarian Overview'
+    display_plugin: block
     position: 3
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Global Humanitarian Overview'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
       query:
         type: views_query
         options:
           feed: ocha_global_humanitarian_overview
+      defaults:
+        query: false
+        title: false
+        link_display: false
+        link_url: false
+      display_description: ''
       link_display: custom_url
       link_url: /publications/gho
+      display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_global_humanitarian_overview_full:
-    display_plugin: block
     id: block_ocha_global_humanitarian_overview_full
     display_title: 'Block: Full OCHA Global Humanitarian Overview'
+    display_plugin: block
     position: 9
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Global Humanitarian Overview - Full'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_global_humanitarian_overview
-      link_display: '0'
-      link_url: /publications/annual-reports
       pager:
         type: none
         options:
           offset: 0
+      query:
+        type: views_query
+        options:
+          feed: ocha_global_humanitarian_overview
+      defaults:
+        query: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+      display_description: ''
       use_more: false
       use_more_always: false
       use_more_text: more
+      link_display: '0'
+      link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
       allow:
         items_per_page: false
     cache_metadata:
@@ -519,27 +519,12 @@ display:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_news_and_updates:
-    display_plugin: block
     id: block_ocha_news_and_updates
     display_title: 'Block: OCHA News and Updates'
+    display_plugin: block
     position: 4
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'News & Updates'
-      defaults:
-        title: false
-        query: false
-        fields: false
-        link_display: false
-        link_url: false
-        style: false
-        row: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_news_and_updates
       fields:
         updated:
           id: updated
@@ -548,6 +533,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: date
           label: ''
           exclude: true
           alter:
@@ -592,7 +578,6 @@ display:
           date_format: html_datetime
           custom_date_format: ''
           timezone: ''
-          plugin_id: date
         link:
           id: link
           table: odsg_ocha_feed
@@ -600,6 +585,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -641,7 +627,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         file:
           id: file
           table: odsg_ocha_feed
@@ -649,6 +634,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -690,7 +676,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         image:
           id: image
           table: odsg_ocha_feed
@@ -698,6 +683,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -739,7 +725,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         title:
           id: title
           table: odsg_ocha_feed
@@ -747,6 +732,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -788,7 +774,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         nothing:
           id: nothing
           table: views
@@ -796,6 +781,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -837,9 +823,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
-      link_display: custom_url
-      link_url: 'https://www.unocha.org/media-centre/news-updates'
       style:
         type: html_list
         options:
@@ -852,60 +835,35 @@ display:
       row:
         type: fields
         options: {  }
+      query:
+        type: views_query
+        options:
+          feed: ocha_news_and_updates
+      defaults:
+        query: false
+        title: false
+        link_display: false
+        link_url: false
+        style: false
+        row: false
+        fields: false
+      display_description: ''
+      link_display: custom_url
+      link_url: 'https://www.unocha.org/media-centre/news-updates'
+      display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_news_and_updates_full:
-    display_plugin: block
     id: block_ocha_news_and_updates_full
     display_title: 'Block: Full OCHA News and Updates'
+    display_plugin: block
     position: 9
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'News & Updates - Full'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-        style: false
-        row: false
-        fields: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_news_and_updates
-      link_display: '0'
-      link_url: /publications/annual-reports
-      pager:
-        type: none
-        options:
-          offset: 0
-      use_more: false
-      use_more_always: false
-      use_more_text: more
-      allow:
-        items_per_page: false
-      style:
-        type: html_list
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: false
-          type: ul
-          wrapper_class: ''
-          class: news-updates
-      row:
-        type: fields
-        options: {  }
       fields:
         updated:
           id: updated
@@ -914,6 +872,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: date
           label: ''
           exclude: true
           alter:
@@ -958,7 +917,6 @@ display:
           date_format: html_datetime
           custom_date_format: ''
           timezone: ''
-          plugin_id: date
         link:
           id: link
           table: odsg_ocha_feed
@@ -966,6 +924,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -1007,7 +966,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         file:
           id: file
           table: odsg_ocha_feed
@@ -1015,6 +973,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -1056,7 +1015,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         image:
           id: image
           table: odsg_ocha_feed
@@ -1064,6 +1022,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -1105,7 +1064,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         title:
           id: title
           table: odsg_ocha_feed
@@ -1113,6 +1071,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: standard
           label: ''
           exclude: true
           alter:
@@ -1154,7 +1113,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
         nothing:
           id: nothing
           table: views
@@ -1162,6 +1120,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -1203,70 +1162,111 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
+      pager:
+        type: none
+        options:
+          offset: 0
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          type: ul
+          wrapper_class: ''
+          class: news-updates
+      row:
+        type: fields
+        options: {  }
+      query:
+        type: views_query
+        options:
+          feed: ocha_news_and_updates
+      defaults:
+        query: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+        style: false
+        row: false
+        fields: false
+      display_description: ''
+      use_more: false
+      use_more_always: false
+      use_more_text: more
+      link_display: '0'
+      link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
+      allow:
+        items_per_page: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_plan_and_budget:
-    display_plugin: block
     id: block_ocha_plan_and_budget
     display_title: 'Block: OCHA Plan and Budget'
+    display_plugin: block
     position: 5
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Plan & Budget'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
       query:
         type: views_query
         options:
           feed: ocha_plan_and_budget
+      defaults:
+        query: false
+        title: false
+        link_display: false
+        link_url: false
+      display_description: ''
       link_display: custom_url
       link_url: /publications/plan-and-budget
+      display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_plan_and_budget_full:
-    display_plugin: block
     id: block_ocha_plan_and_budget_full
     display_title: 'Block: Full OCHA Plan and Budget'
+    display_plugin: block
     position: 9
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Plan & Budget - Full'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_plan_and_budget
-      link_display: '0'
-      link_url: /publications/annual-reports
       pager:
         type: none
         options:
           offset: 0
+      query:
+        type: views_query
+        options:
+          feed: ocha_plan_and_budget
+      defaults:
+        query: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+      display_description: ''
       use_more: false
       use_more_always: false
       use_more_text: more
+      link_display: '0'
+      link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
       allow:
         items_per_page: false
     cache_metadata:
@@ -1275,63 +1275,63 @@ display:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_strategic_framework:
-    display_plugin: block
     id: block_ocha_strategic_framework
     display_title: 'Block: OCHA Strategic Framework'
+    display_plugin: block
     position: 6
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Strategic Framework'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
       query:
         type: views_query
         options:
           feed: ocha_strategic_framework
+      defaults:
+        query: false
+        title: false
+        link_display: false
+        link_url: false
+      display_description: ''
       link_display: custom_url
       link_url: /publications/strategic-framework
+      display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags: {  }
   block_ocha_strategic_framework_full:
-    display_plugin: block
     id: block_ocha_strategic_framework_full
     display_title: 'Block: Full OCHA Strategic Framework'
+    display_plugin: block
     position: 9
     display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_hide_empty: true
       title: 'Strategic Framework - Full'
-      defaults:
-        title: false
-        query: false
-        link_display: false
-        link_url: false
-        pager: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      query:
-        type: views_query
-        options:
-          feed: ocha_strategic_framework
-      link_display: '0'
-      link_url: /publications/annual-reports
       pager:
         type: none
         options:
           offset: 0
+      query:
+        type: views_query
+        options:
+          feed: ocha_strategic_framework
+      defaults:
+        query: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+      display_description: ''
       use_more: false
       use_more_always: false
       use_more_text: more
+      link_display: '0'
+      link_url: /publications/annual-reports
+      display_extenders: {  }
+      block_hide_empty: true
       allow:
         items_per_page: false
     cache_metadata:
