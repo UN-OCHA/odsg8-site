@@ -15,103 +15,12 @@ base_table: media_field_data
 base_field: mid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'view media'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: mini
-        options:
-          items_per_page: 10
-          offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            type: type
-            type_1: type_1
-            title: title
-            title_1: title_1
-          info:
-            type:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            type_1:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: title
-          empty_table: false
-      row:
-        type: fields
+      title: 'Media Usage'
       fields:
         title:
           id: title
@@ -120,6 +29,9 @@ display:
           relationship: reverse__node__field_document
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -175,9 +87,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
         title_1:
           id: title_1
           table: node_field_data
@@ -185,6 +94,9 @@ display:
           relationship: reverse__node__field_image
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
           label: Title
           exclude: false
           alter:
@@ -240,27 +152,41 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-      filters:
-        status:
-          value: '1'
-          table: media_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: media
-          entity_field: status
-          id: status
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
           expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
-      sorts: {  }
-      title: 'Media Usage'
-      header: {  }
-      footer: {  }
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'view media'
+      cache:
+        type: tag
+        options: {  }
       empty:
         area_text_custom:
           id: area_text_custom
@@ -269,31 +195,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'Media not currently attached to any content.'
           plugin_id: text_custom
-      relationships:
-        reverse__node__field_document:
-          id: reverse__node__field_document
-          table: media_field_data
-          field: reverse__node__field_document
-          relationship: none
-          group_type: group
-          admin_label: field_document
-          required: false
-          entity_type: media
-          plugin_id: entity_reverse
-        reverse__node__field_image:
-          id: reverse__node__field_image
-          table: media_field_data
-          field: reverse__node__field_image
-          relationship: none
-          group_type: group
-          admin_label: field_image
-          required: false
-          entity_type: media
-          plugin_id: entity_reverse
+          empty: true
+          content: 'Media not currently attached to any content.'
+          tokenize: false
+      sorts: {  }
       arguments:
         mid:
           id: mid
@@ -302,6 +208,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: mid
+          plugin_id: numeric
           default_action: 'not found'
           exception:
             value: all
@@ -316,8 +225,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -327,15 +236,106 @@ display:
             type: 'entity:media'
             fail: 'not found'
           validate_options:
+            bundles: {  }
             access: true
             operation: view
             multiple: 0
-            bundles: {  }
           break_phrase: false
           not: false
+      filters:
+        status:
+          id: status
+          table: media_field_data
+          field: status
           entity_type: media
-          entity_field: mid
-          plugin_id: numeric
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            type: type
+            type_1: type_1
+            title: title
+            title_1: title_1
+          default: title
+          info:
+            type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships:
+        reverse__node__field_document:
+          id: reverse__node__field_document
+          table: media_field_data
+          field: reverse__node__field_document
+          relationship: none
+          group_type: group
+          admin_label: field_document
+          entity_type: media
+          plugin_id: entity_reverse
+          required: false
+        reverse__node__field_image:
+          id: reverse__node__field_image
+          table: media_field_data
+          field: reverse__node__field_image
+          relationship: none
+          group_type: group
+          admin_label: field_image
+          entity_type: media
+          plugin_id: entity_reverse
+          required: false
+      header: {  }
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -347,9 +347,9 @@ display:
         - user.permissions
       tags: {  }
   page_media_usage:
-    display_plugin: page
     id: page_media_usage
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
       display_extenders: {  }
@@ -358,11 +358,11 @@ display:
         type: tab
         title: Usage
         description: ''
-        expanded: false
-        parent: ''
         weight: 2
-        context: '1'
+        expanded: false
         menu_name: main
+        parent: ''
+        context: '1'
       tab_options:
         type: none
         title: ''
