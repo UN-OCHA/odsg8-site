@@ -19,24 +19,24 @@ bundle: custom_link
 mode: default
 content:
   field_image:
-    weight: 3
+    type: media_thumbnail
     label: above
     settings:
-      image_style: medium
       image_link: ''
+      image_style: medium
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 3
     region: content
   field_landing_page:
-    weight: 1
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 1
     region: content
   field_link:
-    weight: 2
+    type: link
     label: above
     settings:
       trim_length: null
@@ -45,19 +45,19 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link
+    weight: 2
     region: content
   field_order:
-    weight: 4
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 4
     region: content
   links:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden: {  }
