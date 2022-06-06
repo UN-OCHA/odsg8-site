@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85b038297d3d9c680f6e2ad6a0a2a389",
+    "content-hash": "0d86161b6eb4a1dd87fd4e7bbf9bba5f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11180,6 +11180,37 @@
                 "source": "https://github.com/UN-OCHA/common_design/tree/v4.1.1"
             },
             "time": "2021-07-23T10:34:36+00:00"
+        },
+        {
+            "name": "unocha/ocha_security",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UN-OCHA/ocha_security.git",
+                "reference": "7d254cc87cf6ef1973a472dfad2c37e763ed0879"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UN-OCHA/ocha_security/zipball/7d254cc87cf6ef1973a472dfad2c37e763ed0879",
+                "reference": "7d254cc87cf6ef1973a472dfad2c37e763ed0879",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "require-dev": {
+                "drupal/coder": "^8.3",
+                "sebastian/phpcpd": "^6.0"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "support": {
+                "source": "https://github.com/UN-OCHA/ocha_security/tree/v1.0.1",
+                "issues": "https://github.com/UN-OCHA/ocha_security/issues"
+            },
+            "time": "2022-06-01T09:48:10+00:00"
         },
         {
             "name": "webflo/drupal-finder",
