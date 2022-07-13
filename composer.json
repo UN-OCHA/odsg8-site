@@ -36,7 +36,7 @@
         "drupal/core-dev": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
-        "drupal/ctools": "^3.7",
+        "drupal/ctools": "^4.0",
         "drupal/editor_advanced_link": "^2.0",
         "drupal/google_tag": "1.4",
         "drupal/maintenance200": "^1.0",
