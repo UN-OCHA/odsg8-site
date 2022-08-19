@@ -38,7 +38,7 @@ assert_options(ASSERT_ACTIVE, TRUE);
 /**
  * Enable local development services.
  */
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] = '/srv/www/shared/settings/services.yml';
 
 /**
  * Show all error messages, with backtrace information.
@@ -130,35 +130,16 @@ $settings['rebuild_access'] = TRUE;
  */
 $settings['skip_permissions_hardening'] = TRUE;
 
-
-
-// Docksal DB connection settings.
-$databases['default']['default'] = array (
-  'database' => 'default',
-  'username' => 'user',
-  'password' => 'user',
-  'host' => 'db',
-  'driver' => 'mysql',
-);
-
 // Workaround for permission issues with NFS shares
 $settings['file_chmod_directory'] = 0777;
 $settings['file_chmod_file'] = 0666;
 
 # File system settings.
 $config['system.file']['path']['temporary'] = '/tmp';
+$settings['file_private_path'] = '/srv/www/html/sites/default/private';
 
-// Reverse proxy configuration (Docksal vhost-proxy)
-if (PHP_SAPI !== 'cli') {
-  $settings['reverse_proxy'] = TRUE;
-  $settings['reverse_proxy_addresses'] = array($_SERVER['REMOTE_ADDR']);
-  // HTTPS behind reverse-proxy
-  if (
-    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' &&
-    !empty($settings['reverse_proxy']) && in_array($_SERVER['REMOTE_ADDR'], $settings['reverse_proxy_addresses'])
-  ) {
-    $_SERVER['HTTPS'] = 'on';
-    // This is hardcoded because there is no header specifying the original port.
-    $_SERVER['SERVER_PORT'] = 443;
-  }
-}
+// Default sync directory.
+$settings['config_sync_directory'] = '/srv/www/config';
+
+// Hash salt.
+$settings['hash_salt'] = 'doscstore-salt';
