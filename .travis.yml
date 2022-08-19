@@ -73,12 +73,8 @@ script:
   # Theme build.
   - docker exec -it -u appuser -w /srv/www "${SITEID}-site" composer run sass
 
-  # Run unit tests.
-  - docker exec -it -u root -w /srv/www "${SITEID}-site" mkdir -p /srv/www/html/sites/default/files/browser_output
-  - docker exec -it -u root -w /srv/www -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output "${SITEID}-site" ./vendor/bin/phpunit --testsuite existing-site,existing-site-javascript,Unit --debug
-
   # Install the site with existing config.
-  - docker exec -it "${SITEID}-site" drush -y si --existing-config minimal install_configure_form.enable_update_status_emails=NULL
+  - docker exec -it "${SITEID}-site" drush -y si --db-url=mysql://${SITEID}:${SITEID}@mysql/${SITEID} --existing-config minimal install_configure_form.enable_update_status_emails=NULL
   - docker exec -it "${SITEID}-site" drush -y en dblog
   - docker exec -it "${SITEID}-site" drush -y cset system.site uuid $(grep uuid ${TRAVIS_BUILD_DIR}/config/system.site.yml | awk '{print $2}')
   - docker exec -it "${SITEID}-site" drush sqlc < zcat ${TRAVIS_BUILD_DIR}/tests/sample_data/sample.sql.gz
