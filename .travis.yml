@@ -31,8 +31,8 @@ before_script:
   - cd ${TRAVIS_BUILD_DIR}
 
   # Check the docker images we want actually exists.
-  - grep 'unocha/unified-builder:' ./docker/Dockerfile | awk '{print $2}' | xargs docker pull
-  - grep 'unocha/php-k8s:' ./docker/Dockerfile | awk '{print $2}' | xargs docker pull
+  - grep 'unocha/unified-builder:' ${TRAVIS_BUILD_DIR}/docker/Dockerfile | awk '{print $2}' | xargs docker pull
+  - grep 'unocha/php-k8s:' ${TRAVIS_BUILD_DIR}/docker/Dockerfile | awk '{print $2}' | xargs docker pull
 
   # Get docker information.
   - docker version
