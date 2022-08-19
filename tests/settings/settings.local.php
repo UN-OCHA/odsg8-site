@@ -134,11 +134,11 @@ $settings['skip_permissions_hardening'] = TRUE;
 
 // Docksal DB connection settings.
 $databases['default']['default'] = array (
-  'database' => 'test',
-  'username' => 'user',
-  'password' => 'user',
+  'database' => 'odsg',
+  'username' => 'odsg',
+  'password' => 'odsg',
   'prefix' => '',
-  'host' => 'db',
+  'host' => 'mysql',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
