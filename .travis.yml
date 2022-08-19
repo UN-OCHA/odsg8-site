@@ -28,9 +28,11 @@ before_script:
   - if ! [ -x "$(command -v aws)" ]; then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ; unzip awscliv2.zip ; sudo ./aws/install ; fi
   - aws ecr-public get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin public.ecr.aws/unocha
 
+  - cd ${TRAVIS_BUILD_DIR}
+
   # Check the docker images we want actually exists.
-  - grep 'unocha/unified-builder:' docker/Dockerfile | awk '{print $2}' | xargs docker pull
-  - grep 'unocha/php-k8s:' docker/Dockerfile | awk '{print $2}' | xargs docker pull
+  - grep 'unocha/unified-builder:' ./docker/Dockerfile | awk '{print $2}' | xargs docker pull
+  - grep 'unocha/php-k8s:' ./docker/Dockerfile | awk '{print $2}' | xargs docker pull
 
   # Get docker information.
   - docker version
@@ -40,6 +42,7 @@ before_script:
   - phpenv rehash
 
 script:
+  - cd ${TRAVIS_BUILD_DIR}
   - set -e
   # PHP linting
   - test ! -d ./html/modules/custom || find -L ./html/modules/custom -iregex '.*\.\(php\|module\|inc\|install\)$' -print0 | xargs -0 -n 1 -P 4 php -l
@@ -50,7 +53,7 @@ script:
   - make
 
   # Create the site and support containers.
-  - docker-compose -f tests/docker-compose.yml up -d
+  - docker-compose -f ./tests/docker-compose.yml up -d
 
   # Dump some information about the created containers.
   - docker ps -a
