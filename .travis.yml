@@ -44,9 +44,6 @@ before_script:
 
 script:
   - cd ${TRAVIS_BUILD_DIR}
-  # For debugging a previous step.
-  - pwd
-  - ls -l
 
   - set -e
   # PHP linting
@@ -82,6 +79,15 @@ script:
   - docker exec -it "${SITEID}-site" drush cr
   - docker exec -it "${SITEID}-site" drush en yaml_content -y
   - docker exec -it "${SITEID}-site" drush yaml-content-import /srv/www/tests
+
+  # Trying without chrome and the specialized ports.
+  # # Chrome headless
+  # - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  # - sleep 5
+
+  # Test
+  # - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript
+  - docker exec -it "${SITEID}-site" /srv/www/vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
