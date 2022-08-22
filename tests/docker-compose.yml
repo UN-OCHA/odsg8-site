@@ -33,6 +33,7 @@ services:
       # Mount the folder for composer scripts.
       - "../scripts:/srv/www/scripts:ro"
       # Mount the folders needed for the tests.
+      - "../tests:/srv/www/tests:ro"
       - "../phpcs.xml:/srv/www/phpcs.xml:ro"
     environment:
       - TERM=xterm
