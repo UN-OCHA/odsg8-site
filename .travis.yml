@@ -30,6 +30,9 @@ before_script:
 
   - cd ${TRAVIS_BUILD_DIR}
 
+  # For debugging the next step
+  - pwd
+  - ls -l
   # Skip these checks as they're not used in the rwint site but failing here:
   # "The command failed and exited with 123 during ."
   # # Check the docker images we want actually exists.
@@ -80,21 +83,13 @@ script:
   # Install the site with existing config.
   - docker exec -it "${SITEID}-site" drush -y si --existing-config minimal install_configure_form.enable_update_status_emails=NULL
   - docker exec -it "${SITEID}-site" drush -y en dblog
-  - docker exec -it "${SITEID}-site" drush -y cset system.site uuid $(grep uuid ${TRAVIS_BUILD_DIR}/config/system.site.yml | awk '{print $2}')
-  # - docker exec -it "${SITEID}-site" drush -y cim --source=${TRAVIS_BUILD_DIR}/config
-  # TODO: check whether this config is useful/ necessary, as it gives an error.
-  #  [error]  Enable the config module in order to use the --partial option.
-  #  The source directory does not exist. The source is not a directory.
-  # - docker exec -it "${SITEID}-site" drush -y cim --partial --source=${TRAVIS_BUILD_DIR}/tests/config
+  - docker exec -it "${SITEID}-site" drush -y cset system.site uuid $(grep uuid ../config/system.site.yml | awk '{print $2}')
+  - docker exec -it "${SITEID}-site" drush -y cim --source=../config
+  - docker exec -it "${SITEID}-site" drush -y cim --partial --source=../tests/config
   - docker exec -it "${SITEID}-site" drush php-eval 'node_access_rebuild();'
   - docker exec -it "${SITEID}-site" drush cr
   - docker exec -it "${SITEID}-site" drush en yaml_content -y
-  - docker exec -it "${SITEID}-site" pwd
-  - docker exec -it "${SITEID}-site" ls -l
-  - docker exec -it "${SITEID}-site" cd ${TRAVIS_BUILD_DIR}
-  - docker exec -it "${SITEID}-site" pwd
-  - docker exec -it "${SITEID}-site" ls -l
-  # - docker exec -it "${SITEID}-site" drush yaml-content-import ${TRAVIS_BUILD_DIR}/tests
+  - docker exec -it "${SITEID}-site" drush yaml-content-import ../tests
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
