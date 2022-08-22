@@ -81,7 +81,7 @@ script:
   - docker exec -it "${SITEID}-site" drush -y si --existing-config minimal install_configure_form.enable_update_status_emails=NULL
   - docker exec -it "${SITEID}-site" drush -y en dblog
   - docker exec -it "${SITEID}-site" drush -y cset system.site uuid $(grep uuid ${TRAVIS_BUILD_DIR}/config/system.site.yml | awk '{print $2}')
-  - docker exec -it "${SITEID}-site" -w /srv/www drush -y cim --source=${TRAVIS_BUILD_DIR}/config
+  - docker exec -it "${SITEID}-site" drush -y cim --source=${TRAVIS_BUILD_DIR}/config
   # TODO: check whether this config is useful/ necessary, as it gives an error.
   #  [error]  Enable the config module in order to use the --partial option.
   #  The source directory does not exist. The source is not a directory.
@@ -89,7 +89,9 @@ script:
   - docker exec -it "${SITEID}-site" drush php-eval 'node_access_rebuild();'
   - docker exec -it "${SITEID}-site" drush cr
   - docker exec -it "${SITEID}-site" drush en yaml_content -y
-  - docker exec -it "${SITEID}-site" drush yaml-content-import ${TRAVIS_BUILD_DIR}/tests
+  - docker exec -it "${SITEID}-site" pwd
+  - docker exec -it "${SITEID}-site" ls -l
+  # - docker exec -it "${SITEID}-site" drush yaml-content-import ${TRAVIS_BUILD_DIR}/tests
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
