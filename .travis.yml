@@ -86,8 +86,8 @@ script:
   # - sleep 5
 
   # Test
-  # - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript
-  - docker exec -it "${SITEID}-site" /srv/www/vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript
+  # - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --testsuite=existing-site,existing-site-javascript 
+  - docker exec -it "${SITEID}-site" /srv/www/vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript UnitTest
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
