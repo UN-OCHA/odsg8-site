@@ -64,7 +64,7 @@ script:
   - sleep 10
 
   # Install the dev dependencies.
-  - docker exec -it -u appuser -w /srv/www "${SITEID}-site" sh -c "composer self-update && composer install"
+  - docker exec -it -u appuser -w /srv/www "${SITEID}-site" sh -c "composer install"
 
   # Check coding standards.
   - docker exec -it -u appuser -w /srv/www "${SITEID}-site" ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/modules/custom
@@ -87,7 +87,7 @@ script:
 
   # Test
   # - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --testsuite=existing-site,existing-site-javascript 
-  - docker exec -it -w /srv/www "${SITEID}-site" sh -c "./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript"
+  - docker exec -it -w /srv/www "${SITEID}-site" sh -c "./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript HomePageTest"
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
