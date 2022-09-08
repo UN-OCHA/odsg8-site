@@ -87,9 +87,9 @@ script:
 
   # Test
   # - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --testsuite=existing-site,existing-site-javascript 
-  - docker exec -it -w /srv/www "${SITEID}-site" ls -l html/modules/custom
-  - docker exec -it -w /srv/www "${SITEID}-site" find . -name *Test.php
-  - docker exec -it -w /srv/www "${SITEID}-site" /srv/www/vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript HomePageTest
+  - docker exec -it -w /srv/www "${SITEID}-site" ls -l html/modules/custom/odsg_general/tests/src/ExistingSite
+  - docker exec -it -w /srv/www "${SITEID}-site" find ./html/modules/custom -name *Test.php
+  - docker exec -it -w /srv/www "${SITEID}-site" ./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript ./html/modules/custom/odsg_general/tests/src/ExistingSite/HomePageTest
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
