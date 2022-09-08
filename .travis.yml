@@ -1,6 +1,6 @@
 env:
   - PHP_VERSION=8.0
-  - SITEID=odsg
+    - SITEID=odsg
 
 dist: focal
 language: php
