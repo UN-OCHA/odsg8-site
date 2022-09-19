@@ -1,6 +1,3 @@
-env:
-  - SITEID=odsg
-
 dist: focal
 language: php
 cache:
@@ -63,35 +60,35 @@ script:
   - sleep 10
 
   # Install the dev dependencies.
-  - docker exec -it -u appuser -w /srv/www "${SITEID}-site" sh -c "composer install"
+  - docker exec -it -u appuser -w /srv/www odsg-site sh -c "composer install"
 
   # Check coding standards.
-  - docker exec -it -u appuser -w /srv/www "${SITEID}-site" ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/modules/custom
-  - docker exec -it -u appuser -w /srv/www "${SITEID}-site" ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/themes/custom
+  - docker exec -it -u appuser -w /srv/www odsg-site ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/modules/custom
+  - docker exec -it -u appuser -w /srv/www odsg-site ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/themes/custom
 
   # Run unit tests.
-  - docker exec -it -u root -w /srv/www "${SITEID}-site" mkdir -p /srv/www/html/sites/default/files/browser_output
-  - docker exec -it -u root -w /srv/www -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output "${SITEID}-site" ./vendor/bin/phpunit --testsuite Unit --debug
+  - docker exec -it -u root -w /srv/www odsg-site mkdir -p /srv/www/html/sites/default/files/browser_output
+  - docker exec -it -u root -w /srv/www -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output odsg-site ./vendor/bin/phpunit --testsuite Unit --debug
 
   # Install the site with existing config.
-  - docker exec -it "${SITEID}-site" drush -y si --existing-config minimal install_configure_form.enable_update_status_emails=NULL
-  - docker exec -it "${SITEID}-site" drush -y en dblog
-  - docker exec -it -w /srv/www "${SITEID}-site" drush -y cset system.site uuid $(grep uuid ./config/system.site.yml | awk '{print $2}')
-  - docker exec -it "${SITEID}-site" drush -y cim --source=/srv/www/config
-  - docker exec -it "${SITEID}-site" drush php-eval 'node_access_rebuild();'
-  - docker exec -it "${SITEID}-site" drush cr
-  - docker exec -it "${SITEID}-site" drush en yaml_content -y
-  - docker exec -it "${SITEID}-site" drush yaml-content-import /srv/www/tests
+  - docker exec -it odsg-site drush -y si --existing-config minimal install_configure_form.enable_update_status_emails=NULL
+  - docker exec -it odsg-site drush -y en dblog
+  - docker exec -it -w /srv/www odsg-site drush -y cset system.site uuid $(grep uuid ./config/system.site.yml | awk '{print $2}')
+  - docker exec -it odsg-site drush -y cim --source=/srv/www/config
+  - docker exec -it odsg-site drush php-eval 'node_access_rebuild();'
+  - docker exec -it odsg-site drush cr
+  - docker exec -it odsg-site drush en yaml_content -y
+  - docker exec -it odsg-site drush yaml-content-import /srv/www/tests
 
   # Ensure the file directories are writable.
-  - docker exec -it "${SITEID}-site" chmod -R 777 /srv/www/html/sites/default/files /srv/www/html/sites/default/private
+  - docker exec -it odsg-site chmod -R 777 /srv/www/html/sites/default/files /srv/www/html/sites/default/private
 
   # Create the build logs directory and make sure it's writable.
-  - docker exec -it -u root "${SITEID}-site" mkdir -p /srv/www/html/build/logs
-  - docker exec -it -u root "${SITEID}-site" chmod -R 777 /srv/www/html/build/logs
+  - docker exec -it -u root odsg-site mkdir -p /srv/www/html/build/logs
+  - docker exec -it -u root odsg-site chmod -R 777 /srv/www/html/build/logs
 
   # Run all tests and generate coverage report.
-  - docker exec -it -u root -w /srv/www -e XDEBUG_MODE=coverage -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output -e DTT_BASE_URL=http://127.0.0.1 "${SITEID}-site" ./vendor/bin/phpunit --coverage-clover /srv/www/html/build/logs/clover.xml --debug
+  - docker exec -it -u root -w /srv/www -e XDEBUG_MODE=coverage -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output -e DTT_BASE_URL=http://127.0.0.1 odsg-site ./vendor/bin/phpunit --coverage-clover /srv/www/html/build/logs/clover.xml --debug
 
   # Trying without chrome and the specialized ports.
   # # Chrome headless
@@ -100,7 +97,7 @@ script:
 
   # Test
   # - DTT_BASE_URL=http://127.0.0.1:8080 DTT_API_URL=http://localhost:9222 ./vendor/bin/phpunit --debug --testsuite=existing-site,existing-site-javascript 
-  # - docker exec -it -w /srv/www "${SITEID}-site" sh -c "./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript HomePageTest"
+  # - docker exec -it -w /srv/www odsg-site sh -c "./vendor/bin/phpunit --debug --colors --testsuite=existing-site,existing-site-javascript HomePageTest"
 
 after_success:
   - cd $TRAVIS_BUILD_DIR
@@ -109,7 +106,7 @@ after_success:
   # Create directory for clover.
   - mkdir -p ./build/logs
   - chmod -R 777 ./build/logs
-  - docker cp "${SITEID}-site":/srv/www/html/build/logs/clover.xml ./build/logs/
+  - docker cp odsg-site:/srv/www/html/build/logs/clover.xml ./build/logs/
   # Fix source files path.
   - sed -i 's#/srv/www#.#g' build/logs/clover.xml
   # Get coveralls and execute.
@@ -119,4 +116,4 @@ after_success:
 
 after_failure:
   - echo "The tests failed. Please check the output above for problems."
-  - docker exec -it "${SITEID}-site" drush watchdog:show --count=50 --extended
+  - docker exec -it odsg-site drush watchdog:show --count=50 --extended
