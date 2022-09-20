@@ -64,11 +64,11 @@ script:
   - sleep 10
 
   # Install the dev dependencies.
-  - docker exec -it -u appuser -w /srv/www $SITEID-site sh -c "composer install"
+  - docker exec -it -u root -w /srv/www $SITEID-site sh -c "composer install"
 
   # Check coding standards.
-  - docker exec -it -u appuser -w /srv/www $SITEID-site ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/modules/custom
-  - docker exec -it -u appuser -w /srv/www $SITEID-site ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/themes/custom
+  - docker exec -it -u root -w /srv/www $SITEID-site ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/modules/custom
+  - docker exec -it -u root -w /srv/www $SITEID-site ./vendor/bin/phpcs -p --report=full --standard=phpcs.xml ./html/themes/custom
 
   # Run unit tests.
   - docker exec -it -u root -w /srv/www $SITEID-site mkdir -p /srv/www/html/sites/default/files/browser_output
