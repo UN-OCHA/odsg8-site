@@ -1,12 +1,12 @@
-env:
-  - SITEID=odsg
-
 dist: focal
 os: linux
 language: php
 cache:
   directories:
   - $HOME/.composer
+
+env:
+  - SITEID=odsg
 
 php:
   - 8.0
