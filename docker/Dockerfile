@@ -17,7 +17,7 @@ RUN cd html/themes/custom/common_design_subtheme && \
 # Copy settings to default site location.
 RUN cp -a docker/settings.php docker/services.yml html/sites/default
 
-FROM public.ecr.aws/unocha/php-k8s:${TAG:-8.0-NR-stable}
+FROM public.ecr.aws/unocha/php-k8s:${TAG:-8.0-stable}
 
 ARG VCS_REF
 ARG VCS_URL
