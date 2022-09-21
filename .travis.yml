@@ -72,7 +72,7 @@ script:
 
   # Run unit tests.
   - docker exec -it -u root -w /srv/www $SITEID-site mkdir -p /srv/www/html/sites/default/files/browser_output
-  - docker exec -it -u root -w /srv/www -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output $SITEID-site ./vendor/bin/phpunit --debug .
+  - docker exec -it -u root -w /srv/www -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output $SITEID-site ./vendor/bin/phpunit --debug
 
   # Install the site with existing config.
   - docker exec -it $SITEID-site drush -y si --existing-config minimal install_configure_form.enable_update_status_emails=NULL
@@ -92,7 +92,7 @@ script:
   - docker exec -it -u root $SITEID-site chmod -R 777 /srv/www/html/build/logs
 
   # Run all tests.
-  - docker exec -it -u root -w /srv/www -e XDEBUG_MODE=coverage -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output -e DTT_BASE_URL=http://127.0.0.1 $SITEID-site ./vendor/bin/phpunit --debug .
+  - docker exec -it -u root -w /srv/www -e XDEBUG_MODE=coverage -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output -e DTT_BASE_URL=http://127.0.0.1 $SITEID-site ./vendor/bin/phpunit --debug
 
   # Trying without chrome and the specialized ports.
   # # Chrome headless
