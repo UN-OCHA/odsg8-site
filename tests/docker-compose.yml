@@ -11,7 +11,7 @@ volumes:
 
 services:
   mysql:
-    image: unocha/alpine-mysql:10.5.12-r0-202109-01
+    image: public.ecr.aws/unocha/mysql:10.6
     hostname: $SITEID-mysql
     container_name: $SITEID-mysql
     environment:
