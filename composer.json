@@ -57,7 +57,7 @@
         "drupal/coder": "^8.3.9",
         "drupal/config_filter": "^2.2",
         "drupal/console": "^1.9.7",
-        "drupal/devel": "^4.1",
+        "drupal/devel": "^5.0.2",
         "drupal/stage_file_proxy": "^1.1",
         "drupal/upgrade_status": "^3.8",
         "drupal/yaml_content": "^1.0@alpha",
