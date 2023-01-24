@@ -71,9 +71,6 @@
     "consolidation/site-process": {
         "version": "2.1.0"
     },
-    "container-interop/container-interop": {
-        "version": "1.2.0"
-    },
     "cweagans/composer-patches": {
         "version": "1.7.0"
     },
@@ -104,9 +101,6 @@
             "config/routes/annotations.yaml"
         ]
     },
-    "doctrine/cache": {
-        "version": "v1.6.2"
-    },
     "doctrine/collections": {
         "version": "v1.4.0"
     },
@@ -115,9 +109,6 @@
     },
     "doctrine/event-manager": {
         "version": "1.1.1"
-    },
-    "doctrine/inflector": {
-        "version": "v1.2.0"
     },
     "doctrine/instantiator": {
         "version": "1.4.0"
