@@ -8,4 +8,4 @@ name: Local
 weight: ''
 url: 'https://odsg.test/'
 fg_color: '#ffffff'
-bg_color: '#0d0d0d'
+bg_color: '#000000'
