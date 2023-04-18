@@ -1,0 +1,11 @@
+uuid: 9a67c49d-bdc8-4c97-be28-5e94e65cd424
+langcode: en
+status: true
+dependencies: {  }
+machine: local
+description: null
+name: Local
+weight: ''
+url: 'https://odsg.test/'
+fg_color: '#ffffff'
+bg_color: '#000000'
