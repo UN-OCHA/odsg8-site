@@ -39,6 +39,10 @@ before_script:
   - docker version
   - docker-compose version
 
+  # Validate the composer files.
+  - composer self-update 2.5.5
+  - composer validate
+
   # Ensure the PHP environment is ready.
   - phpenv rehash
 
