@@ -257,9 +257,6 @@
     "kint-php/kint": {
         "version": "3.3"
     },
-    "laminas/laminas-diactoros": {
-        "version": "1.8.7p2"
-    },
     "laminas/laminas-escaper": {
         "version": "2.6.1"
     },
