@@ -30,7 +30,7 @@
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-dev": "^9.3",
         "drupal/core-project-message": "^9.3",
-        "drupal/core-recommended": "^9.3",
+        "drupal/core-recommended": "^9.5",
         "drupal/csp": "^1.16",
         "drupal/ctools": "^4.0",
         "drupal/editor_advanced_link": "^2.0",
@@ -81,7 +81,8 @@
             "drupal/core-project-message": true,
             "drupal/console-extend-plugin": true,
             "oomphinc/composer-installers-extender": true,
-            "symfony/flex": true
+            "symfony/flex": true,
+            "drupal-composer/preserve-paths": true
         }
     },
     "autoload": {
