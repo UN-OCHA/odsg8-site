@@ -30,7 +30,7 @@
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-dev": "^9.3",
         "drupal/core-project-message": "^9.3",
-        "drupal/core-recommended": "^9.3",
+        "drupal/core-recommended": "^9.5",
         "drupal/csp": "^1.16",
         "drupal/ctools": "^4.0",
         "drupal/editor_advanced_link": "^2.0",
@@ -42,6 +42,7 @@
         "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^3.1",
         "drupal/user_expire": "^1.0",
+        "drupal/username_enumeration_prevention": "^1.3",
         "drush/drush": "^11.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "slevomat/coding-standard": "^7.0",
@@ -81,7 +82,8 @@
             "drupal/core-project-message": true,
             "drupal/console-extend-plugin": true,
             "oomphinc/composer-installers-extender": true,
-            "symfony/flex": true
+            "symfony/flex": true,
+            "drupal-composer/preserve-paths": true
         }
     },
     "autoload": {
