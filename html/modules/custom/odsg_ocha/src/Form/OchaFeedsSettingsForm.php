@@ -81,7 +81,7 @@ class OchaFeedsSettingsForm extends FormBase {
 
     $form['ocha_strategic_framework'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('OOCHA Strategic Framework'),
+      '#title' => $this->t('OCHA Strategic Framework'),
       '#description' => $this->t('Enter a ReliefWeb API URL (ex: https://api.reliefweb.int/v1/reports?appname=odsg.unocha.org&query[value]=source:OCHA).'),
       '#default_value' => $this->state->get('odsg_ocha.feeds.ocha_strategic_framework', ''),
       '#maxlength' => 4096,
@@ -90,7 +90,7 @@ class OchaFeedsSettingsForm extends FormBase {
 
     $form['ocha_news_and_updates'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('OOCHA News and Updates'),
+      '#title' => $this->t('OCHA News and Updates'),
       '#description' => $this->t('Enter the URL of the feed on www.unocha.org for the OCHA News and Stories. Currently disabled.'),
       '#default_value' => $this->state->get('odsg_ocha.feeds.ocha_news_and_updates', ''),
       '#disabled' => TRUE,
