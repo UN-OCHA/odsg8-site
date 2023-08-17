@@ -1,0 +1,7 @@
+odsg_ocha.ocha_feeds.settings:
+  path: '/admin/config/user-interface/ocha-feeds'
+  defaults:
+    _title: 'OCHA Feeds'
+    _form: '\Drupal\odsg_ocha\Form\OchaFeedsSettingsForm'
+  requirements:
+    _permission: 'administer ocha feeds'

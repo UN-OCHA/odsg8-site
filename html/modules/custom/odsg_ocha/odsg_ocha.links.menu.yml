@@ -1,0 +1,5 @@
+odsg_ocha.ocha_feeds.settings:
+  title: Ocha Feeds
+  description: 'Configure Ocha Feeds settings'
+  route_name: odsg_ocha.ocha_feeds.settings
+  parent: system.admin_config_ui
