@@ -6,6 +6,6 @@ machine: dev
 description: null
 name: Dev
 weight: ''
-url: 'https://dev.odsg-unocha-org.ahconu.org/'
-fg_color: '#0d0d0d'
-bg_color: '#34ccc1'
+url: ''
+fg_color: '#ffffff'
+bg_color: '#db7b18'
