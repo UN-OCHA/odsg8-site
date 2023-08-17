@@ -1,7 +1,10 @@
 uuid: 3abbef29-4c59-4e92-a9a7-bbd119480b37
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - odsg_access
+    - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated

@@ -1,7 +1,12 @@
 uuid: b597d76c-687b-40e6-8a1f-9cdd772208c6
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - odsg_access
+    - odsg_ocha
+    - system
+    - toolbar
 id: administrator
 label: Administrator
 weight: -6
@@ -9,6 +14,7 @@ is_admin: false
 permissions:
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer ocha feeds'
   - 'administer users'
   - 'assign user roles'
   - 'view the administration theme'
