@@ -1,7 +1,10 @@
 uuid: 93da2f40-879e-4c57-9848-03fb129e98cf
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - odsg_access
+    - system
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous

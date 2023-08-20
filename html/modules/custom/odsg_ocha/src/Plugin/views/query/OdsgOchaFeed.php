@@ -9,7 +9,6 @@ use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -145,17 +144,34 @@ class OdsgOchaFeed extends QueryPluginBase {
 
     $view->result = [];
 
-    if (isset($feeds[$this->options['feed']]['url'])) {
+    // Initialize the pager. We only handle offset and limit.
+    $view->initPager();
+    $limit = $view->pager->getItemsPerPage() ?: 100;
+    $offset = $view->pager->current_page * $limit;
+
+    // Get the data from the RW API.
+    $total = 0;
+    if (!empty($feeds[$this->options['feed']]['url'])) {
       // Request settings.
       $url = $feeds[$this->options['feed']]['url'];
       $method = 'GET';
       $options = [
         'headers' => [
-          // Really unfortunate but the JSON data returned by the unocha.org
-          // feeds has the "text/javascript" mimetype...
-          'Accept' => 'application/json, text/javascript',
+          'Accept' => 'application/json',
         ],
       ];
+
+      // Add the pagination to the query and ensure we have the required fields.
+      $url .= (strpos($url, '?') ? '&' : '?') . http_build_query([
+        'offset' => $offset,
+        'limit' => $limit,
+        'fields' => [
+          'include' => [
+            'file',
+            'url_alias',
+          ],
+        ],
+      ]);
 
       try {
         $response = $this->httpClient->request($method, $url, $options);
@@ -165,8 +181,26 @@ class OdsgOchaFeed extends QueryPluginBase {
           $body = $response->getBody()->getContents();
           $data = Json::decode($body);
 
+          $total = $data['totalCount'] ?? 0;
+
           $index = 0;
-          foreach ($data as $item) {
+          $unocha_url = rtrim(static::getOchaFeedBaseUrl(), '/') . '/';
+          foreach ($data['data'] ?? [] as $item) {
+            // Convert the RW API data to what was returned by the OCHA feeds.
+            if (empty($item['fields'])) {
+              continue;
+            }
+            $fields = $item['fields'];
+            $file = !empty($fields['file']) ? reset($fields['file']) : NULL;
+            $item = [
+              'nid' => $item['id'],
+              'title' => $fields['title'],
+              'changed' => $fields['date']['created'],
+              'path' => '/publications/' . ltrim(parse_url($item['fields']['url_alias'], \PHP_URL_PATH), '/'),
+              'uri' => isset($file['preview']['url-small']) ? preg_replace('#^https://[^/]+/#', $unocha_url, $file['preview']['url-small']) : '',
+              'field_publication_document' => isset($file['url']) ? preg_replace('#^https://[^/]+/#', $unocha_url, $file['url']) : '',
+            ];
+
             $item = $this->validateDocument($item);
             // Only add the item if valid. The index property is required.
             if (!empty($item)) {
@@ -176,21 +210,16 @@ class OdsgOchaFeed extends QueryPluginBase {
           }
         }
       }
-      catch (RequestException $exception) {
+      catch (\Exception $exception) {
         watchdog_exception('odsg_ocha', $exception);
       }
     }
 
-    // Initialize the pager. We only handle offset and limit.
-    $view->initPager();
-    $limit = $view->pager->getItemsPerPage();
-    $offset = $view->pager->getOffset();
-    $view->pager->current_page = 0;
-    $view->pager->total_items = count($view->result);
+    // Set the maximum number of results for the pager.
+    $view->pager->total_items = $total;
+    $view->pager->updatePageInfo();
 
-    // Apply the offset and limit on the result set as the feed service doesn't
-    // handle them.
-    $view->result = array_slice($view->result, $offset, !empty($limit) ? $limit : NULL);
+    // Explicitly set the number of rows and the execution time.
     $view->total_rows = count($view->result);
     $view->execute_time = time() - REQUEST_TIME;
   }
@@ -355,6 +384,11 @@ class OdsgOchaFeed extends QueryPluginBase {
     static $feeds;
     if (!isset($feeds)) {
       $feeds = \Drupal::config('odsg_ocha.settings')->get('feeds') ?? [];
+
+      // Use the overriden feeds in state if any.
+      foreach ($feeds as $feed => $info) {
+        $feeds[$feed]['url'] = \Drupal::state()->get('odsg_ocha.feeds.' . $feed, '');
+      }
     }
     return $feeds;
   }
