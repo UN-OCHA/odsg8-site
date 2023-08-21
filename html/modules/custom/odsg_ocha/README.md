@@ -23,6 +23,12 @@ Available fields are:
 - `file`: URL of the first attachment of the document
 - `image`: URL of the cover preview of the attachment or article image
 
+### Administration
+
+The URLs of the feeds used for the views that use this OCHA feeds plugin can
+be administered under `/admin/config/user-interface/ocha-feeds` for the roles
+with the `administer ocha feeds` permission.
+
 OCHA OCT
 --------
 

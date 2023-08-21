@@ -357,9 +357,26 @@ display:
     display_options:
       title: 'Annual Reports - Full'
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 40
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       query:
         type: views_query
         options:
@@ -387,6 +404,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_ocha_core_publications:
     id: block_ocha_core_publications
@@ -422,9 +440,26 @@ display:
     display_options:
       title: 'Core Publications - Full'
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 40
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       query:
         type: views_query
         options:
@@ -452,6 +487,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_ocha_global_humanitarian_overview:
     id: block_ocha_global_humanitarian_overview
@@ -487,9 +523,26 @@ display:
     display_options:
       title: 'Global Humanitarian Overview - Full'
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 40
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       query:
         type: views_query
         options:
@@ -517,6 +570,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_ocha_news_and_updates:
     id: block_ocha_news_and_updates
@@ -1163,9 +1217,26 @@ display:
           empty_zero: false
           hide_alter_empty: false
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 40
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: html_list
         options:
@@ -1208,6 +1279,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_ocha_plan_and_budget:
     id: block_ocha_plan_and_budget
@@ -1243,9 +1315,26 @@ display:
     display_options:
       title: 'Plan & Budget - Full'
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 40
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       query:
         type: views_query
         options:
@@ -1273,6 +1362,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_ocha_strategic_framework:
     id: block_ocha_strategic_framework
@@ -1308,9 +1398,26 @@ display:
     display_options:
       title: 'Strategic Framework - Full'
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 40
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       query:
         type: views_query
         options:
@@ -1338,4 +1445,5 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
