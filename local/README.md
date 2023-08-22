@@ -34,6 +34,6 @@ Enter the container with `./local/exec.sh -w /srv/www site sh` and edit files wi
 
 Alternatively clone the core or contrib module/theme somewhere and mount the relevant folder/files by editing the `local/docker-compose.yml` file.
 
-## API
+## Local proxy
 
-See the similar local stack in the ReliefWeb API repository to set up an instance of the API and its Elasticsearch backend.
+Check the [setup-notes](https://github.com/UN-OCHA/local-reverse-proxy/blob/main/setup-notes.md) for first-time set-up of a local reverse proxy.
