@@ -18,8 +18,6 @@ module:
 theme: {  }
 complete_list:
   - dblog.settings
-  - devel.settings
-  - devel.toolbar.settings
   - environment_indicator.indicator
   - stage_file_proxy.settings
 partial_list: {  }

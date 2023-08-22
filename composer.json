@@ -26,6 +26,7 @@
         "drupal/admin_denied": "^2.0",
         "drupal/allowed_formats": "^2.0",
         "drupal/components": "^2.4",
+        "drupal/config_filter": "^2.2",
         "drupal/config_split": "^2.0.0-beta4",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-dev": "^9.3",
@@ -41,6 +42,7 @@
         "drupal/r4032login": "^2.1",
         "drupal/redirect": "^1.6",
         "drupal/social_auth_hid": "^3.1",
+        "drupal/stage_file_proxy": "^2.0",
         "drupal/user_expire": "^1.0",
         "drupal/username_enumeration_prevention": "^1.3",
         "drush/drush": "^11.0",
@@ -52,10 +54,8 @@
     },
     "require-dev": {
         "drupal/coder": "^8.3.9",
-        "drupal/config_filter": "^2.2",
         "drupal/console": "^1.9.7",
         "drupal/devel": "^5.0.2",
-        "drupal/stage_file_proxy": "^2.0",
         "drupal/upgrade_status": "^3.8",
         "drupal/yaml_content": "^1.0@alpha",
         "kint-php/kint": "^3.3",
@@ -82,8 +82,7 @@
             "drupal/core-project-message": true,
             "drupal/console-extend-plugin": true,
             "oomphinc/composer-installers-extender": true,
-            "symfony/flex": true,
-            "drupal-composer/preserve-paths": true
+            "symfony/flex": true
         }
     },
     "autoload": {
@@ -107,7 +106,8 @@
             "@sass-prepare",
             "@sass-build",
             "@sass-cleanup"
-        ]
+        ],
+        "sub-theme": "test -d html/themes/custom/common_design_subtheme || (cp -r html/themes/contrib/common_design/common_design_subtheme html/themes/custom/ && mv html/themes/custom/common_design_subtheme/common_design_subtheme.info.yml.example html/themes/custom/common_design_subtheme/common_design_subtheme.info.yml)"
     },
     "extra": {
         "drush": {
