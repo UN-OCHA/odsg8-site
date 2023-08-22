@@ -91,6 +91,11 @@ For local development, add this line to settings.local.php:
 After importing a fresh database, run `drush cim` to enable devel, database log
 and stage_file_proxy.
 
+Local development
+-----------------
+
+For local development, see [local stack](local/README.md).
+
 Local testing
 -------------
 

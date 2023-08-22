@@ -1,6 +1,8 @@
 # Variables. Yes.
 DOCKER=docker
 DOCKER_BUILDKIT=0
+IMAGE_NAME=odsg-site
+IMAGE_TAG=local
 
 # The main build recipe.
 build:  clean
@@ -12,13 +14,11 @@ build:  clean
 				--build-arg GITHUB_ACTOR=`whoami` \
 				--build-arg GITHUB_REPOSITORY=`git config --get remote.origin.url` \
 				--build-arg GITHUB_SHA=`git rev-parse --short HEAD` \
-		. --file docker/Dockerfile --tag public.ecr.aws/unocha/odsg-site:local \
+		. --file docker/Dockerfile --tag public.ecr.aws/unocha/$(IMAGE_NAME):$(IMAGE_TAG) \
 		2>&1 | tee buildlog.txt
 
 clean:
-	# This is done in the builder step, preventing breaking some local setups.
-	# rm -rf ./html/themes/custom/common_design_subtheme/node_modules
-	# rm -rf ./buildlog.txt ./vendor
+	rm -rf ./buildlog.txt
 
 # Always build, never claim cache.
 .PHONY: build
