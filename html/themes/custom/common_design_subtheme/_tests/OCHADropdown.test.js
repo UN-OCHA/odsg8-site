@@ -1,8 +1,8 @@
-import env from './_env';
+import env from './_env'
 
 describe('OCHAServicesDropdown', () => {
   beforeAll(async() => {
-    await page.goto(`${env.baseUrl}`);
+    await page.goto(env.baseUrl);
   });
 
   it('should expand when clicked', async() => {
@@ -31,7 +31,7 @@ describe('OCHAServicesDropdown', () => {
       'Financial Tracking Service',
       'Humanitarian Data Exchange',
       'Humanitarian ID',
-      'Humanitarian Response',
+      'ReliefWeb Response',
       'Inter-Agency Standing Committee',
       'OCHA website',
       'ReliefWeb',
@@ -40,8 +40,8 @@ describe('OCHAServicesDropdown', () => {
     const otherOchaServicesCorporateHref = [
       'https://fts.unocha.org/',
       'https://data.humdata.org/',
-      'https://humanitarian.id/',
-      'https://humanitarianresponse.info/',
+      'https://auth.humanitarian.id/',
+      'https://response.reliefweb.int/',
       'https://interagencystandingcommittee.org/',
       'https://unocha.org/',
       'https://reliefweb.int/',

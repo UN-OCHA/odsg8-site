@@ -1,13 +1,9 @@
-name:  OCHA Common Design sub theme
+name: OCHA Common Design sub-theme
+description: OCHA Common Design sub-theme
+core_version_requirement: ^9 || ^10
 type: theme
-description: OCHA Common Design sub theme
-core_version_requirement:  ^9.5 || ^10
 base theme: common_design
 logo: 'img/logos/ocha-lockup-blue.svg'
-
-# Defines libraries group in which we can add css/js.
-libraries:
-  - common_design_subtheme/global-styling
 
 # Regions
 regions:
@@ -24,9 +20,26 @@ regions:
   footer_soft: Soft footer
   footer_navigation: Footer navigation
 
-# Use the common_design_subtheme styles inside the editor.
-ckeditor_stylesheets:
-  - css/styles.css
+###
+# Define the default library for the subtheme. If you want to include other
+# libraries by default, add them as dependencies to global-styling.
+#
+# @see common_design_subtheme.libraries.yml
+#
+libraries:
+  - common_design_subtheme/global-styling
+
+###
+# Extend libraries to add site-specific styles to the base-theme components.
+# Now, wherever the CD Teaser is used, both the base-theme component and your
+# modifications will automatically apply. NOTE: the Drupal library must be
+# defined in the libraries.yml file to be used here.
+#
+# @see common_design_subtheme.libraries.yml
+#
+libraries-extend:
+  common_design/cd-header:
+    - common_design_subtheme/cds-header
 
 # Override libraries.
 #

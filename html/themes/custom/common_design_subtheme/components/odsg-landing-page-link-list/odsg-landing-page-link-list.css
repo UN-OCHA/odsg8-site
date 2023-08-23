@@ -16,6 +16,13 @@
   vertical-align: top;
 }
 
+.cd-content--spacious .odsg-landing-page-link-list {
+  margin: 2.5em -1.5em;
+}
+.cd-content--spacious .odsg-landing-page-link-list li.odsg-landing-page-link-list__item {
+  margin-top: 1.5em;
+}
+
 .odsg-landing-page-link-list__item h3 {
   margin: 0;
   font-size: 1.125rem;
