@@ -2,10 +2,15 @@
 
 namespace Drupal\odsg_ocha\Plugin\views\query;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Views query plugin wrapping calls to OCHA Contribution Tracking System API.
@@ -24,7 +29,28 @@ use Drupal\views\ViewExecutable;
  *
  * @see https://www.drupal.org/node/2484565
  */
-class OdsgOchaFunding extends QueryPluginBase {
+final class OdsgOchaFunding extends QueryPluginBase {
+
+  /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * The logger factory.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $loggerFactory;
+
+  /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
 
   /**
    * Year condition.
@@ -32,6 +58,51 @@ class OdsgOchaFunding extends QueryPluginBase {
    * @var int
    */
   protected $yearCondition;
+
+  /**
+   * Constructs a PluginBase object.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
+   *   The logger factory.
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service.
+   */
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    ConfigFactoryInterface $config_factory,
+    LoggerChannelFactoryInterface $logger_factory,
+    TimeInterface $time
+  ) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    $this->configFactory = $config_factory;
+    $this->loggerFactory = $logger_factory;
+    $this->time = $time;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('config.factory'),
+      $container->get('logger.factory'),
+      $container->get('datetime.time')
+    );
+  }
 
   /**
    * Ensure a table exists for the query.
@@ -93,7 +164,7 @@ class OdsgOchaFunding extends QueryPluginBase {
   public function execute(ViewExecutable $view) {
     $view->result = [];
 
-    $url = \Drupal::config('odsg_ocha.settings')->get('funding.url');
+    $url = $this->configFactory->get('odsg_ocha.settings')?->get('funding.url') ?? '';
 
     if (!empty($url)) {
       // Default to the current year if no condition was provided.
@@ -140,7 +211,7 @@ class OdsgOchaFunding extends QueryPluginBase {
         }
       }
       catch (\Exception $exception) {
-        watchdog_exception('odsg_ocha', $exception);
+        Error::logException($this->loggerFactory->get('odsg_ocha'), $exception);
       }
     }
 
@@ -155,7 +226,7 @@ class OdsgOchaFunding extends QueryPluginBase {
     // handle them.
     $view->result = array_slice($view->result, $offset, !empty($limit) ? $limit : NULL);
     $view->total_rows = count($view->result);
-    $view->execute_time = time() - REQUEST_TIME;
+    $view->execute_time = time() - $this->time->getRequestTime();
   }
 
   /**

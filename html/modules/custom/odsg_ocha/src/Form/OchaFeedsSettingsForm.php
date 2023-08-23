@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Settings form for the OCHA feeds.
  */
-class OchaFeedsSettingsForm extends FormBase {
+final class OchaFeedsSettingsForm extends FormBase {
 
   /**
    * The state service.

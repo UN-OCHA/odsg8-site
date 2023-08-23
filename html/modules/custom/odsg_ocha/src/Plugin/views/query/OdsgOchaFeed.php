@@ -2,9 +2,14 @@
 
 namespace Drupal\odsg_ocha\Plugin\views\query;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\State\StateInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
@@ -28,7 +33,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @see https://www.drupal.org/node/2484565
  */
-class OdsgOchaFeed extends QueryPluginBase {
+final class OdsgOchaFeed extends QueryPluginBase {
+
+  /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
 
   /**
    * GuzzleHttp\Client definition.
@@ -36,6 +48,41 @@ class OdsgOchaFeed extends QueryPluginBase {
    * @var GuzzleHttp\Client
    */
   protected $httpClient;
+
+  /**
+   * The logger factory.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $loggerFactory;
+
+  /**
+   * The state service.
+   *
+   * @var \Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
+
+  /**
+   * The feed information from the configuration.
+   *
+   * @var array
+   */
+  protected $feeds;
+
+  /**
+   * The OCHA base feed URL.
+   *
+   * @var string
+   */
+  protected $baseFeedUrl;
 
   /**
    * Constructs a PluginBase object.
@@ -46,13 +93,34 @@ class OdsgOchaFeed extends QueryPluginBase {
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory.
    * @param \GuzzleHttp\Client $http_client
    *   The http_client.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
+   *   The logger factory.
+   * @param \Drupal\Core\State\StateInterface $state
+   *   The state service.
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, Client $http_client) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    ConfigFactoryInterface $config_factory,
+    Client $http_client,
+    LoggerChannelFactoryInterface $logger_factory,
+    StateInterface $state,
+    TimeInterface $time
+  ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
+    $this->configFactory = $config_factory;
     $this->httpClient = $http_client;
+    $this->loggerFactory = $logger_factory;
+    $this->state = $state;
+    $this->time = $time;
   }
 
   /**
@@ -63,7 +131,11 @@ class OdsgOchaFeed extends QueryPluginBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('http_client')
+      $container->get('config.factory'),
+      $container->get('http_client'),
+      $container->get('logger.factory'),
+      $container->get('state'),
+      $container->get('datetime.time')
     );
   }
 
@@ -120,7 +192,7 @@ class OdsgOchaFeed extends QueryPluginBase {
     parent::buildOptionsForm($form, $form_state);
 
     // Retrieve the list of feeds fromt the configuration.
-    $feeds = \Drupal::config('odsg_ocha.settings')->get('feeds') ?? [];
+    $feeds = $this->configFactory->get('odsg_ocha.settings')?->get('feeds') ?? [];
 
     $options = ['' => $this->t('- Select a feed -')];
     foreach ($feeds as $key => $feed) {
@@ -140,7 +212,7 @@ class OdsgOchaFeed extends QueryPluginBase {
    * {@inheritdoc}
    */
   public function execute(ViewExecutable $view) {
-    $feeds = static::getOchaFeedData();
+    $feeds = $this->getOchaFeedData();
 
     $view->result = [];
 
@@ -184,7 +256,7 @@ class OdsgOchaFeed extends QueryPluginBase {
           $total = $data['totalCount'] ?? 0;
 
           $index = 0;
-          $unocha_url = rtrim(static::getOchaFeedBaseUrl(), '/') . '/';
+          $unocha_url = rtrim($this->getOchaFeedBaseUrl(), '/') . '/';
           foreach ($data['data'] ?? [] as $item) {
             // Convert the RW API data to what was returned by the OCHA feeds.
             if (empty($item['fields'])) {
@@ -211,7 +283,7 @@ class OdsgOchaFeed extends QueryPluginBase {
         }
       }
       catch (\Exception $exception) {
-        watchdog_exception('odsg_ocha', $exception);
+        Error::logException($this->loggerFactory->get('odsg_ocha'), $exception);
       }
     }
 
@@ -221,7 +293,7 @@ class OdsgOchaFeed extends QueryPluginBase {
 
     // Explicitly set the number of rows and the execution time.
     $view->total_rows = count($view->result);
-    $view->execute_time = time() - REQUEST_TIME;
+    $view->execute_time = time() - $this->time->getRequestTime();
   }
 
   /**
@@ -238,7 +310,7 @@ class OdsgOchaFeed extends QueryPluginBase {
    *   Sanitized data or empty array if invalid.
    */
   protected function validateDocument(array $data) {
-    $data['link'] = static::getOchaFeedBaseUrl() . ltrim($data['path'] ?? '', '/');
+    $data['link'] = $this->getOchaFeedBaseUrl() . ltrim($data['path'] ?? '', '/');
 
     $filters = [
       // Node id on the https://www.unocha.org.
@@ -359,7 +431,7 @@ class OdsgOchaFeed extends QueryPluginBase {
    *   URL or NULL if the validation failed.
    */
   protected function validateUrl($url) {
-    $base_url = static::getOchaFeedBaseUrl();
+    $base_url = $this->getOchaFeedBaseUrl();
 
     if (!is_string($url) || empty($base_url)) {
       return NULL;
@@ -380,17 +452,16 @@ class OdsgOchaFeed extends QueryPluginBase {
    * @return array
    *   Feeds data.
    */
-  public static function getOchaFeedData() {
-    static $feeds;
-    if (!isset($feeds)) {
-      $feeds = \Drupal::config('odsg_ocha.settings')->get('feeds') ?? [];
+  public function getOchaFeedData() {
+    if (!isset($this->feeds)) {
+      $this->feeds = $this->configFactory->get('odsg_ocha.settings')?->get('feeds') ?? [];
 
       // Use the overriden feeds in state if any.
-      foreach ($feeds as $feed => $info) {
-        $feeds[$feed]['url'] = \Drupal::state()->get('odsg_ocha.feeds.' . $feed, '');
+      foreach ($this->feeds as $feed => $info) {
+        $this->feeds[$feed]['url'] = $this->state->get('odsg_ocha.feeds.' . $feed, '');
       }
     }
-    return $feeds;
+    return $this->feeds;
   }
 
   /**
@@ -399,12 +470,11 @@ class OdsgOchaFeed extends QueryPluginBase {
    * @return string
    *   Base URL.
    */
-  public static function getOchaFeedBaseUrl() {
-    static $base_url;
-    if (!isset($base_url)) {
-      $base_url = trim(\Drupal::config('odsg_ocha.settings')->get('base-url') ?? '');
+  public function getOchaFeedBaseUrl() {
+    if (!isset($this->baseFeedUrl)) {
+      $this->baseFeedUrl = trim($this->configFactory->get('odsg_ocha.settings')?->get('base-url') ?? '');
     }
-    return $base_url;
+    return $this->baseFeedUrl;
   }
 
 }

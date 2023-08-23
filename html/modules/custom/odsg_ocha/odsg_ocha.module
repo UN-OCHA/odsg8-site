@@ -4,3 +4,17 @@
  * @file
  * ODSG OCHA module file.
  */
+
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function odsg_ocha_views_pre_build(ViewExecutable $view) {
+  // Set the year filter to the current year as default.
+  if ($view->id() === 'ocha_funding') {
+    if (empty($view->getExposedInput())) {
+      $view->setExposedInput(['year' => gmdate('Y')]);
+    }
+  }
+}
