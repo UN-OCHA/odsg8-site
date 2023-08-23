@@ -16,7 +16,7 @@
  * See common_desing/components/cd-table/cd-table.css and
  * common_desing/common_design.breakpoints.yml for the breakpoint.
  */
-@media (min-width: 576px) {
+@media (width >= 576px) {
   /**
    * This applies to both the <th> and <td>, ensuring they are aligned.
    */
