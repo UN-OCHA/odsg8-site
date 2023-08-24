@@ -38,7 +38,7 @@
         "drupal/ctools": "^4.0",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/environment_indicator": "^4.0",
-        "drupal/google_tag": "^2",
+        "drupal/google_tag": "^1.6",
         "drupal/maintenance200": "^1.1",
         "drupal/pathauto": "^1.11",
         "drupal/r4032login": "^2.2",
