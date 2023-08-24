@@ -6,7 +6,7 @@
  *   breakpoints in between also need to be defined.
  */
 
-@media (width >= 800px) {
+@media (min-width: 800px) {
   /* Language Switcher list. */
   .cd-language-switcher__dropdown {
     /* Unset the dropdown styles */

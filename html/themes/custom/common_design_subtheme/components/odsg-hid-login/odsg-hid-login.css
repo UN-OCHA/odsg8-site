@@ -32,7 +32,7 @@
  *
  * See common_desing/common_design.breakpoints.yml for the breakpoint.
  */
-@media (width >= 576px) {
+@media (min-width: 576px) {
   .odsg-hid-login__label {
     font-size: 2rem;
   }

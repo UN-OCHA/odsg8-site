@@ -14,7 +14,8 @@
     "unit-no-unknown": null,
     "unit-allowed-list": ["ch", "deg", "em", "ex", "ms", "rem", "%", "s", "px", "vw", "vh", "fr", "pt", "$cd-container-padding"],
     "value-keyword-case": null,
-    "value-no-vendor-prefix": null
+    "value-no-vendor-prefix": null,
+    "media-feature-range-notation": null
   },
   "defaultSeverity": "error"
 }

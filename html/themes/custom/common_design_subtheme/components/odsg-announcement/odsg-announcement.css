@@ -30,7 +30,7 @@
  *
  * See common_desing/common_design.breakpoints.yml for the breakpoint.
  */
-@media (width >= 576px) {
+@media (min-width: 576px) {
   .odsg-announcement {
     /* Include the icon width for the left and right margins. */
     padding: 0.5em calc(1.5em + 80px);

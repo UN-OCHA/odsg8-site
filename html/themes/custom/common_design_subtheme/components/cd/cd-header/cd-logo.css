@@ -9,7 +9,7 @@
     url(../../../img/logos/ocha-logo-blue.svg) center no-repeat;
 }
 
-@media (width >= 768px) {
+@media (min-width: 768px) {
   .cd-site-logo {
     background: none;
   }
