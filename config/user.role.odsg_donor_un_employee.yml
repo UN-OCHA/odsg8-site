@@ -15,7 +15,6 @@ weight: -8
 is_admin: null
 permissions:
   - 'access content'
-  - 'access private content'
   - 'use text format filtered_html'
   - 'view media'
   - 'view published announcement content'

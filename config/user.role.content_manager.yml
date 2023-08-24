@@ -15,6 +15,7 @@ dependencies:
     - taxonomy.vocabulary.meeting_title_country
     - taxonomy.vocabulary.subtype
   module:
+    - content_moderation
     - filter
     - media
     - node
@@ -32,7 +33,6 @@ permissions:
   - 'access content'
   - 'access content overview'
   - 'access media overview'
-  - 'access private content'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'administer ocha feeds'
@@ -75,11 +75,9 @@ permissions:
   - 'edit own image media'
   - 'edit own odsg_document content'
   - 'edit own page content'
-  - 'edit private content'
   - 'edit terms in document_type_project_report'
   - 'edit terms in meeting_title_country'
   - 'edit terms in subtype'
-  - 'mark content as private'
   - 'revert announcement revisions'
   - 'revert odsg_document revisions'
   - 'revert page revisions'
@@ -89,6 +87,8 @@ permissions:
   - 'use text format filtered_html'
   - 'view all media revisions'
   - 'view announcement revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
   - 'view media'
   - 'view odsg_document revisions'
   - 'view own unpublished content'

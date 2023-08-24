@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
@@ -43,4 +44,16 @@ function odsg_access_form_user_form_alter(&$form, FormStateInterface $form_state
   $roles_access = !empty($form['account']['roles']['#options']) &&
                   \Drupal::currentUser()->hasPermission('assign user roles');
   $form['account']['roles']['#access'] = $roles_access;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Hide the Moderated Content tab under /admin/content as we don't use
+ * complex workflows.
+ */
+function odsg_access_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface &$cacheability) {
+  if ($route_name == 'system.admin_content') {
+    unset($data['tabs'][1]['content_moderation.content']);
+  }
 }
