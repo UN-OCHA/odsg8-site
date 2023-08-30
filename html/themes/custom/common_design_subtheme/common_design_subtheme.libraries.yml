@@ -1,7 +1,14 @@
 global-styling:
   css:
     theme:
+      css/brand.css: {}
       css/styles.css: {}
+
+# Extension of the common design libraries.
+cds-header:
+  css:
+    theme:
+      components/cd/cd-header/cd-logo.css: {}
 
 # Custom components
 odsg-announcement:

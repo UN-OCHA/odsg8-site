@@ -1,12 +1,12 @@
 version: "2.2"
+name: odsg-test
 
 networks:
   default:
 
 volumes:
-  odsg-test-site-database:
-  odsg-test-site-public:
-  odsg-test-site-private:
+  site-public:
+  site-private:
 
 services:
   mysql:
@@ -17,13 +17,13 @@ services:
       - MYSQL_DB=odsg
       - MYSQL_USER=odsg
       - MYSQL_PASS=odsg
-    volumes:
-      - "odsg-test-site-database:/var/lib/mysql:rw"
     networks:
       - default
 
   drupal:
-    image: public.ecr.aws/unocha/odsg-site:local
+    # Default to `odsg-site` for compatibility with the github tests.
+    # @see Makefile.
+    image: public.ecr.aws/unocha/${IMAGE_NAME:-odsg-site}:${IMAGE_TAG:-local}
     hostname: odsg-test-site
     container_name: odsg-test-site
     depends_on:
@@ -31,12 +31,12 @@ services:
     volumes:
       - "./settings:/srv/www/shared/settings:ro"
       # Mount volumes for the private and public files.
-      - "odsg-test-site-public:/srv/www/html/sites/default/files:rw"
-      - "odsg-test-site-private:/srv/www/html/sites/default/private:rw"
+      - "site-public:/srv/www/html/sites/default/files:rw"
+      - "site-private:/srv/www/html/sites/default/private:rw"
       # Mount the folder for composer scripts.
       - "../scripts:/srv/www/scripts:ro"
       # Mount the folders needed for the tests.
-      - "../tests:/srv/www/tests:ro"
+      - "../tests/content:/srv/www/tests/content:ro"
       - "../phpcs.xml:/srv/www/phpcs.xml:ro"
       - "../phpunit.xml:/srv/www/phpunit.xml:ro"
       # Mount local custom code.
@@ -55,8 +55,5 @@ services:
       - DRUPAL_DB_DRIVER=mysql
       - PHP_ENVIRONMENT=dev
       - PHP_XDEBUG=true
-      - XDEBUG_MODE=coverage
-      - BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output
-      - DTT_BASE_URL=http://127.0.0.1
     networks:
       - default

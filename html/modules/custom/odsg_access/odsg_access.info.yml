@@ -2,4 +2,4 @@ type: module
 name: ODSG Access
 description: 'ODSG permissions to access content.'
 package: odsg
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9.5 || ^10
