@@ -10,10 +10,10 @@ dependencies:
     - node.type.odsg_document
     - taxonomy.vocabulary.document_type_project_report
   content:
-    - 'taxonomy_term:document_type_project_report:315e7001-4732-488e-ae59-07628c7b98d4'
-    - 'taxonomy_term:document_type_project_report:918a9e91-cb6b-4690-bf32-60a595049ca7'
-    - 'taxonomy_term:document_type_project_report:bad1e253-2d69-4290-9896-7b1a7f5010a2'
-    - 'taxonomy_term:document_type_project_report:c11079c9-0f6e-415c-8f0a-f500701cc650'
+    - 'taxonomy_term:document_type_project_report:0b230b45-6c9a-4e03-b49f-7a3d123fc808'
+    - 'taxonomy_term:document_type_project_report:3a14bdcd-9099-4524-abb7-198a0da00a8c'
+    - 'taxonomy_term:document_type_project_report:8510effd-c9aa-4c06-acb1-620ba29e4da3'
+    - 'taxonomy_term:document_type_project_report:e9e572d7-1739-4419-85e6-698b5add92ee'
   module:
     - datetime
     - file
@@ -576,7 +576,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access private content'
+          perm: 'view published odsg_document content'
       cache:
         type: tag
         options: {  }
@@ -1343,7 +1343,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>Field Missions</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>Field Missions</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ title }}</a></p>"
             make_link: false
             path: ''
             absolute: false
@@ -1780,7 +1780,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>Geneva Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>Geneva Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ title }}</a></p>"
             make_link: false
             path: ''
             absolute: false
@@ -2217,7 +2217,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>High-Level Capital Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>High-Level Capital Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ title }}</a></p>"
             make_link: false
             path: ''
             absolute: false
@@ -2654,7 +2654,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<h3>New York Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ body }}</a></p>"
+            text: "<h3>New York Meetings</h3>\r\n<p>Latest document: <a href=\"{{ field_media_file }}\">{{ title }}</a></p>"
             make_link: false
             path: ''
             absolute: false
