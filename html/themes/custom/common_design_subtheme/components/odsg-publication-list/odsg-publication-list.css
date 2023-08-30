@@ -21,6 +21,11 @@
   vertical-align: top;
 }
 
+.cd-content--spacious ol.odsg-publication-list,
+.cd-content--spacious ul.odsg-publication-list {
+  margin: 0;
+}
+
 /**
  * The rules for the figure and img are to have the image use 100% of the height
  * while preserving the aspect ratio, cropping horizontally images that are too

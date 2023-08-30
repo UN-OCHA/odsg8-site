@@ -1,0 +1,25 @@
+diff --git a/core/modules/views/src/Plugin/views/query/QueryPluginBase.php b/core/modules/views/src/Plugin/views/query/QueryPluginBase.php
+index 1e0740fc9d..15f8d4fc9f 100644
+--- a/core/modules/views/src/Plugin/views/query/QueryPluginBase.php
++++ b/core/modules/views/src/Plugin/views/query/QueryPluginBase.php
+@@ -59,6 +59,20 @@ abstract class QueryPluginBase extends PluginBase implements CacheableDependency
+    */
+   protected $groupOperator;
+ 
++  /**
++   * WHERE groups.
++   *
++   * @var array
++   */
++  protected $where;
++
++  /**
++   * HAVING groups.
++   *
++   * @var array
++   */
++  protected $having;
++
+   /**
+    * Generate a query and a countquery from all of the information supplied.
+    *

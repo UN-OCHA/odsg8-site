@@ -135,10 +135,6 @@ jobs:
         with:
           run: |
             docker compose -f tests/docker-compose.yml exec -T drupal drush -y en dblog
-            docker compose -f tests/docker-compose.yml exec -T drupal drush -y cset system.site uuid $(grep uuid ./config/system.site.yml | awk '{print $2}')
-            docker compose -f tests/docker-compose.yml exec -T drupal drush -y cim --source=/srv/www/config
-            docker compose -f tests/docker-compose.yml exec -T drupal drush php-eval 'node_access_rebuild();'
-            docker compose -f tests/docker-compose.yml exec -T drupal drush cr
             docker compose -f tests/docker-compose.yml exec -T drupal drush en yaml_content -y
             docker compose -f tests/docker-compose.yml exec -T drupal drush yaml-content-import /srv/www/tests
             docker compose -f tests/docker-compose.yml exec -T drupal chmod -R 777 /srv/www/html/sites/default/files /srv/www/html/sites/default/private

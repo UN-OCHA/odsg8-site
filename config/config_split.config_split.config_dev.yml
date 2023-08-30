@@ -6,6 +6,7 @@ id: config_dev
 label: config_dev
 description: 'Dev modules and settings not suitable for production.'
 weight: 0
+stackable: false
 storage: folder
 folder: ../config_dev
 module:
@@ -18,5 +19,6 @@ theme: {  }
 complete_list:
   - dblog.settings
   - environment_indicator.indicator
+  - environment_indicator.switcher.local
   - stage_file_proxy.settings
 partial_list: {  }
