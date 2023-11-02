@@ -1,7 +1,6 @@
 {
   "patches": {
     "drupal/core": {
-        "https://www.drupal.org/project/drupal/issues/3351600": "PATCHES/core-ckeditor5-dialog-fix-3351600.patch",
         "https://www.drupal.org/project/drupal/issues/3376927": "PATCHES/core-css-js-aggregation-3376927.patch",
         "Views PHP 8.2 compatibility": "PATCHES/core-views-php-82-compatibility.patch"
     },
