@@ -50,7 +50,8 @@
         "drush/drush": "^11.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "orakili/composer-drupal-info-file-patch-helper": "^1",
-        "unocha/common_design": "^9.2"
+        "unocha/common_design": "^9.2",
+        "unocha/ocha_monitoring": "^1.0"
     },
     "require-dev": {
         "drupal/coder": "^8.3",

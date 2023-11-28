@@ -33,8 +33,10 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
+  monitoring: 0
   mysql: 0
   node: 0
+  ocha_monitoring: 0
   odsg_access: 0
   odsg_general: 0
   odsg_layouts: 0
