@@ -105,7 +105,7 @@ docker_compose up -d --remove-orphans
 
 # Wait a bit for memcache and mysql to be ready.
 echo "Wait a bit for memcache and mysql to be ready."
-sleep 10
+sleep 5
 
 # Dump some information about the created containers.
 echo "Dump some information about the created containers."
