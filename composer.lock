@@ -3295,7 +3295,7 @@
                 "shasum": "fc8ea60619b6b4682bade340e13fb4565d3a7e0c"
             },
             "require": {
-                "drupal/core": "^9.1 || ^10"
+                "drupal/core": "^10"
             },
             "type": "drupal-module",
             "extra": {
@@ -13083,16 +13083,16 @@
         },
         {
             "name": "unocha/common_design",
-            "version": "v9.2.2",
+            "version": "v9.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UN-OCHA/common_design.git",
-                "reference": "f582963b5848d92b42de871b628f52c5a9f34930"
+                "reference": "c2b574e0a60d58211d846c444a9bdd79570e6146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UN-OCHA/common_design/zipball/f582963b5848d92b42de871b628f52c5a9f34930",
-                "reference": "f582963b5848d92b42de871b628f52c5a9f34930",
+                "url": "https://api.github.com/repos/UN-OCHA/common_design/zipball/c2b574e0a60d58211d846c444a9bdd79570e6146",
+                "reference": "c2b574e0a60d58211d846c444a9bdd79570e6146",
                 "shasum": ""
             },
             "require": {
@@ -13107,22 +13107,22 @@
             "description": "OCHA Common Design base theme for Drupal 9+",
             "support": {
                 "issues": "https://github.com/UN-OCHA/common_design/issues",
-                "source": "https://github.com/UN-OCHA/common_design/tree/v9.2.2"
+                "source": "https://github.com/UN-OCHA/common_design/tree/v9.2.3"
             },
-            "time": "2023-10-26T10:03:06+00:00"
+            "time": "2024-01-02T15:49:32+00:00"
         },
         {
             "name": "unocha/ocha_monitoring",
-            "version": "1.0.0",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UN-OCHA/ocha_monitoring.git",
-                "reference": "62c4b8acc1f5bdf974b095c6e7dc927f9660d3cf"
+                "reference": "f2542aeb5f702ab1e39d73caf730ba5620598728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UN-OCHA/ocha_monitoring/zipball/62c4b8acc1f5bdf974b095c6e7dc927f9660d3cf",
-                "reference": "62c4b8acc1f5bdf974b095c6e7dc927f9660d3cf",
+                "url": "https://api.github.com/repos/UN-OCHA/ocha_monitoring/zipball/f2542aeb5f702ab1e39d73caf730ba5620598728",
+                "reference": "f2542aeb5f702ab1e39d73caf730ba5620598728",
                 "shasum": ""
             },
             "require": {
@@ -13137,9 +13137,9 @@
             "description": "UNOCHA Monitoring",
             "support": {
                 "issues": "https://github.com/UN-OCHA/ocha_monitoring/issues",
-                "source": "https://github.com/UN-OCHA/ocha_monitoring/tree/1.0.0"
+                "source": "https://github.com/UN-OCHA/ocha_monitoring/tree/1.0.3"
             },
-            "time": "2023-11-21T10:32:25+00:00"
+            "time": "2023-12-21T13:23:29+00:00"
         },
         {
             "name": "webflo/drupal-finder",
@@ -13828,16 +13828,16 @@
         },
         {
             "name": "kint-php/kint",
-            "version": "5.0.7",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kint-php/kint.git",
-                "reference": "a700653a77250b122920799b10c94e904c9b78c7"
+                "reference": "128303461092734a1e3cb4beb1eea9afe7a5a0ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kint-php/kint/zipball/a700653a77250b122920799b10c94e904c9b78c7",
-                "reference": "a700653a77250b122920799b10c94e904c9b78c7",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/128303461092734a1e3cb4beb1eea9afe7a5a0ee",
+                "reference": "128303461092734a1e3cb4beb1eea9afe7a5a0ee",
                 "shasum": ""
             },
             "require": {
@@ -13848,8 +13848,8 @@
                 "phpspec/prophecy-phpunit": "^2",
                 "phpunit/phpunit": "^9",
                 "seld/phar-utils": "^1",
-                "symfony/finder": "^4.0 || ^5.0 || ^6.0",
-                "vimeo/psalm": "^5@dev"
+                "symfony/finder": ">=4.0",
+                "vimeo/psalm": "^5"
             },
             "suggest": {
                 "kint-php/kint-helpers": "Provides extra helper functions",
@@ -13887,9 +13887,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kint-php/kint/issues",
-                "source": "https://github.com/kint-php/kint/tree/5.0.7"
+                "source": "https://github.com/kint-php/kint/tree/5.1.0"
             },
-            "time": "2023-06-26T19:25:00+00:00"
+            "time": "2023-11-16T06:04:49+00:00"
         },
         {
             "name": "marcocesarato/php-conventional-changelog",
@@ -14442,16 +14442,16 @@
         },
         {
             "name": "weitzman/drupal-test-traits",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:weitzman/drupal-test-traits.git",
-                "reference": "e40ee4e8e41f229d297c5e714fd63c4a00c633a2"
+                "reference": "9ef44f5cd5eef942c84f2d2ffd21734944d566f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/weitzman%2Fdrupal-test-traits/repository/archive.zip?sha=e40ee4e8e41f229d297c5e714fd63c4a00c633a2",
-                "reference": "e40ee4e8e41f229d297c5e714fd63c4a00c633a2",
+                "url": "https://gitlab.com/api/v4/projects/weitzman%2Fdrupal-test-traits/repository/archive.zip?sha=9ef44f5cd5eef942c84f2d2ffd21734944d566f8",
+                "reference": "9ef44f5cd5eef942c84f2d2ffd21734944d566f8",
                 "shasum": ""
             },
             "require": {
@@ -14491,7 +14491,7 @@
                 }
             ],
             "description": "Traits for testing Drupal sites that have user content (versus unpopulated sites).",
-            "time": "2023-04-23T03:17:53+00:00"
+            "time": "2023-10-13T22:55:15+00:00"
         },
         {
             "name": "zendframework/zend-hydrator",
