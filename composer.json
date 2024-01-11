@@ -25,7 +25,6 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_denied": "^2.0",
         "drupal/allowed_formats": "^2.0",
-        "drupal/ckeditor": "^1.0",
         "drupal/classy": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/config_filter": "^2.4",
@@ -39,7 +38,7 @@
         "drupal/editor_advanced_link": "^2.2",
         "drupal/environment_indicator": "^4.0",
         "drupal/google_tag": "^1.6",
-        "drupal/maintenance200": "^1.1",
+        "drupal/maintenance200": "^2",
         "drupal/pathauto": "^1.11",
         "drupal/r4032login": "^2.2",
         "drupal/redirect": "^1.8",
@@ -48,10 +47,11 @@
         "drupal/stage_file_proxy": "^2.1",
         "drupal/user_expire": "^1.1",
         "drupal/username_enumeration_prevention": "^1.3",
-        "drush/drush": "^11.0",
+        "drush/drush": "^12",
         "oomphinc/composer-installers-extender": "^2.0",
         "orakili/composer-drupal-info-file-patch-helper": "^1",
-        "unocha/common_design": "^9.0"
+        "unocha/common_design": "^9.2",
+        "unocha/ocha_monitoring": "^1.0"
     },
     "require-dev": {
         "drupal/coder": "^8.3",
@@ -90,7 +90,8 @@
             "drupal/core-project-message": true,
             "oomphinc/composer-installers-extender": true,
             "orakili/composer-drupal-info-file-patch-helper": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true
         }
     },
     "extra": {
