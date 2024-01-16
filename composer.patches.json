@@ -6,9 +6,6 @@
     "drupal/csp": {
         "Simplify log format": "PATCHES/csp-log-format.patch"
     },
-    "drupal/maintenance200": {
-        "Drupal 10 compatibility": "PATCHES/maintenance200-drupal-10-compatibility.patch"
-    },
     "drupal/stage_file_proxy": {
         "Stage file proxy attempts to fetch aggregated JS/CSS": "PATCHES/stage_file_proxy_3372105.patch"
     },
