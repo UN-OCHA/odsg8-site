@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30c46addda18da204bc9e8f12aca8891",
+    "content-hash": "92402e6bf837ddf3b8183024f02947c9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -14801,14 +14801,8 @@
             "version": "2.2.0",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:weitzman/drupal-test-traits.git",
+                "url": "https://git.drupalcode.org/project/dtt/",
                 "reference": "9ef44f5cd5eef942c84f2d2ffd21734944d566f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/weitzman%2Fdrupal-test-traits/repository/archive.zip?sha=9ef44f5cd5eef942c84f2d2ffd21734944d566f8",
-                "reference": "9ef44f5cd5eef942c84f2d2ffd21734944d566f8",
-                "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
