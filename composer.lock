@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30c46addda18da204bc9e8f12aca8891",
+    "content-hash": "92402e6bf837ddf3b8183024f02947c9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2483,17 +2483,11 @@
         },
         {
             "name": "drupal/aws",
-            "version": "2.0.3",
+            "version": "dev-2.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/aws.git",
-                "reference": "2.0.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/aws-2.0.3.zip",
-                "reference": "2.0.3",
-                "shasum": "683b5ed0698bb6c64db8a34b42fff2571807becc"
+                "reference": "5c8371feefd3ea641cca486925e3db9e628b07ba"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.54",
@@ -2501,12 +2495,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.0.x": "2.0.x-dev"
+                },
                 "drupal": {
-                    "version": "2.0.3",
-                    "datestamp": "1671308573",
+                    "version": "2.0.3+4-dev",
+                    "datestamp": "1690752016",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -14804,14 +14801,8 @@
             "version": "2.2.0",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:weitzman/drupal-test-traits.git",
+                "url": "https://git.drupalcode.org/project/dtt/",
                 "reference": "9ef44f5cd5eef942c84f2d2ffd21734944d566f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/weitzman%2Fdrupal-test-traits/repository/archive.zip?sha=9ef44f5cd5eef942c84f2d2ffd21734944d566f8",
-                "reference": "9ef44f5cd5eef942c84f2d2ffd21734944d566f8",
-                "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
@@ -14856,6 +14847,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/aws": 20,
         "drupal/components": 10,
         "drupal/config_split": 5,
         "drupal/yaml_content": 15
