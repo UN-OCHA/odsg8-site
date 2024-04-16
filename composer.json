@@ -21,11 +21,12 @@
     ],
     "require": {
         "php": ">=8.2",
-        "composer/installers": "^1.12",
+        "composer/installers": "^2.2",
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_denied": "^2.0",
         "drupal/allowed_formats": "^3",
-        "drupal/amazon_ses": "^3.0",
+        "drupal/amazon_ses": "^3",
+        "drupal/aws": "dev-2.0.x",
         "drupal/classy": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/config_filter": "^2.4",
@@ -64,7 +65,7 @@
         "kint-php/kint": "^5.0",
         "marcocesarato/php-conventional-changelog": "^1.17",
         "mglaman/phpstan-drupal": "^1.1",
-        "palantirnet/drupal-rector": "^0.19",
+        "palantirnet/drupal-rector": "^0.20",
         "phpcompatibility/php-compatibility": "^9.3",
         "phpmd/phpmd": "^2.9",
         "phpspec/prophecy-phpunit": "^2",
@@ -94,6 +95,9 @@
             "orakili/composer-drupal-info-file-patch-helper": true,
             "phpstan/extension-installer": true,
             "php-http/discovery": true
+        },
+        "audit": {
+            "abandoned": "report"
         }
     },
     "extra": {
