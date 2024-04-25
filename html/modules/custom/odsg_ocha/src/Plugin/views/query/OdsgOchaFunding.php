@@ -81,7 +81,7 @@ final class OdsgOchaFunding extends QueryPluginBase {
     $plugin_definition,
     ConfigFactoryInterface $config_factory,
     LoggerChannelFactoryInterface $logger_factory,
-    TimeInterface $time
+    TimeInterface $time,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 

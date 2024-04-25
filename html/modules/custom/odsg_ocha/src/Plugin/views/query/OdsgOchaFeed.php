@@ -112,7 +112,7 @@ final class OdsgOchaFeed extends QueryPluginBase {
     Client $http_client,
     LoggerChannelFactoryInterface $logger_factory,
     StateInterface $state,
-    TimeInterface $time
+    TimeInterface $time,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
