@@ -12,7 +12,7 @@ third_party_settings:
 name: 'Public page'
 type: public_page
 description: 'Pages that can be publicly accessible without logging in. Ex: /welcome page with the login information.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Meeting Title / Country'
 vid: meeting_title_country
-description: ''
+description: null
 weight: 0
+new_revision: false

@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Landing Page'
 vid: landing_page
-description: ''
+description: null
 weight: 0
+new_revision: false

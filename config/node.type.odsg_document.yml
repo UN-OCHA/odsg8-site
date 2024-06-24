@@ -11,7 +11,7 @@ third_party_settings:
 name: 'ODSG document'
 type: odsg_document
 description: 'ODSG Documents with a file attachment or external file URL.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true
