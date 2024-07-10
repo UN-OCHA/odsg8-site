@@ -16,7 +16,7 @@ third_party_settings:
 name: 'Private page'
 type: page
 description: 'Default site pages that are private and only accessible to users with the "ODSG Donor / UN Employee" role.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false
