@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Custom Link'
 type: custom_link
 description: 'Custom links that appear on the resources, meetings & events and funding landing pages.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true
