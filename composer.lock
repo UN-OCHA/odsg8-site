@@ -2947,7 +2947,7 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.3.1",
+            "version": "10.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2991,13 +2991,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.3.1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.3.2"
             },
             "time": "2024-05-11T08:21:39+00:00"
         },
         {
             "name": "drupal/core-dev",
-            "version": "10.3.1",
+            "version": "10.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -3047,13 +3047,13 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/10.3.1"
+                "source": "https://github.com/drupal/core-dev/tree/10.3.2"
             },
             "time": "2024-07-04T10:19:29+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "10.3.1",
+            "version": "10.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -3088,7 +3088,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/11.0.0-beta1"
+                "source": "https://github.com/drupal/core-project-message/tree/11.0.1"
             },
             "time": "2023-07-24T07:55:25+00:00"
         },
@@ -3471,7 +3471,7 @@
                 "shasum": "fc8ea60619b6b4682bade340e13fb4565d3a7e0c"
             },
             "require": {
-                "drupal/core": "^9.1 || ^10"
+                "drupal/core": "^10"
             },
             "type": "drupal-module",
             "extra": {
@@ -13430,16 +13430,16 @@
         },
         {
             "name": "unocha/common_design",
-            "version": "v9.4.1",
+            "version": "v9.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UN-OCHA/common_design.git",
-                "reference": "ef19aa011441213ae0b27d745da59f4fde1cf45a"
+                "reference": "15592bea6f10db7c6bb4b58abd2b4a1962979c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UN-OCHA/common_design/zipball/ef19aa011441213ae0b27d745da59f4fde1cf45a",
-                "reference": "ef19aa011441213ae0b27d745da59f4fde1cf45a",
+                "url": "https://api.github.com/repos/UN-OCHA/common_design/zipball/15592bea6f10db7c6bb4b58abd2b4a1962979c7d",
+                "reference": "15592bea6f10db7c6bb4b58abd2b4a1962979c7d",
                 "shasum": ""
             },
             "require": {
@@ -13454,9 +13454,9 @@
             "description": "OCHA Common Design base theme for Drupal 9+",
             "support": {
                 "issues": "https://github.com/UN-OCHA/common_design/issues",
-                "source": "https://github.com/UN-OCHA/common_design/tree/v9.4.1"
+                "source": "https://github.com/UN-OCHA/common_design/tree/v9.4.3"
             },
-            "time": "2024-05-15T13:35:59+00:00"
+            "time": "2024-08-08T09:37:46+00:00"
         },
         {
             "name": "unocha/gtm_barebones",
