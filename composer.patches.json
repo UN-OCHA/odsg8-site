@@ -6,9 +6,6 @@
     "drupal/core": {
         "Views PHP 8.2 compatibility": "PATCHES/core-views-php-82-compatibility.patch"
     },
-    "drupal/csp": {
-        "Simplify log format": "PATCHES/csp-log-format.patch"
-    },
     "drupal/stage_file_proxy": {
         "Stage file proxy attempts to fetch aggregated JS/CSS": "PATCHES/stage_file_proxy_3372105.patch"
     },
