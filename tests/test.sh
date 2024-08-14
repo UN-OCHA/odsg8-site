@@ -49,11 +49,6 @@ echo "Install the site with the existing config."
 docker compose -f tests/docker-compose.yml exec drupal drush -y si --existing-config
 docker compose -f tests/docker-compose.yml exec drupal drush -y en dblog
 
-# Import the test content.
-ehco "Import the test content."
-docker compose -f tests/docker-compose.yml exec drupal drush -y en yaml_content
-docker compose -f tests/docker-compose.yml exec drupal drush yaml-content-import /srv/www/tests
-
 # Ensure the file directories are writable.
 echo "Ensure the file directories are writable."
 docker compose -f tests/docker-compose.yml exec drupal chmod -R 777 /srv/www/html/sites/default/files /srv/www/html/sites/default/private
