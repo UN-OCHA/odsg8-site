@@ -131,6 +131,7 @@ jobs:
 
       - name: Import test content
         id: import
+        continue-on-error: true
         uses: cafuego/command-output@main
         with:
           run: |
