@@ -129,14 +129,21 @@ jobs:
         env:
           fail-fast: true
 
-      - name: Run tests
-        id: tests
+      - name: Import test content
+        id: import
+        continue-on-error: true
         uses: cafuego/command-output@main
         with:
           run: |
             docker compose -f tests/docker-compose.yml exec -T drupal drush -y en dblog
             docker compose -f tests/docker-compose.yml exec -T drupal drush en yaml_content -y
             docker compose -f tests/docker-compose.yml exec -T drupal drush yaml-content-import /srv/www/tests
+
+      - name: Make directories
+        id: dirs
+        uses: cafuego/command-output@main
+        with:
+          run: |
             docker compose -f tests/docker-compose.yml exec -T drupal chmod -R 777 /srv/www/html/sites/default/files /srv/www/html/sites/default/private
             docker compose -f tests/docker-compose.yml exec -T drupal mkdir -p /srv/www/html/build/logs
             docker compose -f tests/docker-compose.yml exec -T drupal chmod -R 777 /srv/www/html/build/logs
@@ -146,6 +153,14 @@ jobs:
             docker compose -f tests/docker-compose.yml exec -T drupal chmod -R 777 /srv/www/coverage
             docker compose -f tests/docker-compose.yml exec -T drupal mkdir -p /srv/www/html/sites/simpletest
             docker compose -f tests/docker-compose.yml exec -T drupal chmod -R 777 /srv/www/html/sites/simpletest
+        env:
+          fail-fast: true
+
+      - name: Run tests
+        id: tests
+        uses: cafuego/command-output@main
+        with:
+          run: |
             docker compose -f tests/docker-compose.yml exec -u appuser -T -w /srv/www -e XDEBUG_MODE=coverage -e BROWSERTEST_OUTPUT_DIRECTORY=/srv/www/html/sites/default/files/browser_output -e DTT_BASE_URL=http://127.0.0.1 -e SIMPLETEST_BASE_URL=http://127.0.0.1 drupal ./vendor/bin/phpunit --coverage-clover /srv/www/html/build/logs/clover.xml --debug
         env:
           fail-fast: true
