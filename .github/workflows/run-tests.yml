@@ -137,10 +137,8 @@ jobs:
             docker compose -f tests/docker-compose.yml exec -T drupal drush -y en dblog
             docker compose -f tests/docker-compose.yml exec -T drupal drush en yaml_content -y
             docker compose -f tests/docker-compose.yml exec -T drupal drush yaml-content-import /srv/www/tests
-        env:
-          fail-fast: true
 
-      - name: Mkae directories
+      - name: Make directories
         id: dirs
         uses: cafuego/command-output@main
         with:
