@@ -5,6 +5,7 @@
     },
     "drupal/core": {
         "Js optimize error https://www.drupal.org/project/drupal/issues/3416508": "PATCHES/core_js_optimizer.patch",
+        "https://www.drupal.org/project/drupal/issues/3467860": "PATCHES/core--drupal--3467860-aggregation.patch",
         "Views PHP 8.2 compatibility": "PATCHES/core-views-php-82-compatibility.patch"
     },
     "drupal/stage_file_proxy": {
