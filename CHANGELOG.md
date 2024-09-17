@@ -4,6 +4,21 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.6](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.5...v2.1.6) (2024-09-17)
+
+### Bug Fixes
+
+* Include core patch for aggregation error ([694c1f](https://github.com/UN-OCHA/odsg8-site/commit/694c1f9ae24d3458051bb57e90bdaeb1544ce834))
+
+### Chores
+
+* Add iso3 codes to css to handle both formats ([7e3b02](https://github.com/UN-OCHA/odsg8-site/commit/7e3b02ccd49d53e30d17a6a5cf37d17a3e9df991))
+* Add tools [#OPS-10867](https://https://humanitarian.atlassian.net/browse/OPS-10867), [#OPS-10867](https://https://humanitarian.atlassian.net/browse/OPS-10867), [#OPS-10867](https://https://humanitarian.atlassian.net/browse/OPS-10867) ([3c97fb](https://github.com/UN-OCHA/odsg8-site/commit/3c97fb1bdbb11b640dc19feb04525c4957aeb466), [39fb32](https://github.com/UN-OCHA/odsg8-site/commit/39fb32eb5e05fe365d349caff1be1c730fbd7de7), [72aa0f](https://github.com/UN-OCHA/odsg8-site/commit/72aa0f49581d7c7c0f7452576883883fabf8a876))
+* Pass on credentials to action ([1bbb79](https://github.com/UN-OCHA/odsg8-site/commit/1bbb7951edfc348b61e92adc3f9e069280f464a2))
+* Remove patch which is blocking core update ([a5a647](https://github.com/UN-OCHA/odsg8-site/commit/a5a647f232dc933e99a3ff8e534812e01640a52e))
+* Remove unused classy theme ([7b835a](https://github.com/UN-OCHA/odsg8-site/commit/7b835a3f42ffc76176c305ebfd059499893c02c5))
+* Update all outdated drupal/* unocha/* drush/* packages. ([aa0e3e](https://github.com/UN-OCHA/odsg8-site/commit/aa0e3e33501d57332aa259d1b79d5b99630714bb), [36ed8d](https://github.com/UN-OCHA/odsg8-site/commit/36ed8d407069b4e56a7fc221c0561cc32d8cdb2f), [5d311d](https://github.com/UN-OCHA/odsg8-site/commit/5d311d63e943b2159d1adadf4ec9696f9c322f70))
+
 ## [2.1.3](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.2...v2.1.3) (2024-08-13)
 
 
