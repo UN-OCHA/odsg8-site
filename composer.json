@@ -27,7 +27,6 @@
         "drupal/allowed_formats": "^3",
         "drupal/amazon_ses": "^3",
         "drupal/aws": "dev-2.0.x",
-        "drupal/classy": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/config_filter": "^2.4",
         "drupal/config_split": "^2.0@rc",
@@ -56,6 +55,7 @@
         "unocha/ocha_monitoring": "^1.0"
     },
     "require-dev": {
+        "davidrjonas/composer-lock-diff": "^1.7",
         "drupal/coder": "^8.3",
         "drupal/config_inspector": "^2.1",
         "drupal/devel": "^5.0.2",
@@ -152,7 +152,7 @@
                 },
                 "[web-root]/robots.txt": {
                     "append": "assets/robots.txt.append"
-               }
+                }
             },
             "locations": {
                 "web-root": "html/"
@@ -173,7 +173,7 @@
             ],
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you\u2019ve installed the Drupal codebase  </>",
+                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
                 "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
@@ -224,5 +224,6 @@
         "pre-pool-create": [
             "scripts\\composer\\DrupalLenientRequirement::changeVersionConstraint"
         ]
-    }
+    },
+    "version": "2.1.6"
 }
