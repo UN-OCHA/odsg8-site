@@ -48,6 +48,8 @@ services:
       - ENVIRONMENT=dev
       - NGINX_SERVERNAME=odsg-test-site,localhost,127.0.0.1
       - NGINX_OVERRIDE_PROTOCOL=HTTP,odsg-test-site,localhost,127.0.0.1
+      - NGINX_LIMIT_BOTS=64r/s
+      - NGINX_BURST_BOTS=256 nodelay
       - DRUSH_OPTIONS_URI=http://odsg-test-site
       - DRUPAL_DB_DATABASE=odsg
       - DRUPAL_DB_USERNAME=odsg
