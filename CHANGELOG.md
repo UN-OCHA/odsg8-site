@@ -4,6 +4,25 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.7](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.6...v2.1.7) (2024-10-15)
+
+### Bug Fixes
+
+
+##### Tests
+
+* Set a higher rate limit for bots, so the test bot does not get limited because of its UA string. ([6713dc](https://github.com/UN-OCHA/odsg8-site/commit/6713dcfe51f811a219414ef7b88038e3f8fec6e0))
+
+### Chores
+
+* Csp config for UNTV ([bc7e20](https://github.com/UN-OCHA/odsg8-site/commit/bc7e20be878d3aec19457bc71b1f56662517cfdf))
+* Ignore audit warning that doesn't affect us ([27ebc9](https://github.com/UN-OCHA/odsg8-site/commit/27ebc9ee365caf0b63194fdfc5aee600738a4c44))
+* Update all outdated drupal/* unocha/* drush/* packages. ([8af307](https://github.com/UN-OCHA/odsg8-site/commit/8af307f510c0ef343e1c38a84325f8bdb8b04641), [90b2ec](https://github.com/UN-OCHA/odsg8-site/commit/90b2ecab7d92c5f9148fb8d6ee934d2f9d27ed84), [be6d07](https://github.com/UN-OCHA/odsg8-site/commit/be6d07cb6b5364971f9960f372cd80f72aad25c2), [b2c248](https://github.com/UN-OCHA/odsg8-site/commit/b2c248d006541203099d954a54955306a383f14e))
+
+##### Deps
+
+* Bump drupal/core-recommended from 10.3.5 to 10.3.6 ([73f0fc](https://github.com/UN-OCHA/odsg8-site/commit/73f0fc170eac5b489b4956f0257a7f4fedbf610b))
+
 ## [2.1.6](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.5...v2.1.6) (2024-09-17)
 
 ### Bug Fixes
