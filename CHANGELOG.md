@@ -4,6 +4,13 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.8](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.7...v2.1.8) (2024-11-18)
+
+### Chores
+
+* Add csp for vimeo iframes ([5c0057](https://github.com/UN-OCHA/odsg8-site/commit/5c00579d1bfdbf2b603fe0e78ac27405ccc5415f))
+* Update all outdated drupal/* unocha/* drush/* packages. ([3e157c](https://github.com/UN-OCHA/odsg8-site/commit/3e157c255424774296898f6ad334b6996969ff9a), [719d53](https://github.com/UN-OCHA/odsg8-site/commit/719d53d5c4623fd805230781cbed400f50d7a894), [6569dd](https://github.com/UN-OCHA/odsg8-site/commit/6569dd8cbd81dc75224aa300723a3ddf72eb98a4), [c68ad8](https://github.com/UN-OCHA/odsg8-site/commit/c68ad8b9eadcb5e9cf36f6a014f22f52175a976a), [f2672a](https://github.com/UN-OCHA/odsg8-site/commit/f2672afa9554b06b7ddf7329535463b90c39dff4))
+
 ## [2.1.7](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.6...v2.1.7) (2024-10-15)
 
 ### Bug Fixes
