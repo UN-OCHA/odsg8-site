@@ -4,6 +4,12 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.9](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.8...v2.1.9) (2024-11-21)
+
+### Chores
+
+* Update all outdated drupal/* unocha/* drush/* packages. ([e745f5](https://github.com/UN-OCHA/odsg8-site/commit/e745f5a7b5e701f9e088f2addd702d3e6840020f))
+
 ## [2.1.8](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.7...v2.1.8) (2024-11-18)
 
 ### Chores
