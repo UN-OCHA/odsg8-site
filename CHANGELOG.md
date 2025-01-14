@@ -4,6 +4,17 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.11](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.10...v2.1.11) (2025-01-14)
+
+### Chores
+
+* Bump version of mariadb for local development ([12308a](https://github.com/UN-OCHA/odsg8-site/commit/12308a1a97776a4f039dea6e819af6eaaf60806d))
+* Update all outdated drupal/* unocha/* drush/* packages. ([ff2290](https://github.com/UN-OCHA/odsg8-site/commit/ff229052abf35c5b276b5cee0b0362d9205550d8), [b7db49](https://github.com/UN-OCHA/odsg8-site/commit/b7db49bac02f017062cf31c64957c3cc3a5441d8), [fec8ea](https://github.com/UN-OCHA/odsg8-site/commit/fec8ea7ccc27885f6e218169d7b0f40ad331a4cf), [19e736](https://github.com/UN-OCHA/odsg8-site/commit/19e7361432c3ec079250582db5f727ee6f503a25))
+
+##### Tests
+
+* Bump the test MariaDB to match what the dev sites will use soon. ([433d8e](https://github.com/UN-OCHA/odsg8-site/commit/433d8ed085cc38b5c20e1c1c63e684f0ca8b4a01))
+
 ## [2.1.10](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.9...v2.1.10) (2024-12-16)
 
 ### Chores

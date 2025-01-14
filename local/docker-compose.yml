@@ -36,7 +36,7 @@ services:
       proxy:
 
   mysql:
-    image: public.ecr.aws/unocha/mysql:10.11
+    image: public.ecr.aws/unocha/mysql:11.4
     hostname: $PROJECT_NAME-mysql
     container_name: $PROJECT_NAME-mysql
     environment:
