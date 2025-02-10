@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6371474771f31a10196abdde4c3897b2",
+    "content-hash": "459575bdd98cec4f013d7d0e3f4c2cff",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2646,18 +2646,18 @@
             }
         },
         {
-            "name": "drupal/config_filter",
-            "version": "2.7.0",
+            "name": "drupal/config_split",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/config_filter.git",
-                "reference": "8.x-2.7"
+                "url": "https://git.drupalcode.org/project/config_split.git",
+                "reference": "2.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_filter-8.x-2.7.zip",
-                "reference": "8.x-2.7",
-                "shasum": "7fe7161b93c7e24c6db135f1cf82d144bef66e50"
+                "url": "https://ftp.drupal.org/files/projects/config_split-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "e033a277995753c564f3a4681b88cd112e19ba2a"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10 || ^11"
@@ -2665,17 +2665,26 @@
             "conflict": {
                 "drush/drush": "<10"
             },
+            "require-dev": {
+                "drupal/config_filter": "^1||^2"
+            },
             "suggest": {
-                "drupal/config_split": "Split site configuration for different environments."
+                "drupal/chosen": "Chosen uses the Chosen jQuery plugin to make the <select> elements more user-friendly.",
+                "drupal/select2_all": "Applies the Select2 library to all select fields on the site similar to the Chosen module."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.7",
-                    "datestamp": "1727472458",
+                    "version": "2.0.1",
+                    "datestamp": "1711022056",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
                     }
                 }
             },
@@ -2701,16 +2710,16 @@
                     "homepage": "https://www.drupal.org/user/436244"
                 }
             ],
-            "description": "Config Filter allows other modules to interact with a ConfigStorage through filter plugins.",
-            "homepage": "https://www.drupal.org/project/config_filter",
+            "description": "Configuration filter for importing and exporting extra config",
+            "homepage": "https://www.drupal.org/project/config_split",
             "keywords": [
                 "Drupal",
                 "configuration",
                 "configuration management"
             ],
             "support": {
-                "source": "https://git.drupalcode.org/project/config_filter",
-                "issues": "https://www.drupal.org/project/issues/config_filter",
+                "source": "https://git.drupalcode.org/project/config_split",
+                "issues": "https://www.drupal.org/project/issues/config_split",
                 "slack": "https://drupal.slack.com/archives/C45342CDD"
             }
         },
