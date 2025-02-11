@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.announcement.body
     - node.type.announcement
   module:
-    - allowed_formats
     - text
 id: node.announcement.default
 targetEntityType: node
@@ -22,10 +21,7 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
-    third_party_settings:
-      allowed_formats:
-        hide_help: '0'
-        hide_guidelines: '0'
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 2
