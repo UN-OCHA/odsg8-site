@@ -4,15 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.plain_text
     - node.type.odsg_document
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    plain_text: plain_text
-    full_html: '0'
-    filtered_html: '0'
 id: node.odsg_document.body
 field_name: body
 entity_type: node
@@ -26,5 +21,6 @@ default_value_callback: ''
 settings:
   display_summary: false
   required_summary: false
-  allowed_formats: {  }
+  allowed_formats:
+    - plain_text
 field_type: text_with_summary
