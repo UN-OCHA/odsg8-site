@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "composer/installers": "^2.2",
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_denied": "^2.0",
@@ -42,7 +42,7 @@
         "drupal/r4032login": "^2.2",
         "drupal/redirect": "^1.8",
         "drupal/seckit": "^2.0",
-        "drupal/social_auth_hid": "^3.2",
+        "drupal/social_auth_hid": "^4",
         "drupal/stage_file_proxy": "^3",
         "drupal/user_expire": "^2",
         "drupal/username_enumeration_prevention": "^1.3",
