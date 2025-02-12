@@ -44,7 +44,7 @@ LABEL info.humanitarianresponse.build.date=$BUILD_DATE \
       info.humanitarianresponse.build.vcs-ref=$VCS_REF
 
 # Add PHP Soap extension to request OCHA Contribution Tracking System API.
-RUN apk add php82-soap
+RUN apk add php83-soap
 
 COPY --from=builder /srv/www/assets /srv/www/assets
 COPY --from=builder /srv/www/config /srv/www/config/
