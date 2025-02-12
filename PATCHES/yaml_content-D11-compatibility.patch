@@ -28,6 +28,28 @@ index e59398a..ca76191 100644
      $events[YamlContentEvents::ENTITY_PRE_SAVE][] = ['serializeMenuParent'];
  
      return $events;
+diff --git a/tests/src/Functional/NodeImportTest.php b/tests/src/Functional/NodeImportTest.php
+index 329b9d2..eef5306 100644
+--- a/tests/src/Functional/NodeImportTest.php
++++ b/tests/src/Functional/NodeImportTest.php
+@@ -4,7 +4,7 @@ namespace Drupal\Tests\yaml_content\Functional;
+ 
+ use Drupal\Core\Field\FieldStorageDefinitionInterface;
+ use Drupal\Tests\BrowserTestBase;
+-use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
++use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
+ 
+ /**
+  * Tests general Node creation functionality.
+@@ -13,7 +13,7 @@ use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
+  */
+ class NodeImportTest extends BrowserTestBase {
+ 
+-  use EntityReferenceTestTrait;
++  use EntityReferenceFieldCreationTrait;
+ 
+   /**
+    * {@inheritdoc}
 diff --git a/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php b/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php
 index e41249c..401d93b 100644
 --- a/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php

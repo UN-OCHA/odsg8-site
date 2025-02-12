@@ -10,6 +10,9 @@
     "drupal/maintenance200": {
         "D11 compatibility": "PATCHES/maintenance200-D11-compatibility-3431791.patch"
     },
+    "drupal/social_auth_hid": {
+        "D11 compatibility - #3439200": "https://www.drupal.org/files/issues/2024-04-06/social_auth_hid.4.0.rector.patch"
+    },
     "drupal/stage_file_proxy": {
         "Stage file proxy attempts to fetch aggregated JS/CSS": "PATCHES/stage_file_proxy_3372105.patch"
     },
