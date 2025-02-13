@@ -14,6 +14,7 @@
       "Type Error - #3496656": "PATCHES/social_auth-type-error-3496656.patch"
     },
     "drupal/social_auth_hid": {
+        "Config form": "PATCHES/social_auth_hid-config-form.patch",
         "D11 compatibility - #3439200": "https://www.drupal.org/files/issues/2024-04-06/social_auth_hid.4.0.rector.patch"
     },
     "drupal/stage_file_proxy": {
