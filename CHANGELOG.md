@@ -4,6 +4,16 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.12](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.11...v2.1.12) (2025-02-18)
+
+### Chores
+
+* Remove allowed_formats module and handle configuration ([a55717](https://github.com/UN-OCHA/odsg8-site/commit/a55717a0a1ced9b0a8f4eff5f9fc8f96a25a1ce1))
+* Remove config_filter module ([d9f20f](https://github.com/UN-OCHA/odsg8-site/commit/d9f20f97e8a3f6ad85dfd302016a64b87479957c))
+* Remove correct module ([72f437](https://github.com/UN-OCHA/odsg8-site/commit/72f437612473dc41dca0eb4e98ed781b78d5d5d9))
+* Remove patch and update user_expire module ([3b0123](https://github.com/UN-OCHA/odsg8-site/commit/3b01233cc52594ce36fd8d8376a0d858284cc76b))
+* Update all outdated drupal/* unocha/* drush/* weitzman/drupal-test-traits packages. ([e2c18a](https://github.com/UN-OCHA/odsg8-site/commit/e2c18a82f9bbd27c03b5a4c8ce0787733021370c), [adf7a8](https://github.com/UN-OCHA/odsg8-site/commit/adf7a8f7c1fff7f6cec43362b5f92ce2e6c29234), [a62be2](https://github.com/UN-OCHA/odsg8-site/commit/a62be24e052340883a8e1aac8f6be3b39a7c5c3a), [b9c747](https://github.com/UN-OCHA/odsg8-site/commit/b9c7471259d1870ccaf387b39e50cd687a9536eb))
+
 ## [2.1.11](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.10...v2.1.11) (2025-01-14)
 
 ### Chores
