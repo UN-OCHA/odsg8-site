@@ -2,11 +2,17 @@
 
 {% set parameters = destination is empty ? {} : {'destination': destination} %}
 
-{% if social_networks.social_auth_hid is not empty %}
-<h2 class="odsg-hid-login">
-  <span class="odsg-hid-login__label">{{ 'Log in with' | t }}</span>
-  <a class="odsg-hid-login__link" href="{{ path(social_networks.social_auth_hid.route, parameters) }}">
-    <img class="odsg-hid-login__logo" src="{{ directory ~ '/components/odsg-hid-login/img/hid-logo.svg' }}" alt="Humanitarian ID">
-  </a>
-</h2>
-{% endif %}
+{% for id, network in networks %}
+  {% if destination %}
+    {% set options = {'query': {'destination': destination}} %}
+  {% else %}
+    {% set options = {} %}
+  {% endif %}
+  <h2 class="odsg-hid-login">
+    <span class="odsg-hid-login__label">{{ 'Log in with' | t }}</span>
+    <a class="odsg-hid-login__link" href="{{ network.getRedirectUrl(options).toString }}">
+      <img class="odsg-hid-login__logo" src="{{ directory ~ '/components/odsg-hid-login/img/hid-logo.svg' }}" alt="Humanitarian ID">
+    </a>
+  </h2>
+{% endfor %}
+

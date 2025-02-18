@@ -1,0 +1,58 @@
+diff --git a/src/Form/HidAuthSettingsForm.php b/src/Form/HidAuthSettingsForm.php
+index 38f34fb..79d024e 100644
+--- a/src/Form/HidAuthSettingsForm.php
++++ b/src/Form/HidAuthSettingsForm.php
+@@ -4,9 +4,9 @@ namespace Drupal\social_auth_hid\Form;
+ 
+ use Drupal\Component\Utility\UrlHelper;
+ use Drupal\Core\Config\ConfigFactoryInterface;
++use Drupal\Core\Config\TypedConfigManagerInterface;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Routing\RouteBuilderInterface;
+-use Drupal\Core\Routing\RouteProviderInterface;
+ use Drupal\social_api\Plugin\NetworkManager;
+ use Drupal\social_auth\Form\SocialAuthSettingsForm;
+ use Drupal\social_auth\Plugin\Network\NetworkInterface;
+@@ -24,20 +24,28 @@ final class HidAuthSettingsForm extends SocialAuthSettingsForm {
+    */
+   protected RouteBuilderInterface $routeBuilder;
+ 
++  /**
++   * Network manager.
++   *
++   * @var \Drupal\social_api\Plugin\NetworkManager
++   */
++  protected NetworkManager $networkManager;
++
+   /**
+    * Constructor.
+    *
+    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+    *   The configuration factory.
++   * @param \Drupal\Core\Config\TypedConfigManagerInterface $typedConfigManager
++   *   The configuration factory.
+    * @param \Drupal\social_api\Plugin\NetworkManager $network_manager
+    *   Network manager.
+-   * @param \Drupal\Core\Routing\RouteProviderInterface $route_provider
+-   *   Used to check if route exists.
+    * @param \Drupal\Core\Routing\RouteBuilderInterface $route_builder
+    *   Route builder.
+    */
+-  public function __construct(ConfigFactoryInterface $config_factory, NetworkManager $network_manager, RouteProviderInterface $route_provider, RouteBuilderInterface $route_builder) {
+-    parent::__construct($config_factory, $network_manager, $route_provider);
++  public function __construct(ConfigFactoryInterface $config_factory, TypedConfigManagerInterface $typedConfigManager, NetworkManager $network_manager, RouteBuilderInterface $route_builder) {
++    parent::__construct($config_factory, $typedConfigManager);
++    $this->networkManager = $network_manager;
+     $this->routeBuilder = $route_builder;
+   }
+ 
+@@ -47,8 +55,8 @@ final class HidAuthSettingsForm extends SocialAuthSettingsForm {
+   public static function create(ContainerInterface $container): static {
+     return new static(
+       $container->get('config.factory'),
++      $container->get('config.typed'),
+       $container->get('plugin.network.manager'),
+-      $container->get('router.route_provider'),
+       $container->get('router.builder')
+     );
+   }
