@@ -4,6 +4,13 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.13](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.12...v2.1.13) (2025-02-20)
+
+### Chores
+
+* Remove unused module ([a61bc9](https://github.com/UN-OCHA/odsg8-site/commit/a61bc926c4235ad4a5c63c2d5b2a06528479a902))
+* Update all outdated drupal/* unocha/* drush/* weitzman/drupal-test-traits packages. ([05244d](https://github.com/UN-OCHA/odsg8-site/commit/05244deee7005153bb03acfb44b53080bde78a0e))
+
 ## [2.1.12](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.11...v2.1.12) (2025-02-18)
 
 ### Chores
