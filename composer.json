@@ -41,7 +41,7 @@
         "drupal/r4032login": "^2.2",
         "drupal/redirect": "^1.8",
         "drupal/seckit": "^2.0",
-        "drupal/social_auth_hid": "^4",
+        "drupal/social_auth_hid": "^5",
         "drupal/stage_file_proxy": "^3",
         "drupal/user_expire": "^2",
         "drupal/username_enumeration_prevention": "^1.3",
