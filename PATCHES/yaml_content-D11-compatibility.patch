@@ -1,0 +1,84 @@
+diff --git a/src/ContentLoader/ContentLoader.php b/src/ContentLoader/ContentLoader.php
+index 1bfacad..7e8fb0f 100644
+--- a/src/ContentLoader/ContentLoader.php
++++ b/src/ContentLoader/ContentLoader.php
+@@ -463,10 +463,10 @@ class ContentLoader implements ContentLoaderInterface {
+         }
+       }
+       catch (MissingDataException $exception) {
+-        watchdog_exception('yaml_content', $exception);
++        \Drupal\Component\Utility\DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '10.1.0', fn() => \Drupal\Core\Utility\Error::logException(\Drupal::logger('yaml_content'), $exception), fn() => watchdog_exception('yaml_content', $exception));
+       }
+       catch (PluginNotFoundException $exception) {
+-        watchdog_exception('yaml_content', $exception);
++        \Drupal\Component\Utility\DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '10.1.0', fn() => \Drupal\Core\Utility\Error::logException(\Drupal::logger('yaml_content'), $exception), fn() => watchdog_exception('yaml_content', $exception));
+       }
+     }
+   }
+diff --git a/src/EventSubscriber/MenuHierarchySubscriber.php b/src/EventSubscriber/MenuHierarchySubscriber.php
+index e59398a..ca76191 100644
+--- a/src/EventSubscriber/MenuHierarchySubscriber.php
++++ b/src/EventSubscriber/MenuHierarchySubscriber.php
+@@ -21,7 +21,7 @@ class MenuHierarchySubscriber implements EventSubscriberInterface {
+   /**
+    * {@inheritdoc}
+    */
+-  public static function getSubscribedEvents() {
++  public static function getSubscribedEvents():array {
+     $events[YamlContentEvents::ENTITY_PRE_SAVE][] = ['serializeMenuParent'];
+ 
+     return $events;
+diff --git a/tests/src/Functional/NodeImportTest.php b/tests/src/Functional/NodeImportTest.php
+index 329b9d2..eef5306 100644
+--- a/tests/src/Functional/NodeImportTest.php
++++ b/tests/src/Functional/NodeImportTest.php
+@@ -4,7 +4,7 @@ namespace Drupal\Tests\yaml_content\Functional;
+ 
+ use Drupal\Core\Field\FieldStorageDefinitionInterface;
+ use Drupal\Tests\BrowserTestBase;
+-use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
++use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
+ 
+ /**
+  * Tests general Node creation functionality.
+@@ -13,7 +13,7 @@ use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
+  */
+ class NodeImportTest extends BrowserTestBase {
+ 
+-  use EntityReferenceTestTrait;
++  use EntityReferenceFieldCreationTrait;
+ 
+   /**
+    * {@inheritdoc}
+diff --git a/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php b/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php
+index e41249c..401d93b 100644
+--- a/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php
++++ b/tests/src/Unit/ContentLoader/ExistenceCheckingTest.php
+@@ -275,7 +275,7 @@ class ExistenceCheckingTest extends ContentLoaderTestBase {
+    *
+    * @todo Refactor to provide entity definition and content data.
+    */
+-  public function contentDataProvider() {
++  public static function contentDataProvider() {
+     $test_content['basic_node'] = [
+       'entity' => 'node',
+       'status' => 1,
+@@ -327,7 +327,7 @@ class ExistenceCheckingTest extends ContentLoaderTestBase {
+    *
+    * @todo Extend data sets for more complete testing.
+    */
+-  public function entityExistsDataProvider() {
++  public static function entityExistsDataProvider() {
+     // Paragraphs should always be recreated since they can't reliably be
+     // identified as duplicates without false positives.
+     $paragraph_test = [
+diff --git a/yaml_content.info.yml b/yaml_content.info.yml
+index bfd6551..9e72f4c 100644
+--- a/yaml_content.info.yml
++++ b/yaml_content.info.yml
+@@ -1,4 +1,4 @@
+ name: Yaml Content
+ type: module
+ description: Content management and migration using Yaml.
+-core_version_requirement: '^9 || ^10'
++core_version_requirement: '^9 || ^10 || ^11'

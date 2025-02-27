@@ -1,5 +1,5 @@
 # Build the code.
-FROM public.ecr.aws/unocha/php-k8s:8.2-stable as builder
+FROM public.ecr.aws/unocha/php-k8s:8.3-stable as builder
 
 ARG  BRANCH_ENVIRONMENT
 
@@ -20,7 +20,7 @@ RUN cp -a docker/settings.php docker/services.yml html/sites/default
 ################################################################################
 
 # Generate the image.
-FROM public.ecr.aws/unocha/php-k8s:8.2-stable
+FROM public.ecr.aws/unocha/php-k8s:8.3-stable
 
 ARG VCS_REF
 ARG VCS_URL
@@ -44,7 +44,7 @@ LABEL info.humanitarianresponse.build.date=$BUILD_DATE \
       info.humanitarianresponse.build.vcs-ref=$VCS_REF
 
 # Add PHP Soap extension to request OCHA Contribution Tracking System API.
-RUN apk add php82-soap
+RUN apk add php83-soap
 
 COPY --from=builder /srv/www/assets /srv/www/assets
 COPY --from=builder /srv/www/config /srv/www/config/
