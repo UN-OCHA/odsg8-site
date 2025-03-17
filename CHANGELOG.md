@@ -4,6 +4,18 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.14](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.13...v2.1.14) (2025-03-17)
+
+### Chores
+
+* Update all outdated drupal/* unocha/* drush/* weitzman/drupal-test-traits packages. ([e71c96](https://github.com/UN-OCHA/odsg8-site/commit/e71c961fcf808e1e087e3b5e765532a20e96ea2f), [d68b24](https://github.com/UN-OCHA/odsg8-site/commit/d68b24cbe83575c24852cec15e54bcbdb10f879c), [399828](https://github.com/UN-OCHA/odsg8-site/commit/3998281a2c4fc74fc631bdeba792c5ca845cf858))
+* Update soap extension too ([d8e987](https://github.com/UN-OCHA/odsg8-site/commit/d8e9876fe88a2ab16a731951173da74bfbd67aaa))
+* Upgrade to D11 ([481881](https://github.com/UN-OCHA/odsg8-site/commit/48188156fd616b150621b91a49754ed17b981918))
+
+##### Deps-dev
+
+* Bump axios ([37e0bf](https://github.com/UN-OCHA/odsg8-site/commit/37e0bfad3167eb6f1f377f63538d18f0bd44e6c0))
+
 ## [2.1.13](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.12...v2.1.13) (2025-02-20)
 
 ### Chores

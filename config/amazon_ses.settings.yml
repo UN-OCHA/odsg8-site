@@ -1,3 +1,6 @@
 from_address: ops@reliefweb.int
+from_name: 'OCHA Donor Support Group'
+override_from: false
 throttle: true
+multiplier: 1
 queue: false
