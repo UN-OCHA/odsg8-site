@@ -4,6 +4,8 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.15](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.14...v2.1.15) (2025-03-19)
+
 ## [2.1.14](https://github.com/UN-OCHA/odsg8-site/compare/v2.1.13...v2.1.14) (2025-03-17)
 
 ### Chores

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfbdbc755b020bd41d718785cb72e9c3",
+    "content-hash": "ca0dfdbc49490c1d1ab2660ccb692255",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8373,16 +8373,16 @@
         },
         {
             "name": "unocha/ocha_monitoring",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UN-OCHA/ocha_monitoring.git",
-                "reference": "187d453123403b2ffca351d5810dc4a2ef3d8919"
+                "reference": "1b4cc4d05ccb4d7988b9a6c7bf0559cdf1db33bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UN-OCHA/ocha_monitoring/zipball/187d453123403b2ffca351d5810dc4a2ef3d8919",
-                "reference": "187d453123403b2ffca351d5810dc4a2ef3d8919",
+                "url": "https://api.github.com/repos/UN-OCHA/ocha_monitoring/zipball/1b4cc4d05ccb4d7988b9a6c7bf0559cdf1db33bc",
+                "reference": "1b4cc4d05ccb4d7988b9a6c7bf0559cdf1db33bc",
                 "shasum": ""
             },
             "require": {
@@ -8396,9 +8396,9 @@
             "description": "UNOCHA Monitoring",
             "support": {
                 "issues": "https://github.com/UN-OCHA/ocha_monitoring/issues",
-                "source": "https://github.com/UN-OCHA/ocha_monitoring/tree/1.1.0"
+                "source": "https://github.com/UN-OCHA/ocha_monitoring/tree/1.1.1"
             },
-            "time": "2025-01-20T12:21:09+00:00"
+            "time": "2025-02-25T15:47:27+00:00"
         }
     ],
     "packages-dev": [
