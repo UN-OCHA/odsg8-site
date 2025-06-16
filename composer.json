@@ -58,6 +58,7 @@
         "drupal/config_inspector": "^2.1",
         "drupal/devel": "^5.1",
         "drupal/upgrade_status": "^4.3",
+        "drupal/yaml_content": "^1.0@alpha",
         "kint-php/kint": "^5.0",
         "marcocesarato/php-conventional-changelog": "^1.17",
         "mglaman/phpstan-drupal": "^1.1",
