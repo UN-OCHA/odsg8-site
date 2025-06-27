@@ -60,7 +60,7 @@
         "drupal/core-dev": "^11",
         "drupal/devel": "^5.1",
         "drupal/upgrade_status": "^4.3",
-        "drupal/yaml_content": "*",
+        "drupal/yaml_content": "^1.0@alpha",
         "kint-php/kint": "^5",
         "marcocesarato/php-conventional-changelog": "^1.17",
         "phpmd/phpmd": "^2.9",
