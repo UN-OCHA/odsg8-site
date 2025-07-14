@@ -54,7 +54,6 @@
     },
     "require-dev": {
         "davidrjonas/composer-lock-diff": "^1.7",
-        "dealerdirect/phpcodesniffer-composer-installer": "1.0.0",
         "drupal/coder": "^8.3",
         "drupal/config_inspector": "^2.1",
         "drupal/core-dev": "^11",
@@ -80,7 +79,6 @@
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/console-extend-plugin": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
@@ -89,7 +87,8 @@
             "orakili/composer-drupal-info-file-patch-helper": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
-            "tbachert/spi": true
+            "tbachert/spi": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "audit": {
             "abandoned": "report",
